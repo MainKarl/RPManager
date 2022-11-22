@@ -1,0 +1,167 @@
+﻿h2 {
+    text-align: center;
+}
+
+#category-selector {
+    text-align: center;
+}
+
+#category-selector div button {
+    border-radius: 25px;
+    width: 100%;
+    padding: 1% 0;
+    margin: 2% 0;
+}
+
+#passive-table {
+    width: 100%;
+    border-bottom: 1em;
+    border-collapse: separate;
+    border-spacing: 0 4px;
+}
+
+.table-name {
+    text-transform:uppercase;
+    height: 100%;
+    width: 30%;
+
+    border-style: solid;
+    border-bottom-width: .5px;
+    border-top-width: .5px;
+    border-left-width: .5px;
+    border-right-width: 0;
+    border-bottom-left-radius: 7px;
+
+    position: relative;
+    padding: 1.5% 1%;
+    margin-bottom:10px;
+}
+
+.table-name::after{
+    content:'';
+    position: absolute;
+    width:2px;
+    height:60%;
+    top:0;
+    left:0;
+}
+
+.table-name::before{
+    content:'';
+    position:absolute;
+    width:15%;
+    height:2px;
+    top:0;
+    left:0;
+}
+
+.table-description {
+    width: 70%;
+
+    border-style: solid;
+    border-bottom-width: .5px;
+    border-top-width: .5px;
+    border-right-width:.5px;
+    border-left-width: 0;
+    border-top-right-radius: 7px;
+    position: relative;
+    margin-bottom:10px;
+    padding-right:0;
+}
+
+.table-description::after{
+    content:'';
+    position:absolute;
+    width:2px;
+    height:50%;
+    bottom:0;
+    right:0px;
+}
+
+.table-description::before{
+    content:'';
+    position:absolute;
+    width:10%;
+    height:2px;
+    bottom:0;
+    right:0;
+}
+
+.dbox {
+    position: relative;
+}
+
+.button-change-page {
+    width: 20%;
+    padding: 1% 2%;
+    border-radius: 25px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #e89025;
+    border: 1px solid #bf7419;
+    color: white;
+}
+.button-change-page:hover {
+    color: #e89025;
+    background-color: white;
+}
+
+.button-change-page-disabled {
+    background-color: #a16113;
+    color: white;
+    border: 1px solid #855010;
+    pointer-events: none;
+}
+
+$categoryColors: (
+    "ALL":#f28202, 
+    "WEAPON":#e03024, 
+    "ARMOR":#8505ed, 
+    "CLASS":#026fe3, 
+    "SKILL":#34d108, 
+    "OTHER":#e60082
+);
+
+@each $categoryColor, $i in $categoryColors {
+    .selector-#{$categoryColor}{
+        background-color: white;
+        border: 1px solid $i;
+        color: $i;
+    }
+    .selector-#{$categoryColor}:hover {
+        background-color: $i;
+        border: 1px solid white;
+        color: white;
+    }
+
+    .data-#{$categoryColor} > .table-name{
+        border-color:$i;
+    }
+    .data-#{$categoryColor} > .table-name::after {
+        background-color: $i;
+    }
+    .data-#{$categoryColor} > .table-description::after{
+        background-color:$i;
+    }
+
+    .data-#{$categoryColor} > .table-description{
+        border-color:$i;
+    }
+    .data-#{$categoryColor} > .table-name::before {
+        background-color: $i;
+    }
+    .data-#{$categoryColor} > .table-description::before{
+        background-color:$i;
+    }
+
+    .selector-#{$categoryColor}-choose {
+        background-color: $i;
+        border: 1px solid white;
+        color: white;
+    }
+    .selector-#{$categoryColor}-choose:hover {
+        background-color: white;
+        border: 1px solid $i;
+        color: $i;
+    }
+}

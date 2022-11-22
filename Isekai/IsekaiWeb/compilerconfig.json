@@ -1,0 +1,14 @@
+﻿[
+  {
+    "outputFile": "wwwroot/sass/PassiveList.css",
+    "inputFile": "wwwroot/sass/PassiveList.scss"
+  },
+  {
+    "outputFile": "wwwroot/sass/ArmorAdd.css",
+    "inputFile": "wwwroot/sass/ArmorAdd.scss"
+  },
+  {
+    "outputFile": "wwwroot/sass/ArmorList.css",
+    "inputFile": "wwwroot/sass/ArmorList.scss"
+  }
+]

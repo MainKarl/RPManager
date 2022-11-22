@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "List of Armor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model ListArmorVM
+
+@section Styles{
+    <link rel="stylesheet" href="~/sass/ArmorAdd.css"/>
+    <link rel="stylesheet" href="~/sass/ArmorList.css"/>
+}
+
+<div class="row">
+    <div class="col-md-1 col-lg-1 col-xl-1"></div>
+    <div class="col-12 col-sm-12 col-md-10 col-lg-10 col-xl-10">
+        <h2 class="mb-4">Armor</h2>
+    </div>
+    <div class="col-md-1 col-lg-1 col-xl-1"></div>
+
+    <div class="col-md-1 col-lg-1 col-xl-1"></div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-10 col-xl-10">
+        <button id="button-add" onclick="callAdd()">Add <i class="fa fa-plus"></i></button>
+        <div id="armor-add" class="hidden"></div>
+        <hr />
+    </div>
+    <div class="col-md-1 col-lg-1 col-xl-1"></div>
+</div>
+<div class="row">
+    <div class="col-md-1 col-lg-1 col-xl-1"></div>
+    <div class="col-12 col-sm-12 col-md-10 col-lg-10 col-xl-10">
+        <div id="armor-list" class="row">
+            <vc:armor-list page-number="1"></vc:armor-list>
+        </div>
+    </div>
+    <div class="col-md-1 col-lg-1 col-xl-1"></div>
+</div>
+
+@section Scripts{
+    <script src="~/js/Reload.js"></script>
+}
+
+<script type="text/javascript">
+    function callAdd() {
+        document.getElementById('button-add').classList.add('hidden');
+        document.getElementById('armor-add').classList.remove('hidden');
+
+        refreshArmorAdd();
+    }
+</script>

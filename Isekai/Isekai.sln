@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32901.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IsekaiDb", "IsekaiDb\IsekaiDb.csproj", "{5D622EA8-6471-475C-978D-E0832E9FA977}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IsekaiWeb", "IsekaiWeb\IsekaiWeb.csproj", "{059C1075-A3E8-4217-B3E2-65B7CBB91F5D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5D622EA8-6471-475C-978D-E0832E9FA977}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D622EA8-6471-475C-978D-E0832E9FA977}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D622EA8-6471-475C-978D-E0832E9FA977}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D622EA8-6471-475C-978D-E0832E9FA977}.Release|Any CPU.Build.0 = Release|Any CPU
+		{059C1075-A3E8-4217-B3E2-65B7CBB91F5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{059C1075-A3E8-4217-B3E2-65B7CBB91F5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{059C1075-A3E8-4217-B3E2-65B7CBB91F5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{059C1075-A3E8-4217-B3E2-65B7CBB91F5D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A2958C21-A2F1-438D-B85B-0DE43BD8BC00}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,30 @@
+﻿@model ArmorAddVM
+
+<form class="armor-form" role="form" enctype="multipart/form-data">
+    <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <input id="Name" name="Name" class="form-control" placeholder="Name" value="" />
+    </div>
+    <div class="form-group-number form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <input id="Power" name="Power" type="number" min="0" max="20" class="form-control" value="0" />
+    </div>
+    <div class="form-group-number form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <select id="passives" name="passives" class="form-control" asp-items="@Model.ArmorPassive"></select>
+        <button class="btn-choose"><i class="fa fa-plus"></i></button>
+    </div>
+    @Html.HiddenFor(c => c.Passive)
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 row">
+        <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1"></div>
+        <input class="btn-submit col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4" type="submit" value="Add" onclick="ArmorAddPost()" />
+        <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
+        <button class="btn-cancel col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4" onclick="refreshArmorList(1)">Cancel</button>
+        <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1"></div>
+    </div>
+</form>
+
+<script type="text/javascript">
+    function addPassive(value) {
+        var string = document.getElementById('Passive').value;
+        var newString = string + ';' + value;
+        document.getElementById('Passive').value = newString;
+    }
+</script>

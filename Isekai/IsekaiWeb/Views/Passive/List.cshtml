@@ -1,0 +1,180 @@
+﻿@{
+    ViewData["Title"] = "List of Passive";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model ListPassiveVM
+
+@section Styles{
+    <link rel="stylesheet" href="~/sass/PassiveList.css" />
+}
+
+<div class="row">
+    @Html.Hidden("Category", Model.CategoryFilter)
+    @Html.Hidden("Search", Model.SearchFilter)
+    <div class="col-0 col-sm-0 col-md-1 col-lg-1 col-xl-1"></div>
+    <div class="col-12 col-sm-12 col-md-10 col-lg-10 col-xl-10">
+        <h2 class="mr-2 mb-4">Passive</h2>
+        <div id="category-selector" class="row mb-4">
+            <div class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+                @if (Model.CategoryFilter == PassiveType.ALL)
+                {
+                    <button id="selector-all" class="selector-ALL-choose" onclick="changeCategory('ALL')">All</button>
+                }
+                else
+                {
+                    <button id="selector-all" class="selector-ALL" onclick="changeCategory('ALL')">All</button>
+                }
+            </div>
+            <div class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+                @if (Model.CategoryFilter == PassiveType.WEAPON)
+                {
+                    <button id="selector-weapon" class="selector-WEAPON-choose" onclick="changeCategory('WEAPON')">Weapon</button>
+                }
+                else
+                {
+                    <button id="selector-weapon" class="selector-WEAPON" onclick="changeCategory('WEAPON')">Weapon</button>
+                }
+
+            </div>
+            <div class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+                @if (Model.CategoryFilter == PassiveType.ARMOR)
+                {
+                    <button id="selector-armor" class="selector-ARMOR-choose" onclick="changeCategory('ARMOR')">Armor</button>
+                }
+                else
+                {
+                    <button id="selector-armor" class="selector-ARMOR" onclick="changeCategory('ARMOR')">Armor</button>
+                }
+            </div>
+            <div class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+                @if (Model.CategoryFilter == PassiveType.CLASS)
+                {
+                    <button id="selector-class" class="selector-CLASS-choose" onclick="changeCategory('CLASS')"oncl>Class</button>
+                }
+                else
+                {
+                    <button id="selector-class" class="selector-CLASS" onclick="changeCategory('CLASS')">Class</button>
+                }
+            </div>
+            <div class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+                @if (Model.CategoryFilter == PassiveType.SKILL)
+                {
+                    <button id="selector-skill" class="selector-SKILL-choose" onclick="changeCategory('SKILL')">Skill</button>
+                }
+                else
+                {
+                    <button id="selector-skill" class="selector-SKILL" onclick="changeCategory('SKILL')">Skill</button>
+                }
+            </div>
+            <div class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+                @if (Model.CategoryFilter == PassiveType.OTHER)
+                {
+                    <button id="selector-other" class="selector-OTHER-choose" onclick="changeCategory('OTHER')">Other</button>
+                }
+                else
+                {
+                    <button id="selector-other" class="selector-OTHER" onclick="changeCategory('OTHER')">Other</button>
+                }
+            </div>
+        </div>
+        <hr class="mr-3" />
+    </div>
+    <div class="col-0 col-sm-0 col-md-1 col-lg-1 col-xl-1"></div>
+
+    <div class="col-0 col-sm-0 col-md-1 col-lg-1 col-xl-1"></div>
+    <div id="passive-list" class="col-12 col-sm-12 col-md-10 col-lg-10 col-xl-10">
+        <vc:passive-list category-filter="@Model.CategoryFilter"></vc:passive-list>
+    </div>
+    <div class="col-0 col-sm-0 col-md-1 col-lg-1 col-xl-1"></div>
+</div>
+
+@section Scripts{
+    <script src="~/js/Reload.js"></script>
+}
+
+<script type="text/javascript">
+    function changeCategory(nvalue) {
+        var returnType = 0;
+        var type = document.getElementById('Category');
+        var search = document.getElementById('Search').value;
+
+        switch (type.value) {
+            case 'ALL':
+                returnType = 0;
+                document.getElementById('selector-all').classList.add('selector-ALL');
+                document.getElementById('selector-all').classList.remove('selector-ALL-choose');
+                break;
+
+            case 'WEAPON':
+                returnType = 1;
+                document.getElementById('selector-weapon').classList.add('selector-WEAPON');
+                document.getElementById('selector-weapon').classList.remove('selector-WEAPON-choose');
+                break;
+
+            case 'ARMOR':
+                returnType = 2;
+                document.getElementById('selector-armor').classList.add('selector-ARMOR');
+                document.getElementById('selector-armor').classList.remove('selector-ARMOR-choose');
+                break;
+
+            case 'CLASS':
+                returnType = 3;
+                document.getElementById('selector-class').classList.add('selector-CLASS');
+                document.getElementById('selector-class').classList.remove('selector-CLASS-choose');
+                break;
+
+            case 'SKILL':
+                returnType = 4;
+                document.getElementById('selector-skill').classList.add('selector-SKILL');
+                document.getElementById('selector-skill').classList.remove('selector-SKILL-choose');
+                break;
+
+            case 'OTHER':
+                returnType = 5;
+                document.getElementById('selector-other').classList.add('selector-OTHER');
+                document.getElementById('selector-other').classList.remove('selector-OTHER-choose');
+                break;
+        }
+        switch(nvalue) {
+            case 'ALL':
+                returnType = 0;
+                document.getElementById('selector-all').classList.remove('selector-ALL');
+                document.getElementById('selector-all').classList.add('selector-ALL-choose');
+                break;
+
+            case 'WEAPON':
+                returnType = 1;
+                document.getElementById('selector-weapon').classList.remove('selector-WEAPON');
+                document.getElementById('selector-weapon').classList.add('selector-WEAPON-choose');
+                break;
+
+            case 'ARMOR':
+                returnType = 2;
+                document.getElementById('selector-armor').classList.remove('selector-ARMOR');
+                document.getElementById('selector-armor').classList.add('selector-ARMOR-choose');
+                break;
+
+            case 'CLASS':
+                returnType = 3;
+                document.getElementById('selector-class').classList.remove('selector-CLASS');
+                document.getElementById('selector-class').classList.add('selector-CLASS-choose');
+                break;
+
+            case 'SKILL':
+                returnType = 4;
+                document.getElementById('selector-skill').classList.remove('selector-SKILL');
+                document.getElementById('selector-skill').classList.add('selector-SKILL-choose');
+                break;
+
+            case 'OTHER':
+                returnType = 5;
+                document.getElementById('selector-other').classList.remove('selector-OTHER');
+                document.getElementById('selector-other').classList.add('selector-OTHER-choose');
+                break;
+        }
+
+        type.value = nvalue;
+        refreshPassiveList(search, returnType, 1);
+    }
+</script>
