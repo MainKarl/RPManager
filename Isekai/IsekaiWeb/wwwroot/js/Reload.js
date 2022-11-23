@@ -42,6 +42,9 @@ function ArmorAddPost() {
             name: document.getElementById('Name').value,
             power: document.getElementById('Power').value,
             passive: document.getElementById('Passive').value
+        },
+        success: function (data) {
+            showAlert(data);
         }
     })
 }

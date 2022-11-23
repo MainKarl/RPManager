@@ -31,22 +31,22 @@
         var newDiv = '<div class="passive-single col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">' + value + '</div>';
         var string = document.getElementById('Passive').value;
         if (string == '') {
-            var newString = value;
-            document.getElementById('Passive').value = newString;
-            document.getElementById('passive-list').insertAdjacentHTML("afterbegin", newDiv);
+            if (value != "None") {
+                var newString = value;
+                document.getElementById('Passive').value = newString;
+                document.getElementById('passive-list').insertAdjacentHTML("afterbegin", newDiv);
+            }
         }
         else {
-            if (verifyPassive(value) == "True") {
+            if (verifyPassive(value) == "True" && value != "None") {
                 var newString = string + ';' + value;
                 document.getElementById('Passive').value = newString;
                 document.getElementById('passive-list').insertAdjacentHTML("afterbegin", newDiv);
             }
         }
     }
-
     function addArmor() {
         ArmorAddPost();
-        showAlert(document.getElementById('Name').value);
         hide();
     }
 

@@ -41,7 +41,7 @@ namespace IsekaiWeb.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public void Add(string name, int power, string passive = "")
+        public string Add(string name, int power, string passive = "")
         {
             try {
                 List<Passive> list = new List<Passive>();
@@ -56,12 +56,16 @@ namespace IsekaiWeb.Controllers
                     ArmorPassives = list
                 };
 
-                _context.Armors.Add(armor);
-
-                _context.SaveChanges();
+                if (armor.Name != null && armor.Name != "") {
+                    _context.Armors.Add(armor);
+                    _context.SaveChanges();
+                    return armor.Name;
+                }
+                else
+                    throw new Exception();
             }
-            catch (Exception ex) {
-                
+            catch (Exception) {
+                return "";
             }
         }
     }
