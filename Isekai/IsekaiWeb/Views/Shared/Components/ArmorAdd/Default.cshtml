@@ -45,11 +45,9 @@
     }
 
     function addArmor() {
-        setTimeout(ArmorAddPost(), 1000)
-        .then(() => {
-            hide();
-            refreshArmorList(1)
-        });
+        ArmorAddPost();
+        showAlert(document.getElementById('Name').value);
+        hide();
     }
 
     function verifyPassive(newString) {

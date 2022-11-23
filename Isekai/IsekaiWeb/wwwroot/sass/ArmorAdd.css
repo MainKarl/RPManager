@@ -19,6 +19,23 @@
   color: #e89025;
 }
 
+#button-refresh {
+  width: 100%;
+  height: 50%;
+  padding: 0.5% 1%;
+  color: white;
+  background-color: #e89025;
+  border-radius: 25px;
+  border-color: #bf7419;
+  border-width: 1px;
+  border-style: solid;
+}
+
+#button-refresh:hover {
+  background-color: white;
+  color: #e89025;
+}
+
 #armor-add {
   width: 70%;
   margin-left: auto;
