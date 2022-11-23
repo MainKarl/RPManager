@@ -1,4 +1,4 @@
-﻿h2{
+﻿h2 {
     text-align: center;
 }
 
@@ -8,30 +8,30 @@
     padding: .5% 1%;
     color: white;
     background-color: #e89025;
-    
     border-radius: 25px;
     border-color: #bf7419;
     border-width: 1px;
     border-style: solid;
 }
+
 #button-add:hover {
     background-color: white;
     color: #e89025;
 }
 
-#armor-add{
-    width:70%;
-    margin-left:auto;
-    margin-right:auto;
+#armor-add {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.hidden{
+.hidden {
     display: none;
     visibility: hidden;
 }
 
-.form-group-number{
-    display:flex;
+.form-group-number {
+    display: flex;
 }
 
 .btn-decrement {
@@ -44,6 +44,7 @@
     padding-right: 7px;
     margin-right: 10px;
 }
+
 .btn-decrement:hover {
     background-color: white;
     color: #e89025;
@@ -60,6 +61,7 @@
     padding-right: 7px;
     margin-left: 10px;
 }
+
 .btn-increment:hover {
     background-color: white;
     color: #e89025;
@@ -72,6 +74,7 @@
     border: 1px solid #bf7419;
     border-radius: 25px;
 }
+
 .btn-submit:hover {
     background-color: white;
     color: #e89025;
@@ -83,14 +86,15 @@
     background-color: #c20f02;
     border: 1px solid #910b01;
 }
+
 .btn-cancel:hover {
     background-color: white;
     color: #c20f02;
 }
 
-#passives{
-    width:75%;
-    margin-right:2%;
+#passives {
+    width: 75%;
+    margin-right: 2%;
 }
 
 .btn-choose {
@@ -99,9 +103,24 @@
     color: white;
     background-color: #e89025;
     border: 1px solid #bf7419;
-    border-radius:15px;
+    border-radius: 15px;
 }
+
 .btn-choose:hover {
     color: #e89025;
     background-color: white;
+}
+
+#passive-list{
+    display: flex;
+}
+
+.passive-single {
+    width:90%;
+    margin-left:auto;
+    margin-right:auto;
+    border-radius: 20px;
+    color: #e89025;
+    background-color: white;
+    border: 1px solid #bf7419;
 }

@@ -110,3 +110,17 @@
   color: #e89025;
   background-color: white;
 }
+
+#passive-list {
+  display: flex;
+}
+
+.passive-single {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
+  color: #e89025;
+  background-color: white;
+  border: 1px solid #bf7419;
+}

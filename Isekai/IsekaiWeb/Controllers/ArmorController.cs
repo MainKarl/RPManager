@@ -1,4 +1,5 @@
 ﻿using IsekaiDb.Data;
+using static IsekaiDb.Data.Enumerable;
 using IsekaiDb.Domain.Entities;
 using IsekaiWeb.ViewModels.Armor;
 using Microsoft.AspNetCore.Authorization;
@@ -6,6 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Net;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace IsekaiWeb.Controllers
 {
@@ -37,19 +41,24 @@ namespace IsekaiWeb.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public async void Add(string name, int power, string passive)
+        public void Add(string name, int power, string passive = "")
         {
             try {
+                List<Passive> list = new List<Passive>();
+                if (passive != null)
+                    foreach (string item in passive.Split(";"))
+                        list.Add(_context.Passives.Where(c => c.Type == PassiveType.ARMOR && c.Name == item).SingleOrDefault());
+
                 Armor armor = new Armor {
                     ArmorId = Guid.NewGuid(),
                     Name = name,
                     Power = power,
-                    //ArmorPassives = model.Passive
+                    ArmorPassives = list
                 };
 
                 _context.Armors.Add(armor);
 
-                await _context.SaveChangesAsync();
+                _context.SaveChanges();
             }
             catch (Exception ex) {
                 

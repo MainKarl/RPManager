@@ -16,3 +16,18 @@
         </div>
     </div>
 }
+
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "button-change-page-disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "button-change-page-disabled" : "";
+    var firstDisabled = Model.PageIndex == 1 ? "button-change-page-disabled" : "";
+    var lastDisabled = (Model.TotalPages == 1 || Model.PageIndex == Model.TotalPages) ? "button-change-page-disabled" : "";
+
+    <div class="dbox d-flex align-items-center align-content-center col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <button class="button-change-page justify-content-center align-items-center @firstDisabled" onclick="refreshArmorList(1)"><i class="fa fa-angles-left"></i></button>
+        <button class="button-change-page justify-content-center align-items-center @prevDisabled" onclick="refreshArmorList(@(Model.PageIndex - 1))"><i class="fa fa-angle-left"></i></button>
+        <button class="button-change-page justify-content-center align-items-center @nextDisabled" onclick="refreshArmorList(@(Model.PageIndex + 1))"><i class="fa fa-angle-right"></i></button>
+        <button class="button-change-page justify-content-center align-items-center @lastDisabled" onclick="refreshArmorList(@(Model.TotalPages))"><i class="fa fa-angles-right"></i></button>
+    </div>
+
+}

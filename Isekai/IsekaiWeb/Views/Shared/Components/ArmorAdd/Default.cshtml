@@ -1,6 +1,6 @@
 ﻿@model ArmorAddVM
 
-<form class="armor-form" role="form" enctype="multipart/form-data">
+<div class="armor-form">
     <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
         <input id="Name" name="Name" class="form-control" placeholder="Name" value="" />
     </div>
@@ -9,22 +9,63 @@
     </div>
     <div class="form-group-number form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
         <select id="passives" name="passives" class="form-control" asp-items="@Model.ArmorPassive"></select>
-        <button class="btn-choose"><i class="fa fa-plus"></i></button>
+        <button class="btn-choose" onclick="addPassive()"><i class="fa fa-plus"></i></button>
+    </div>
+    <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <div id="passive-list" class="row"></div>
     </div>
     @Html.HiddenFor(c => c.Passive)
     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 row">
         <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1"></div>
-        <input class="btn-submit col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4" type="submit" value="Add" onclick="ArmorAddPost()" />
+        <input class="btn-submit col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4" type="submit" value="Add" onclick="addArmor()" />
         <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
-        <button class="btn-cancel col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4" onclick="refreshArmorList(1)">Cancel</button>
+        <button class="btn-cancel col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4" onclick="hide()">Cancel</button>
         <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1"></div>
     </div>
-</form>
+</div>
 
-<script type="text/javascript">
-    function addPassive(value) {
+<script type="text/javascript">    
+    function addPassive() {
+        var element = document.getElementById('passives');
+        var value = element.options[element.selectedIndex].text;
+        var newDiv = '<div class="passive-single col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">' + value + '</div>';
         var string = document.getElementById('Passive').value;
-        var newString = string + ';' + value;
-        document.getElementById('Passive').value = newString;
+        if (string == '') {
+            var newString = value;
+            document.getElementById('Passive').value = newString;
+            document.getElementById('passive-list').insertAdjacentHTML("afterbegin", newDiv);
+        }
+        else {
+            if (verifyPassive(value) == "True") {
+                var newString = string + ';' + value;
+                document.getElementById('Passive').value = newString;
+                document.getElementById('passive-list').insertAdjacentHTML("afterbegin", newDiv);
+            }
+        }
+    }
+
+    function addArmor() {
+        setTimeout(ArmorAddPost(), 1000)
+        .then(() => {
+            hide();
+            refreshArmorList(1)
+        });
+    }
+
+    function verifyPassive(newString) {
+        var string = document.getElementById('Passive').value;
+        var list = string.split(';');
+        for (let i = 0; i < list.length; i++) {
+            if (newString == list[i]) {
+                return "False";
+            }
+        }
+        return "True";
+    }
+    function hide() {
+        document.getElementById('button-add').classList.remove('hidden');
+        document.getElementById('armor-add').classList.add('hidden');
+
+        $('#armor-add').html("");
     }
 </script>

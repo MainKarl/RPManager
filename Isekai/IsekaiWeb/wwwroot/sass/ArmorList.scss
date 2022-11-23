@@ -41,3 +41,30 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+.dbox {
+    position: relative;
+}
+
+.button-change-page {
+    width: 20%;
+    padding: 1% 2%;
+    border-radius: 25px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #e89025;
+    border: 1px solid #bf7419;
+    color: white;
+}
+
+.button-change-page:hover {
+    color: #e89025;
+    background-color: white;
+}
+
+.button-change-page-disabled {
+    background-color: #a16113;
+    color: white;
+    border: 1px solid #855010;
+    pointer-events: none;
+}
