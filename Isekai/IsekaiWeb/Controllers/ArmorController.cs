@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace IsekaiWeb.Controllers
 {
@@ -77,6 +78,36 @@ namespace IsekaiWeb.Controllers
                 Armor armor = _context.Armors.Where(c => c.ArmorId == Guid.Parse(id)).SingleOrDefault();
                 string name = armor.Name;
                 _context.Armors.Remove(armor);
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception) {
+                return false;
+            }
+        }
+
+        [AllowAnonymous]
+        public IActionResult Update(string id, string name, int power, string passive)
+        {
+            return ViewComponent("ArmorAdd", new { id = id, name = name, power = power, passive = passive });
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        public bool PostUpdate(string id, string name, int power, string passive = "")
+        {
+            try {
+                Armor armor = _context.Armors.Include(b => b.ArmorPassives).Where(c => c.ArmorId == Guid.Parse(id)).SingleOrDefault();
+                armor.Name = name;
+                armor.Power = power;
+
+                List<Passive> list = new List<Passive>();
+                if (passive != null)
+                    foreach (string item in passive.Split(";"))
+                        list.Add(_context.Passives.Where(c => c.Type == PassiveType.ARMOR && c.Name == item).FirstOrDefault());
+
+                armor.ArmorPassives = list;
+
                 _context.SaveChanges();
                 return true;
             }

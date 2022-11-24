@@ -12,8 +12,23 @@
                     <div class="passive">@passive.Name</div>
                 }
             }
+            @{
+                var passives = "";
+                int count = 0;
+                foreach (Passive passive in item.ArmorPassives) {
+                    count++;
+                    if (item.ArmorPassives.Count > count) {
+                        passives += passive.Name + ";";
+                    }
+                    else {
+                        passives += passive.Name;
+                    }
+                }
+            }
+
             <div class="btn-div">
                 <button class="btn-delete" onclick="ArmorDeletePost('@item.ArmorId.ToString()', '@item.Name')"><i class="fa fa-trash"></i></button>
+                <button class="btn-update" onclick="refreshArmorUpdate('@item.ArmorId', '@item.Name', @item.Power, '@passives')"><i class="fa fa-pen-to-square"></i></button>
             </div>
         </div>
     </div>

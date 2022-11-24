@@ -1,47 +1,70 @@
 ﻿@model ArmorAddVM
 
-<div class="armor-form">
+@{
+    var nameId = Model.Update ? "Name-" + Model.Id : "Name";
+    var powerId = Model.Update ? "Power-" + Model.Id : "Power";
+    var passiveId = Model.Update ? "Passive-" + Model.Id : "Passive";
+    var passivesId = Model.Update ? "passives-" + Model.Id : "passives";
+    var passiveListId = Model.Update ? "passive-list-" + Model.Id : "passive-list";
+}
+
+<div id="armor-form" class="armor-form">
     <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-        <input id="Name" name="Name" class="form-control" placeholder="Name" value="" />
+        <input asp-for="Name" id="@nameId" name="Name" class="form-control" placeholder="Name" />
     </div>
     <div class="form-group-number form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-        <input id="Power" name="Power" type="number" min="0" max="20" class="form-control" value="0" />
+        <input asp-for="Power" id="@powerId" name="Power" type="number" min="0" max="20" class="form-control" />
     </div>
     <div class="form-group-number form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-        <select id="passives" name="passives" class="form-control" asp-items="@Model.ArmorPassive"></select>
-        <button class="btn-choose" onclick="addPassive()"><i class="fa fa-plus"></i></button>
+        <select id="@passivesId" name="passives" class="form-control" asp-items="@Model.ArmorPassive"></select>
+        <button class="btn-choose" onclick="addPassive('@passiveId', '@passivesId', '@passiveListId')"><i class="fa fa-plus"></i></button>
     </div>
+    @Html.Hidden("Update-Id", Model.Id)
+    @Html.Hidden(passiveId, Model.Passive)
     <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-        <div id="passive-list" class="row"></div>
+        <div id="@passiveListId" class="row">
+            @if (Model.Passive != "" && Model.Passive != null) {
+                foreach (string item in Model.Passive.Split(";")) {
+                    <div class="passive-single mb-2 col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5">@item</div>
+                }
+            }
+        </div>
     </div>
-    @Html.HiddenFor(c => c.Passive)
     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 row">
-        <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1"></div>
-        <input class="btn-submit col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4" type="submit" value="Add" onclick="addArmor()" />
-        <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
-        <button class="btn-cancel col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4" onclick="hide()">Cancel</button>
-        <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1"></div>
+        @if (Model.Update) {
+            <div class="col-md-1 col-lg-1 col-xl-1"></div>
+            <input class="btn-submit mb-3 col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4" type="submit" value="Update" onclick="updateArmor()" />
+            <div class="col-md-2 col-lg-2 col-xl-2"></div>
+            <button class="btn-cancel mb-3 col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4" onclick="hide()">Cancel</button>
+            <div class="col-md-1 col-lg-1 col-xl-1"></div>
+        } else {
+            <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1"></div>
+            <input class="btn-submit mb-3 col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4" type="submit" value="Add" onclick="addArmor()" />
+            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
+            <button class="btn-cancel mb-3 col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4" onclick="hide()">Cancel</button>
+            <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1"></div>
+        }
     </div>
 </div>
 
-<script type="text/javascript">    
-    function addPassive() {
-        var element = document.getElementById('passives');
+<script type="text/javascript">
+    function addPassive(passive, passives, list) {
+        var element = document.getElementById(passives);
         var value = element.options[element.selectedIndex].text;
-        var newDiv = '<div class="passive-single col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">' + value + '</div>';
-        var string = document.getElementById('Passive').value;
+        var newDiv = '<div class="passive-single mb-2 col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5">' + value + '</div>';
+        var string = document.getElementById(passive).value;
         if (string == '') {
             if (value != "None") {
                 var newString = value;
-                document.getElementById('Passive').value = newString;
-                document.getElementById('passive-list').insertAdjacentHTML("afterbegin", newDiv);
+                document.getElementById(passive).value = newString;
+                document.getElementById(list).insertAdjacentHTML("afterbegin", newDiv);
             }
         }
         else {
-            if (verifyPassive(value) == "True" && value != "None") {
+            if (verifyPassive(passive, value) == "True" && value != "None") {
                 var newString = string + ';' + value;
-                document.getElementById('Passive').value = newString;
-                document.getElementById('passive-list').insertAdjacentHTML("afterbegin", newDiv);
+                document.getElementById(passive).value = newString;
+                document.getElementById(list).insertAdjacentHTML("afterbegin", newDiv);
             }
         }
     }
@@ -50,8 +73,13 @@
         hide();
     }
 
-    function verifyPassive(newString) {
-        var string = document.getElementById('Passive').value;
+    function updateArmor() {
+        ArmorUpdatePost();
+        hide();
+    }
+
+    function verifyPassive(passive, newString) {
+        var string = document.getElementById(passive).value;
         var list = string.split(';');
         for (let i = 0; i < list.length; i++) {
             if (newString == list[i]) {
@@ -62,8 +90,9 @@
     }
     function hide() {
         document.getElementById('button-add').classList.remove('hidden');
-        document.getElementById('armor-add').classList.add('hidden');
+        document.getElementById('armor-form').classList.add('hidden');
 
-        $('#armor-add').html("");
+        $('#armor-form').html("");
+        refreshArmorList(1);
     }
 </script>

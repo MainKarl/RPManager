@@ -91,3 +91,18 @@
   background-color: white;
   color: #c20f02;
 }
+
+.btn-update {
+  margin-left: auto;
+  margin-right: auto;
+  width: 15%;
+  border-radius: 50%;
+  color: white;
+  background-color: #d6d302;
+  border: 1px solid #b8b502;
+}
+
+.btn-update:hover {
+  background-color: white;
+  color: #d6d302;
+}

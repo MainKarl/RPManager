@@ -34,6 +34,22 @@ function refreshArmorAdd() {
         }
     })
 }
+function refreshArmorUpdate(id, name, power, passive) {
+    var elementId = "#" + id;
+    $(elementId).html();
+    $.ajax({
+        url: '/Armor/Update',
+        data: {
+            id: id,
+            name: name,
+            power: power,
+            passive: passive
+        },
+        success: function (data) {
+            $(elementId).html(data);
+        }
+    })
+}
 function ArmorAddPost() {
     var name = document.getElementById('Name').value;
     $.ajax({
@@ -49,6 +65,36 @@ function ArmorAddPost() {
                 $.alert({
                     title: 'Armor Added!',
                     content: name + ' was added to the Armor list!',
+                    buttons: {
+                        confirm: function () {
+                            refreshArmorList(1);
+                        }
+                    }
+                });
+            }
+        }
+    })
+}
+function ArmorUpdatePost() {
+    var id = document.getElementById('Update-Id').value;
+    var nameString = 'Name-' + id;
+    var powerString = 'Power-' + id;
+    var passiveString = 'Passive-' + id;
+    var name = document.getElementById(nameString).value;
+    $.ajax({
+        url: '/Armor/PostUpdate',
+        type: 'POST',
+        data: {
+            id: id,
+            name: name,
+            power: document.getElementById(powerString).value,
+            passive: document.getElementById(passiveString).value
+        },
+        success: function (data) {
+            if (data == true) {
+                $.alert({
+                    title: 'Armor Updated!',
+                    content: name + ' was updated!',
                     buttons: {
                         confirm: function () {
                             refreshArmorList(1);
