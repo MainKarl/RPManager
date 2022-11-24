@@ -41,7 +41,7 @@ namespace IsekaiWeb.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public string Add(string name, int power, string passive = "")
+        public bool Add(string name, int power, string passive = "")
         {
             try {
                 List<Passive> list = new List<Passive>();
@@ -59,29 +59,29 @@ namespace IsekaiWeb.Controllers
                 if (armor.Name != null && armor.Name != "") {
                     _context.Armors.Add(armor);
                     _context.SaveChanges();
-                    return armor.Name;
+                    return true;
                 }
                 else
                     throw new Exception();
             }
             catch (Exception) {
-                return " ";
+                return false;
             }
         }
 
         [AllowAnonymous]
         [HttpPost]
-        public string Delete(string id)
+        public bool Delete(string id)
         {
             try {
                 Armor armor = _context.Armors.Where(c => c.ArmorId == Guid.Parse(id)).SingleOrDefault();
                 string name = armor.Name;
                 _context.Armors.Remove(armor);
                 _context.SaveChanges();
-                return name;
+                return true;
             }
             catch (Exception) {
-                return "";
+                return false;
             }
         }
     }

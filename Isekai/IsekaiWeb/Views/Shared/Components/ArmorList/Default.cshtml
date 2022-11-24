@@ -1,17 +1,20 @@
 ﻿@model PaginatedList<Armor>
 
 @foreach(Armor item in Model) {
-    <div class="col-armor-single col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+    <div id="@item.ArmorId" class="col-armor-single col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
         <div class="armor-single">
             @Html.Hidden("Id", item.ArmorId)
-            <h4 class="mb-3">@item.Name</h4>
-            <div class="mb-3"><span class="title">Power: </span>@item.Power</div>
-            <div class="mb-2 title">Passive: </div>
+            <h4 class="pl-2 mb-3">@item.Name</h4>
+            <div class="pl-2 mb-3"><span class="title">Power: </span>@item.Power</div>
+            <div class="pl-2 mb-2 title">Passive: </div>
             @if (item.ArmorPassives.Count() > 0) {
                 @foreach (Passive passive in item.ArmorPassives.OrderBy(c => c.Name).ToList()) {
                     <div class="passive">@passive.Name</div>
                 }
             }
+            <div class="btn-div">
+                <button class="btn-delete" onclick="ArmorDeletePost('@item.ArmorId.ToString()', '@item.Name')"><i class="fa fa-trash"></i></button>
+            </div>
         </div>
     </div>
 }

@@ -35,6 +35,7 @@ function refreshArmorAdd() {
     })
 }
 function ArmorAddPost() {
+    var name = document.getElementById('Name').value;
     $.ajax({
         url: '/Armor/Add',
         type: 'POST',
@@ -44,22 +45,40 @@ function ArmorAddPost() {
             passive: document.getElementById('Passive').value
         },
         success: function (data) {
-            if (data != ' ')
-                showAlertCreated('Armor', data);
+            if (data == true) {
+                $.alert({
+                    title: 'Armor Added!',
+                    content: name + ' was added to the Armor list!',
+                    buttons: {
+                        confirm: function () {
+                            refreshArmorList(1);
+                        }
+                    }
+                });
+            }
         }
     })
 }
-
-function ArmorDeletePost() {
+function ArmorDeletePost(valueId, name) {
     $.ajax({
         url: '/Armor/Delete',
         type: 'POST',
         data: {
-            id: document.getElementById('Id').value
+            id: valueId
         },
         success: function (data) {
-            if (data != ' ')
-                showAlertDeleted('Armor', data);
+            console.log("data:"+data);
+            if (data == true) {
+                $.alert({
+                    title: 'Armor Deleted!',
+                    content: name + ' was deleted from the Armor list!',
+                    buttons: {
+                        confirm: function () {
+                            refreshArmorList(1);
+                        }
+                    }
+                });
+            }
         }
     })
 }
