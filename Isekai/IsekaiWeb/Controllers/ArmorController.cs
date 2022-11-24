@@ -65,6 +65,22 @@ namespace IsekaiWeb.Controllers
                     throw new Exception();
             }
             catch (Exception) {
+                return " ";
+            }
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        public string Delete(string id)
+        {
+            try {
+                Armor armor = _context.Armors.Where(c => c.ArmorId == Guid.Parse(id)).SingleOrDefault();
+                string name = armor.Name;
+                _context.Armors.Remove(armor);
+                _context.SaveChanges();
+                return name;
+            }
+            catch (Exception) {
                 return "";
             }
         }

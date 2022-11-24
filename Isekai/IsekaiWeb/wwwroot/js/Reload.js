@@ -44,7 +44,22 @@ function ArmorAddPost() {
             passive: document.getElementById('Passive').value
         },
         success: function (data) {
-            showAlert(data);
+            if (data != ' ')
+                showAlertCreated('Armor', data);
+        }
+    })
+}
+
+function ArmorDeletePost() {
+    $.ajax({
+        url: '/Armor/Delete',
+        type: 'POST',
+        data: {
+            id: document.getElementById('Id').value
+        },
+        success: function (data) {
+            if (data != ' ')
+                showAlertDeleted('Armor', data);
         }
     })
 }

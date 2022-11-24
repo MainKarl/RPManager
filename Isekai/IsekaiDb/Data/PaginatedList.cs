@@ -56,8 +56,8 @@ namespace IsekaiDb.Data
 	    }
     #endregion
 
-    #region Normal
-    public PaginatedList(List<T> items, int count, int pageIndex, int pageSize, string search, string sortOrder) {
+        #region Normal
+        public PaginatedList(List<T> items, int count, int pageIndex, int pageSize, string search, string sortOrder) {
             PageIndex = pageIndex;
             TotalPages = (int)Math.Ceiling(count / (double)pageSize);
             this.AddRange(items);
