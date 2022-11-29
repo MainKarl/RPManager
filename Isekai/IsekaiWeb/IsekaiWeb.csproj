@@ -30,4 +30,20 @@
     <ProjectReference Include="..\IsekaiDb\IsekaiDb.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Resource Include="wwwroot\img\Armor\not-found.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\img\Armor\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="wwwroot\img\Armor\not-found.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

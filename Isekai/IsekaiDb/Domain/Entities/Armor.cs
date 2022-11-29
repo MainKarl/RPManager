@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Routing.Constraints;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,10 +14,40 @@ namespace IsekaiDb.Domain.Entities
         public Guid ArmorId { get; set; }
         public string Name { get; set; }
         public int Power { get; set; }
+        public string Path { get; set; }
         public ICollection<Passive> ArmorPassives { get; set; }
 
         // function
-        public int getBonusDefense() {
+        public Armor()
+        { }
+        public Armor(string name, int power, ICollection<Passive> passives) {
+            Guid id = Guid.NewGuid();
+            ArmorId = id;
+            Name = name;
+            Power = power;
+            ArmorPassives = passives;
+            Path = "../img/Armor/not-found.png";
+        }
+        public Armor(string name, int power, ICollection<Passive> passives, string path)
+        {
+            Guid id = Guid.NewGuid();
+            ArmorId = id;
+            Name = name;
+            Power = power;
+            ArmorPassives = passives;
+            string extension = path.Substring(path.LastIndexOf('.'));
+            string fileName = "wwwroot/img/Armor/" + name + "-" + id + extension;
+            string fileNameReturn = "../img/Armor/" + name + "-" + id + extension;
+
+            if (!File.Exists(fileName)) {
+                using (WebClient client = new WebClient()) {
+                    client.DownloadFile(new Uri(path), fileName);
+                }
+            }
+            Path = fileNameReturn;
+        }
+        public int getBonusDefense()
+        {
             if (ArmorPassives.Contains(ArmorPassives.Where(c => c.Name == "Defense+I").Single()))
                 return 1;
             else if (ArmorPassives.Contains(ArmorPassives.Where(c => c.Name == "Defense+II").Single()))
@@ -38,7 +71,8 @@ namespace IsekaiDb.Domain.Entities
             else
                 return 0;
         }
-        public int getBonusResistance() {
+        public int getBonusResistance()
+        {
             if (ArmorPassives.Contains(ArmorPassives.Where(c => c.Name == "Resistance+I").Single()))
                 return 1;
             else if (ArmorPassives.Contains(ArmorPassives.Where(c => c.Name == "Resistance+II").Single()))
@@ -62,7 +96,8 @@ namespace IsekaiDb.Domain.Entities
             else
                 return 0;
         }
-        public int getBonusSpeed() {
+        public int getBonusSpeed()
+        {
             if (ArmorPassives.Contains(ArmorPassives.Where(c => c.Name == "Speed-I").Single()))
                 return -1;
             else if (ArmorPassives.Contains(ArmorPassives.Where(c => c.Name == "Speed-II").Single()))

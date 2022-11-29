@@ -88,6 +88,9 @@ namespace IsekaiDb.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Path")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Power")
                         .HasColumnType("int");
 
@@ -483,14 +486,14 @@ namespace IsekaiDb.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "b47cbf34-0d53-4410-baac-ff69224a59d0",
-                            ConcurrencyStamp = "a698a23b-c68b-41dc-9e8e-a09c7f685b5d",
+                            Id = "938d72f8-7a76-4ba9-ae7f-43438ae3f4a6",
+                            ConcurrencyStamp = "c98772ab-dff4-4f3d-8d88-715d4297ebfb",
                             Name = "ADMINISTRATOR"
                         },
                         new
                         {
-                            Id = "07331da5-68ce-4d9d-9bb3-2b8d94c47ce7",
-                            ConcurrencyStamp = "f2b5ed65-1c28-48be-95f3-76fc98d5fa80",
+                            Id = "228ffaab-c99b-497e-ac86-80a53eaf2e9a",
+                            ConcurrencyStamp = "7bd82da3-bdd3-44c4-91e6-6c82b0dd072b",
                             Name = "VISITOR"
                         });
                 });
@@ -653,13 +656,13 @@ namespace IsekaiDb.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "1b3eaf9a-812e-4850-a9b5-d41b28a02ddb",
-                            RoleId = "b47cbf34-0d53-4410-baac-ff69224a59d0"
+                            UserId = "c839d1ec-2861-42d0-9a3a-cc798f484f9c",
+                            RoleId = "938d72f8-7a76-4ba9-ae7f-43438ae3f4a6"
                         },
                         new
                         {
-                            UserId = "4d2d721d-96dc-440e-9373-9c657cc1d4f7",
-                            RoleId = "07331da5-68ce-4d9d-9bb3-2b8d94c47ce7"
+                            UserId = "88729eff-efdf-4742-bce8-dc5bb62de12d",
+                            RoleId = "228ffaab-c99b-497e-ac86-80a53eaf2e9a"
                         });
                 });
 
@@ -721,33 +724,33 @@ namespace IsekaiDb.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "1b3eaf9a-812e-4850-a9b5-d41b28a02ddb",
+                            Id = "c839d1ec-2861-42d0-9a3a-cc798f484f9c",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "804bb623-dcfd-484e-a381-394036bf6569",
+                            ConcurrencyStamp = "83458b4a-43a5-45f6-98f4-130984ec6ad7",
                             Email = "lordardyn26@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "LORDARDYN26@GMAIL.COM",
                             NormalizedUserName = "ARDYN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEIrQLAF7yhg2eNjiHR7LsR4oF6CFajXbgo+Pz2PPlJDKoqiM9UQIje4uutH99QANZw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDEesOT/FSK5UColNuo8ZQWOE6lN3vHyBb6QkNJhG0+1KlM2xymY3upat9B1Kuu35Q==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "e6588816-d6a9-4855-b44b-d56e217dd4b8",
+                            SecurityStamp = "d4ae7bca-b975-4c7d-8f82-cadfecf7792e",
                             TwoFactorEnabled = false,
                             UserName = "Ardyn"
                         },
                         new
                         {
-                            Id = "4d2d721d-96dc-440e-9373-9c657cc1d4f7",
+                            Id = "88729eff-efdf-4742-bce8-dc5bb62de12d",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "512fbbfd-8855-4d8c-9c27-084d7ce70110",
+                            ConcurrencyStamp = "4e71eec7-21d1-4a88-9e05-fbbd7b2425da",
                             Email = "remi-bellefleur71@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "REMI-BELLEFLEUR71@GMAIL.COM",
                             NormalizedUserName = "GUTTENBERG71",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDJHPkGu4llPJ2yKPrt7e0r08e2kezGh9V60ub9BYX4NVaZ+aZF/PNCgP/F9kCq8hA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAECCKwkG0ZvfFYN3G6edk1jgOUL6yOgbX1bHX42BZINbf2HTJ2aWGxU69n+O+3E8+mw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "063ee23b-2c6c-45fa-b612-d9c89ea0a91d",
+                            SecurityStamp = "1b2b2afc-b906-465c-804a-fb6c89f36f82",
                             TwoFactorEnabled = false,
                             UserName = "Guttenberg71"
                         });

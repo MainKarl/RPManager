@@ -42,7 +42,7 @@ namespace IsekaiWeb.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public bool Add(string name, int power, string passive = "")
+        public bool Add(string name, int power, string path = "", string passive = "")
         {
             try {
                 List<Passive> list = new List<Passive>();
@@ -50,12 +50,7 @@ namespace IsekaiWeb.Controllers
                     foreach (string item in passive.Split(";"))
                         list.Add(_context.Passives.Where(c => c.Type == PassiveType.ARMOR && c.Name == item).SingleOrDefault());
 
-                Armor armor = new Armor {
-                    ArmorId = Guid.NewGuid(),
-                    Name = name,
-                    Power = power,
-                    ArmorPassives = list
-                };
+                Armor armor = new Armor(name, power, list, path);
 
                 if (armor.Name != null && armor.Name != "") {
                     _context.Armors.Add(armor);

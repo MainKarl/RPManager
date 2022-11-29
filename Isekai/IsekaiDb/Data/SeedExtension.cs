@@ -65,15 +65,12 @@ namespace IsekaiDb.Data
         #endregion
 
         #region Armor
-        public static Armor createArmor(string name, int power, List<Passive> passives)
+        public static Armor createArmor(string name, int power, List<Passive> passives, string path = "")
         {
-            return new Armor
-            {
-                ArmorId = Guid.NewGuid(),
-                Name = name,
-                Power = power,
-                ArmorPassives = passives
-            };
+            if (path != "")
+                return new Armor(name, power, passives, path);
+            else
+                return new Armor(name, power, passives);
         }
         #endregion
 
@@ -637,12 +634,12 @@ namespace IsekaiDb.Data
             #region Armor
             List<Armor> armors = new List<Armor>() {
                 /* 0 */ createArmor("clothe", 0, new List<Passive>()),
-                /* 1 */ createArmor("leather armor", 2, new List<Passive> { passives[99] }),
-                /* 2 */ createArmor("adventurer armor", 4, new List<Passive> { passives[100], passives[109] }),
-                /* 3 */ createArmor("mage robes", 3, new List<Passive> { passives[113] }),
-                /* 4 */ createArmor("chainmail", 6, new List<Passive> { passives[103] }),
-                /* 5 */ createArmor("Full Plate", 8, new List<Passive> { passives[105] }),
-                /* 6 */ createArmor("Royal Armor", 12, new List<Passive> { passives[105], passives[111] })
+                /* 1 */ createArmor("leather armor", 2, new List<Passive> { passives[99] }, "https://i.pinimg.com/564x/0b/eb/3d/0beb3d74f5c6e8731e5c4d0567a220b5.jpg"),
+                /* 2 */ createArmor("adventurer armor", 4, new List<Passive> { passives[100], passives[109] }, "https://i.pinimg.com/564x/5c/79/49/5c7949fbafffc4a3311f88fdb03155fb.jpg"),
+                /* 3 */ createArmor("mage robes", 3, new List<Passive> { passives[113] }, "https://i.pinimg.com/564x/81/d3/e4/81d3e4245c79d1605f0266e87eb952be.jpg"),
+                /* 4 */ createArmor("chainmail", 6, new List<Passive> { passives[103] }, "https://i.pinimg.com/564x/13/f3/c2/13f3c2057207b65445266a6733927eb1.jpg"),
+                /* 5 */ createArmor("Full Plate", 8, new List<Passive> { passives[105] }, "https://i.pinimg.com/564x/7e/e9/d3/7ee9d3a42f82f1bfa74d60d94fb39571.jpg"),
+                /* 6 */ createArmor("Royal Armor", 12, new List<Passive> { passives[105], passives[111] }, "https://i.pinimg.com/564x/80/78/70/807870658176653e7c90351e3733057a.jpg")
             };
 
             if (context.Armors.Count() == 0)

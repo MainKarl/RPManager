@@ -1,4 +1,5 @@
-﻿h2 {
+﻿@charset "UTF-8";
+h2 {
   text-align: center;
 }
 
@@ -79,6 +80,22 @@
   color: white;
   border: 1px solid #855010;
   pointer-events: none;
+}
+
+.searchbar,
+.btn-submit  {
+  display: inline-block;
+  padding: 2% 1%;
+  -webkit-appearance: none;
+}
+
+.searchbar {
+  margin-left: auto;
+  width: 70%;
+}
+
+.btn-submit {
+  margin-right: auto;
 }
 
 .selector-ALL {

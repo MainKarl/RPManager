@@ -13,7 +13,8 @@ namespace IsekaiDb.Migrations
                 {
                     ArmorId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Power = table.Column<int>(type: "int", nullable: false)
+                    Power = table.Column<int>(type: "int", nullable: false),
+                    Path = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -487,8 +488,8 @@ namespace IsekaiDb.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "b47cbf34-0d53-4410-baac-ff69224a59d0", "a698a23b-c68b-41dc-9e8e-a09c7f685b5d", "ADMINISTRATOR", null },
-                    { "07331da5-68ce-4d9d-9bb3-2b8d94c47ce7", "f2b5ed65-1c28-48be-95f3-76fc98d5fa80", "VISITOR", null }
+                    { "938d72f8-7a76-4ba9-ae7f-43438ae3f4a6", "c98772ab-dff4-4f3d-8d88-715d4297ebfb", "ADMINISTRATOR", null },
+                    { "228ffaab-c99b-497e-ac86-80a53eaf2e9a", "7bd82da3-bdd3-44c4-91e6-6c82b0dd072b", "VISITOR", null }
                 });
 
             migrationBuilder.InsertData(
@@ -496,19 +497,19 @@ namespace IsekaiDb.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "1b3eaf9a-812e-4850-a9b5-d41b28a02ddb", 0, "804bb623-dcfd-484e-a381-394036bf6569", "ApplicationUser", "lordardyn26@gmail.com", false, false, null, "LORDARDYN26@GMAIL.COM", "ARDYN", "AQAAAAEAACcQAAAAEIrQLAF7yhg2eNjiHR7LsR4oF6CFajXbgo+Pz2PPlJDKoqiM9UQIje4uutH99QANZw==", null, false, "e6588816-d6a9-4855-b44b-d56e217dd4b8", false, "Ardyn" },
-                    { "4d2d721d-96dc-440e-9373-9c657cc1d4f7", 0, "512fbbfd-8855-4d8c-9c27-084d7ce70110", "ApplicationUser", "remi-bellefleur71@gmail.com", false, false, null, "REMI-BELLEFLEUR71@GMAIL.COM", "GUTTENBERG71", "AQAAAAEAACcQAAAAEDJHPkGu4llPJ2yKPrt7e0r08e2kezGh9V60ub9BYX4NVaZ+aZF/PNCgP/F9kCq8hA==", null, false, "063ee23b-2c6c-45fa-b612-d9c89ea0a91d", false, "Guttenberg71" }
+                    { "c839d1ec-2861-42d0-9a3a-cc798f484f9c", 0, "83458b4a-43a5-45f6-98f4-130984ec6ad7", "ApplicationUser", "lordardyn26@gmail.com", false, false, null, "LORDARDYN26@GMAIL.COM", "ARDYN", "AQAAAAEAACcQAAAAEDEesOT/FSK5UColNuo8ZQWOE6lN3vHyBb6QkNJhG0+1KlM2xymY3upat9B1Kuu35Q==", null, false, "d4ae7bca-b975-4c7d-8f82-cadfecf7792e", false, "Ardyn" },
+                    { "88729eff-efdf-4742-bce8-dc5bb62de12d", 0, "4e71eec7-21d1-4a88-9e05-fbbd7b2425da", "ApplicationUser", "remi-bellefleur71@gmail.com", false, false, null, "REMI-BELLEFLEUR71@GMAIL.COM", "GUTTENBERG71", "AQAAAAEAACcQAAAAECCKwkG0ZvfFYN3G6edk1jgOUL6yOgbX1bHX42BZINbf2HTJ2aWGxU69n+O+3E8+mw==", null, false, "1b2b2afc-b906-465c-804a-fb6c89f36f82", false, "Guttenberg71" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "b47cbf34-0d53-4410-baac-ff69224a59d0", "1b3eaf9a-812e-4850-a9b5-d41b28a02ddb" });
+                values: new object[] { "938d72f8-7a76-4ba9-ae7f-43438ae3f4a6", "c839d1ec-2861-42d0-9a3a-cc798f484f9c" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "07331da5-68ce-4d9d-9bb3-2b8d94c47ce7", "4d2d721d-96dc-440e-9373-9c657cc1d4f7" });
+                values: new object[] { "228ffaab-c99b-497e-ac86-80a53eaf2e9a", "88729eff-efdf-4742-bce8-dc5bb62de12d" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_ArmorPassive_ArmorPassivesPassiveId",

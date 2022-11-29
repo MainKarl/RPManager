@@ -2,6 +2,7 @@
 
 @{
     var nameId = Model.Update ? "Name-" + Model.Id : "Name";
+    var pathId = Model.Update ? "Path-" + Model.Id : "Path";
     var powerId = Model.Update ? "Power-" + Model.Id : "Power";
     var passiveId = Model.Update ? "Passive-" + Model.Id : "Passive";
     var passivesId = Model.Update ? "passives-" + Model.Id : "passives";
@@ -9,6 +10,9 @@
 }
 
 <div id="armor-form" class="armor-form">
+    <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <input asp-for="Path" id="@pathId" name="Path" class="form-control" placeholder="Image link" />
+    </div>
     <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
         <input asp-for="Name" id="@nameId" name="Name" class="form-control" placeholder="Name" />
     </div>

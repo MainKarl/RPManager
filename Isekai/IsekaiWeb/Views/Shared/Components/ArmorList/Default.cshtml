@@ -4,6 +4,9 @@
     <div id="@item.ArmorId" class="col-armor-single col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
         <div class="armor-single">
             @Html.Hidden("Id", item.ArmorId)
+            @if (item.Path != "") {
+                <div id="img-armor" class="pl-2 mb-3" style="background-image:url('@item.Path')"></div>
+            }
             <h4 class="pl-2 mb-3">@item.Name</h4>
             <div class="pl-2 mb-3"><span class="title">Power: </span>@item.Power</div>
             <div class="pl-2 mb-2 title">Passive: </div>
@@ -41,10 +44,10 @@
     var lastDisabled = (Model.TotalPages == 1 || Model.PageIndex == Model.TotalPages) ? "button-change-page-disabled" : "";
 
     <div class="dbox d-flex align-items-center align-content-center col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-            <button class="button-change-page justify-content-center align-items-center @firstDisabled" onclick="refreshArmorList(1)"><i class="fa fa-angles-left"></i></button>
-            <button class="button-change-page justify-content-center align-items-center @prevDisabled" onclick="refreshArmorList(@(Model.PageIndex - 1))"><i class="fa fa-angle-left"></i></button>
-            <button class="button-change-page justify-content-center align-items-center @nextDisabled" onclick="refreshArmorList(@(Model.PageIndex + 1))"><i class="fa fa-angle-right"></i></button>
-            <button class="button-change-page justify-content-center align-items-center @lastDisabled" onclick="refreshArmorList(@(Model.TotalPages))"><i class="fa fa-angles-right"></i></button>
+                <button class="button-change-page justify-content-center align-items-center @firstDisabled" onclick="refreshArmorList(1)"><i class="fa fa-angles-left"></i></button>
+                <button class="button-change-page justify-content-center align-items-center @prevDisabled" onclick="refreshArmorList(@(Model.PageIndex - 1))"><i class="fa fa-angle-left"></i></button>
+                <button class="button-change-page justify-content-center align-items-center @nextDisabled" onclick="refreshArmorList(@(Model.PageIndex + 1))"><i class="fa fa-angle-right"></i></button>
+                <button class="button-change-page justify-content-center align-items-center @lastDisabled" onclick="refreshArmorList(@(Model.TotalPages))"><i class="fa fa-angles-right"></i></button>
     </div>
 
 }

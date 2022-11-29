@@ -1,11 +1,11 @@
-﻿function refreshPassiveList(search, type, page) {
+﻿function refreshPassiveList(page) {
     $('#passive-list').html("");
     $.ajax({
         url: '/Passive/Refresh',
         data: {
             pageNumber: page,
-            search: search,
-            passiveType: type
+            search: document.getElementById('Search').value,
+            passiveType: document.getElementById('Category').value
         },
         success: function (data) {
             $('#passive-list').html(data);
@@ -57,6 +57,7 @@ function ArmorAddPost() {
         type: 'POST',
         data: {
             name: document.getElementById('Name').value,
+            path: document.getElementById('Path').value,
             power: document.getElementById('Power').value,
             passive: document.getElementById('Passive').value
         },
