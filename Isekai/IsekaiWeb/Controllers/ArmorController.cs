@@ -24,21 +24,15 @@ namespace IsekaiWeb.Controllers
 
         [AllowAnonymous]
         public IActionResult List()
-        {
-            return View();
-        }
+        { return View(); }
 
         [AllowAnonymous]
         public IActionResult Refresh(int pageNumber)
-        {
-            return ViewComponent("ArmorList", new { pageNumber = pageNumber });
-        }
+        { return ViewComponent("ArmorList", new { pageNumber = pageNumber }); }
 
         [AllowAnonymous]
         public IActionResult Add()
-        {
-            return ViewComponent("ArmorAdd");
-        }
+        { return ViewComponent("ArmorAdd"); }
 
         [AllowAnonymous]
         [HttpPost]
@@ -51,7 +45,6 @@ namespace IsekaiWeb.Controllers
                         list.Add(_context.Passives.Where(c => c.Type == PassiveType.ARMOR && c.Name == item).SingleOrDefault());
 
                 Armor armor = new Armor(name, power, list, path);
-
                 if (armor.Name != null && armor.Name != "") {
                     _context.Armors.Add(armor);
                     _context.SaveChanges();
@@ -71,7 +64,6 @@ namespace IsekaiWeb.Controllers
         {
             try {
                 Armor armor = _context.Armors.Where(c => c.ArmorId == Guid.Parse(id)).SingleOrDefault();
-                string name = armor.Name;
                 _context.Armors.Remove(armor);
                 _context.SaveChanges();
                 return true;
@@ -83,9 +75,7 @@ namespace IsekaiWeb.Controllers
 
         [AllowAnonymous]
         public IActionResult Update(string id, string name, int power, string passive)
-        {
-            return ViewComponent("ArmorAdd", new { id = id, name = name, power = power, passive = passive });
-        }
+        { return ViewComponent("ArmorAdd", new { id = id, name = name, power = power, passive = passive }); }
 
         [AllowAnonymous]
         [HttpPost]

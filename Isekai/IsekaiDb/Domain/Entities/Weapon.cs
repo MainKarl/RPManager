@@ -1,7 +1,9 @@
 ﻿using Microsoft.Net.Http.Headers;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using static IsekaiDb.Data.Enumerable;
@@ -16,6 +18,7 @@ namespace IsekaiDb.Domain.Entities
         public int Accuracy { get; set; }
         public int Crit { get; set; }
         public float Price { get; set; }
+        public string Path { get; set; }
 
         // nav
         public WeaponRank Rank { get; set; }
@@ -24,6 +27,39 @@ namespace IsekaiDb.Domain.Entities
         public ICollection<Passive> WeaponPassives { get; set; }
 
         // function
+        public Weapon()
+        { }
+        public Weapon(string name, int damage, int accuracy, int crit, float price, WeaponRank rank, DamageType damageType, WeaponType weaponType, ICollection<Passive> passives)
+        {
+            WeaponId = Guid.NewGuid();
+            Name = name;
+            Damage = damage;
+            Accuracy = accuracy;
+            Crit = crit;
+            Price = price;
+            Rank = rank;
+            DamageType = damageType;
+            Type = weaponType;
+            Path = "../img/Weapon/not-found.png";
+        }
+        public Weapon(string name, int damage, int accuracy, int crit, float price, WeaponRank rank, DamageType damageType, WeaponType weaponType, ICollection<Passive> passives, string path)
+        {
+            Guid id = Guid.NewGuid();
+            WeaponId = id;
+            Name = name;
+            Damage = damage;
+            Accuracy = accuracy;
+            Crit = crit;
+            Price = price;
+            string extension = path.Substring(path.LastIndexOf('.'));
+            string fileName = "wwwroot/img/Weapon/" + name + "-" + id + extension;
+            string fileNameReturn = "../img/Weapon/" + name + "-" + id + extension;
+            if (!File.Exists(fileName))
+                using (WebClient client = new WebClient())
+                    client.DownloadFile(new Uri(path), fileName);
+            Path = fileNameReturn;
+        }
+
         public string getRank()
         {
             switch (Rank) {
@@ -41,6 +77,32 @@ namespace IsekaiDb.Domain.Entities
                     return "S Rank";
                 default:
                     return "";
+            }
+        }
+        public void setRank(string rank)
+        {
+            switch (rank)
+            {
+                case "E":
+                    Rank = WeaponRank.E;
+                    break;
+                case "D":
+                    Rank = WeaponRank.D;
+                    break;
+                case "C":
+                    Rank = WeaponRank.C;
+                    break;
+                case "B":
+                    Rank = WeaponRank.B;
+                    break;
+                case "A":
+                    Rank = WeaponRank.A;
+                    break;
+                case "S":
+                    Rank = WeaponRank.S;
+                    break;
+                default:
+                    break;
             }
         }
         public string getDamageType() {
@@ -67,6 +129,40 @@ namespace IsekaiDb.Domain.Entities
                     return "";
             }
         }
+        public void setDamageType(string damageType)
+        {
+            switch (damageType) {
+                case "PHYSICAL":
+                    DamageType = DamageType.PHYSICAL;
+                    break;
+                case "ARCANE":
+                    DamageType = DamageType.ARCANE;
+                    break;
+                case "FIRE":
+                    DamageType = DamageType.FIRE;
+                    break;
+                case "WATER":
+                    DamageType = DamageType.WATER;
+                    break;
+                case "WIND":
+                    DamageType = DamageType.WIND;
+                    break;
+                case "LIGHTNING":
+                    DamageType= DamageType.LIGHTNING;
+                    break;
+                case "EARTH":
+                    DamageType = DamageType.EARTH;
+                    break;
+                case "HOLY":
+                    DamageType = DamageType.HOLY;
+                    break;
+                case "DARK":
+                    DamageType = DamageType.DARK;
+                    break;
+                default:
+                    break;
+            }
+        }
         public string getWeaponType() {
             switch (Type)
             {
@@ -86,6 +182,33 @@ namespace IsekaiDb.Domain.Entities
                     return "Bow";
                 default:
                     return "";
+            }
+        }
+        public void setWeaponType(string weaponType) {
+            switch (weaponType) {
+                case "SWORD":
+                    Type = WeaponType.SWORD;
+                    break;
+                case "SPEAR":
+                    Type = WeaponType.SPEAR;
+                    break;
+                case "AXE":
+                    Type = WeaponType.AXE;
+                    break;
+                case "FIST":
+                    Type = WeaponType.FIST;
+                    break;
+                case "DAGGER":
+                    Type = WeaponType.DAGGER;
+                    break;
+                case "STAFF":
+                    Type = WeaponType.STAFF;
+                    break;
+                case "BOW":
+                    Type = WeaponType.BOW;
+                    break;
+                default:
+                    break;
             }
         }
 

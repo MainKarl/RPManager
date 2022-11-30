@@ -38,14 +38,12 @@ namespace IsekaiDb.Domain.Entities
             string extension = path.Substring(path.LastIndexOf('.'));
             string fileName = "wwwroot/img/Armor/" + name + "-" + id + extension;
             string fileNameReturn = "../img/Armor/" + name + "-" + id + extension;
-
-            if (!File.Exists(fileName)) {
-                using (WebClient client = new WebClient()) {
+            if (!File.Exists(fileName))
+                using (WebClient client = new WebClient())
                     client.DownloadFile(new Uri(path), fileName);
-                }
-            }
             Path = fileNameReturn;
         }
+
         public int getBonusDefense()
         {
             if (ArmorPassives.Contains(ArmorPassives.Where(c => c.Name == "Defense+I").Single()))
