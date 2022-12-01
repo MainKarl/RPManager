@@ -10,5 +10,13 @@
   {
     "outputFile": "wwwroot/sass/ArmorList.css",
     "inputFile": "wwwroot/sass/ArmorList.scss"
+  },
+  {
+    "outputFile": "wwwroot/sass/WeaponAdd.css",
+    "inputFile": "wwwroot/sass/WeaponAdd.scss"
+  },
+  {
+    "outputFile": "wwwroot/sass/WeaponList.css",
+    "inputFile": "wwwroot/sass/WeaponList.scss"
   }
 ]

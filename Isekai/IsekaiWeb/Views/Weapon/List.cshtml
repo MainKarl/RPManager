@@ -1,0 +1,132 @@
+﻿@{
+    ViewData["Title"] = "List of Weapon";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model ListWeaponVM
+
+@section Styles {
+    <link rel="stylesheet" href="~/sass/WeaponAdd.css" />
+    <link rel="stylesheet" href="~/sass/WeaponList.css" />
+}
+
+<div class="row">
+    <div class="col-md-1 col-lg-1 col-xl-1"></div>
+    <div class="col-12 col-sm-12 col-md-10 col-lg-10 col-xl-10">
+        <h2 class="mb-4">Weapon</h2>
+    </div>
+    <div class="col-md-1 col-lg-1 col-xl-1"></div>
+
+    <div class="col-md-1 col-lg-1 col-xl-1"></div>
+    <div class="col-12 col-sm-12 col-md-10 col-lg-10 col-xl-10">
+        <button id="button-add" class="mb-2" onclick="callAdd()">Add <i class="fa fa-plus"></i></button>
+        <div id="weapon-add" class="hidden mb-3"></div>
+    </div>
+    <div class="col-md-1 col-lg-1 col-xl-1"></div>
+
+    <div class="col-md-1 col-lg-1 col-xl-1"></div>
+    <div class="col-12 col-sm-12 col-md-10 col-lg-10 col-xl-10">
+        <div id="weapon-selector" class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 row">
+            <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+                @if (Model.WeaponFilter == WeaponType.ALL)
+                {
+                    <button id="selector-ALL" class="selector-ALL-choose">All</button>
+                }
+                else
+                {
+                    <button id="selector-ALL" class="selector-ALL">All</button>
+                }
+            </div>
+            <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+                @if (Model.WeaponFilter == WeaponType.SWORD)
+                {
+                    <button id="selector-SWORD" class="selector-SWORD-choose">Sword</button>
+                }
+                else
+                {
+                    <button id="selector-SWORD" class="selector-SWORD">Sword</button>
+                }
+            </div>
+            <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+                @if (Model.WeaponFilter == WeaponType.SPEAR)
+                {
+                    <button id="selector-SPEAR" class="selector-SPEAR-choose">Spear</button>
+                }
+                else
+                {
+                    <button id="selector-SPEAR" class="selector-SPEAR">Spear</button>
+                }
+            </div>
+            <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+                @if (Model.WeaponFilter == WeaponType.AXE)
+                {
+                    <button id="selector-AXE" class="selector-AXE-choose">Axe</button>
+                }
+                else
+                {
+                    <button id="selector-AXE" class="selector-AXE">Axe</button>
+                }
+            </div>
+            <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+                @if (Model.WeaponFilter == WeaponType.FIST)
+                {
+                    <button id="selector-FIST" class="selector-FIST-choose">Fist</button>
+                }
+                else
+                {
+                    <button id="selector-FIST" class="selector-FIST">Fist</button>
+                }
+            </div>
+            <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+                @if (Model.WeaponFilter == WeaponType.DAGGER)
+                {
+                    <button id="selector-DAGGER" class="selector-DAGGER-choose">Dagger</button>
+                }
+                else
+                {
+                    <button id="selector-DAGGER" class="selector-DAGGER">Dagger</button>
+                }
+            </div>
+            <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+                @if (Model.WeaponFilter == WeaponType.STAFF)
+                {
+                    <button id="selector-STAFF" class="selector-STAFF-choose">Staff</button>
+                }
+                else
+                {
+                    <button id="selector-STAFF" class="selector-STAFF">Staff</button>
+                }
+            </div>
+            <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+                @if (Model.WeaponFilter == WeaponType.BOW)
+                {
+                    <button id="selector-BOW" class="selector-BOW-choose">Bow</button>
+                }
+                else
+                {
+                    <button id="selector-BOW" class="selector-BOW">Bow</button>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-md-1 col-lg-1 col-xl-1"></div>
+    <hr class="mb-4" />
+</div>
+
+<div class="row">
+    <div class="col-md-1 col-lg-1 col-xl-1"></div>
+    <div class="col-12 col-xl-12 col-md-10 col-lg-10 col-xl-10">
+
+    </div>
+    <div class="col-md-1 col-lg-1 col-xl-1"></div>
+</div>
+
+@section Scripts {
+    <script src="~/js/Reload.js"></script>
+}
+
+<script type="text/javascript">
+    function callAdd() {
+
+    }
+</script>

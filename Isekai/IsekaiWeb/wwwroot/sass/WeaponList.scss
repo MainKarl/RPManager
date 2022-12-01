@@ -1,0 +1,46 @@
+﻿h2{
+    text-align: center;
+}
+
+#weapon-selector{
+    text-align: center;
+}
+#weapon-selector div button {
+    border-radius: 25px;
+    width: 100%;
+    padding: 1% 0;
+    margin: 2% 0;
+}
+
+$weaponColors: (
+    "ALL": #e6cf07,
+    "SWORD":#1658db,
+    "SPEAR":#db7500,
+    "AXE":#bf0a0a,
+    "FIST":#02bf80,
+    "DAGGER":#a602b5,
+    "STAFF":#54bf02,
+    "BOW":#b50045
+);
+
+@each $weaponColor, $i in $weaponColors {
+    .selector-#{$weaponColor} {
+        background-color: white;
+        color: $i;
+        border: 1px solid $i;
+    }
+    .selector-#{$weaponColor}:hover {
+        background-color: $i;
+        color: white;
+    }
+
+    .selector-#{$weaponColor}-choose {
+        background-color: $i;
+        color: white;
+    }
+    .selector-#{$weaponColor}-choose:hover {
+        background-color: white;
+        color: $i;
+        border: 1px solid $i;
+    }
+}

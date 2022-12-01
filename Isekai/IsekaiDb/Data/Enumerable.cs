@@ -23,6 +23,7 @@ namespace IsekaiDb.Data {
 
         public enum WeaponType
         {
+            ALL,
             SWORD,
             SPEAR,
             AXE,

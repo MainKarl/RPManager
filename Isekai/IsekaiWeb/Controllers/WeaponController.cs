@@ -1,5 +1,6 @@
 ﻿using IsekaiDb.Data;
 using IsekaiDb.Domain.Entities;
+using IsekaiWeb.ViewModels.Weapon;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -21,7 +22,7 @@ namespace IsekaiWeb.Controllers
 
         [AllowAnonymous]
         public IActionResult List()
-        { return View(); }
+        { return View(new ListWeaponVM { SearchFilter = "", WeaponFilter = WeaponType.ALL }); }
 
         [AllowAnonymous]
         public IActionResult Refresh(int pageNumber)
