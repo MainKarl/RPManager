@@ -44,7 +44,7 @@ namespace IsekaiDb.Data
         #endregion
 
         #region Skill
-        public static Skill createSkill(string name, int power, int powerGain, int accuracy, int accuracyGain, int crit, int critGain, int manaUsed, SkillType stype, SkillPurpose purpose, MagicType mtype)
+        public static Skill createSkill(string name, int power, int powerGain, int accuracy, int accuracyGain, int crit, int critGain, int manaUsed, SkillType stype, SkillPurpose purpose, MagicType mtype, List<Passive> passives)
         {
             return new Skill
             {
@@ -59,7 +59,8 @@ namespace IsekaiDb.Data
                 ManaUsed = manaUsed,
                 Type = stype,
                 Purpose = purpose,
-                MagicType = mtype
+                MagicType = mtype,
+                SkillPassives = passives
             };
         }
         #endregion
@@ -614,6 +615,21 @@ namespace IsekaiDb.Data
                     /* 388 */ createPassive("Trash", "The character's stats growth is reduced by 5", PassiveType.OTHER),
                     /* 389 */ createPassive("Spirit Gift", "You are gifted with spirit", PassiveType.OTHER),
                     /* 390 */ createPassive("Skilled Artist", "The character's skills damage are 1.5 time higher", PassiveType.OTHER),
+
+                    /* 391 */ createPassive("Double Attack" ,"Attack 2 times", PassiveType.SKILL),
+                    /* 392 */ createPassive("Triple Attack" ,"Attack 3 times", PassiveType.SKILL),
+                    /* 393 */ createPassive("Quadruple Attack" ,"Attack 4 times", PassiveType.SKILL),
+                    /* 394 */ createPassive("Quintuple Attack" ,"Attack 5 times", PassiveType.SKILL),
+                    /* 395 */ createPassive("Sextuple Attack" ,"Attack 6 times", PassiveType.SKILL),
+                    /* 396 */ createPassive("Septuple Attack" ,"Attack 7 times", PassiveType.SKILL),
+                    /* 397 */ createPassive("Eightuple Attack" ,"Attack 8 times", PassiveType.SKILL),
+                    /* 398 */ createPassive("Ninefold Attack" ,"Attack 9 times", PassiveType.SKILL),
+                    /* 399 */ createPassive("Tenfold Attack" ,"Attack 10 times", PassiveType.SKILL),
+                    /* 400 */ createPassive("Fifteenfold Attack" ,"Attack 15 times", PassiveType.SKILL),
+                    /* 401 */ createPassive("Twentyfold Attack" ,"Attack 20 times", PassiveType.SKILL),
+                    /* 402 */ createPassive("Thirtyfold Attack" ,"Attack 30 times", PassiveType.SKILL),
+                    /* 403 */ createPassive("Lifesteal", "Lifesteal the damage done", PassiveType.SKILL),
+                    /* 404 */ createPassive("DefenseRating", "Take defrense/resistance and add to damage", PassiveType.SKILL),
                 };
 
             if (context.Passives.Count() == 0) {
@@ -624,12 +640,39 @@ namespace IsekaiDb.Data
             #endregion
 
             #region Skill
-            List<Skill> skills = new List<Skill>
-            {
-
+            List<Skill> skills = new List<Skill> {
+                createSkill("Perfect Attack", 10, 5, 0, 5, 0, 5, 0, SkillType.SPIRIT, SkillPurpose.OFFENCE_BOOST, MagicType.PHYSICAL, new List<Passive>()),
+                createSkill("Luna", 5, 1, 10, 5, 0, 0, 0, SkillType.SPIRIT, SkillPurpose.OFFENCE_BOOST, MagicType.PHYSICAL, new List<Passive> { passives[334] }),
+                createSkill("Sol", 10, 5, 20, 5, 0, 0, 0, SkillType.SPIRIT, SkillPurpose.OFFENCE_BOOST, MagicType.PHYSICAL, new List<Passive> { passives[403] }),
+                createSkill("Aeather", 5, 5, 10, 10, 0, 0, 0, SkillType.SPIRIT, SkillPurpose.OFFENCE_BOOST, MagicType.PHYSICAL, new List<Passive> { passives[334], passives[403] }),
+                createSkill("Raikiri", 15, 10, 5, 10, 5, 10, 0, SkillType.SPIRIT, SkillPurpose.OFFENCE_BOOST, MagicType.PHYSICAL, new List<Passive>()),
+                createSkill("Astra", 0, 5, 10, 15, 0, 0, 0, SkillType.SPIRIT, SkillPurpose.OFFENCE_BOOST, MagicType.PHYSICAL, new List<Passive> { passives[396] }),
+                createSkill("Hinoken", 15, 10, 5, 10, 0, 0, 0, SkillType.SPIRIT, SkillPurpose.OFFENCE_BOOST, MagicType.HEAT, new List<Passive> { passives[335] }),
+                createSkill("Kazenoken", 10, 10, 10, 15, 5, 10, 0, SkillType.SPIRIT, SkillPurpose.OFFENCE_BOOST, MagicType.WIND, new List<Passive> { passives[331] }),
+                createSkill("Dokujin", 5, 5, 0, 5, 5, 5, 0, SkillType.SPIRIT, SkillPurpose.OFFENCE_BOOST, MagicType.POISON, new List<Passive> { passives[339] }),
+                createSkill("Korinoken", 10, 0, 15, 5, 0, 0, 0, SkillType.SPIRIT, SkillPurpose.OFFENCE_BOOST, MagicType.ICE, new List<Passive> { passives[337] }),
+                createSkill("Kurai", 5, 15, 5, 5, 0, 1, 0, SkillType.SPIRIT, SkillPurpose.OFFENCE_BOOST, MagicType.CURSE, new List<Passive> { passives[341], passives[344], passives[345] }),
+                createSkill("Seiken", 10, 15, 20, 10, 5, 5, 0, SkillType.SPIRIT, SkillPurpose.OFFENCE_BOOST, MagicType.HOLY, new List<Passive> { passives[356], passives[357], passives[358] }),
+            
+                createSkill("Daybringer Style - Demon Cutter", 20, 10, 20, 5, 10, 0, 0, SkillType.SPIRIT, SkillPurpose.OFFENCE_BOOST, MagicType.PHYSICAL, new List<Passive> { passives[357] }),
+                createSkill("Daybringer Style - Monsu", 10, 15, 25, 10, 15, 0, 0, SkillType.SPIRIT, SkillPurpose.OFFENCE_BOOST, MagicType.HOLY, new List<Passive> { passives[358] }),
+                createSkill("Daybringer Style - Human Paradise", 20, 15, 15, 5, 10, 10, 0, SkillType.SPIRIT, SkillPurpose.OFFENCE_BOOST, MagicType.PHYSICAL, new List<Passive> { passives[359], passives[360] }),
+                createSkill("Daybringer Style - Doragon", 30, 10, -10, 0, 0, 0, 0, SkillType.SPIRIT, SkillPurpose.OFFENCE_BOOST, MagicType.PHYSICAL, new List<Passive> { passives[354] }),
+                createSkill("Daybringer Style - Toshura", 15, 15, 20, 15, 10, 10, 0, SkillType.SPIRIT, SkillPurpose.OFFENCE_BOOST, MagicType.PHYSICAL, new List<Passive>()),
+                createSkill("Daybringer Style - Fujin", 25, 25, 25, 30, 20, 25, 0, SkillType.SPIRIT, SkillPurpose.OFFENCE_BOOST, MagicType.WIND, new List<Passive> { passives[332] }),
+                createSkill("Daybringer Style - Raijin", 20, 15, 30, 10, 15, 10, 0, SkillType.SPIRIT, SkillPurpose.OFFENCE_BOOST, MagicType.PHYSICAL, new List<Passive> { passives[331], passives[400] }),
+                createSkill("Daybringer Style - Amateratsu", 35, 25, 15, 25, 10, 5, 0, SkillType.SPIRIT, SkillPurpose.OFFENCE_BOOST, MagicType.HEAT, new List<Passive> { passives[335] }),
+                createSkill("Daybringer Style - Susanoo", 30, 20, 10, 20, 10, 20, 0, SkillType.SPIRIT, SkillPurpose.OFFENCE_BOOST, MagicType.LIGHTNING, new List<Passive> { passives[336] }),
+                createSkill("Daybringer Style - Hachiman", 40, 25, 20, 10, 20, 5, 0, SkillType.SPIRIT, SkillPurpose.OFFENCE_BOOST, MagicType.PHYSICAL, new List<Passive> { passives[332], passives[359] }),
+                createSkill("Daybringer Style - Ashura", 30, 20, 30, 15, 10, 10, 15, SkillType.SPIRIT, SkillPurpose.OFFENCE_BOOST, MagicType.NECROMANCY, new List<Passive> { passives[332], passives[341], passives[342], passives[343], passives[344], passives[345], passives[346], passives[347], passives[348], passives[349] }),
+                createSkill("Daybringer Style - Jikenshura", 25, 20, 25, 20, 10, 10, 0, SkillType.SPIRIT, SkillPurpose.OFFENCE_BOOST, MagicType.SPATIAL_TIME, new List<Passive> { passives[329] }),
+                createSkill("Daybringer Style - Iaishura", 25, 20, 100, 100, 0, 0, 0, SkillType.SPIRIT, SkillPurpose.OFFENCE_BOOST, MagicType.SPATIAL_TIME, new List<Passive>()),
+                createSkill("Daybringer Style - Shunbun", 35, 15, 20, 10, 25, 10, 0, SkillType.SPIRIT, SkillPurpose.OFFENCE_BOOST, MagicType.CORRUPTED_HOLY, new List<Passive> { passives[334], passives[403] }),
+                createSkill("Daybringer Style - Hasonshura", 50, 25, 35, 10, 20, 10, 0, SkillType.SPIRIT, SkillPurpose.OFFENCE_BOOST, MagicType.CORRUPTED_HOLY, new List<Passive> { passives[335], passives[404] }),
+            
+                
             };
-            if (context.Skills.Count() == 0)
-            {
+            if (context.Skills.Count() == 0) {
                 await context.Skills.AddRangeAsync(skills);
                 await context.SaveChangesAsync();
             }
@@ -860,7 +903,7 @@ namespace IsekaiDb.Data
             #region Character
             if (context.Characters.Count() == 0) {
                 List<Character> characters = new List<Character>() {
-
+                    
                 };
                 await context.Characters.AddRangeAsync(characters);
                 await context.SaveChangesAsync();

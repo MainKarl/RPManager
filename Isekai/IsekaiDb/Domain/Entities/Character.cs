@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Security.Cryptography;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using IsekaiDb.Data;
 using Microsoft.AspNetCore.Connections.Features;
+using Microsoft.CodeAnalysis;
 using static IsekaiDb.Data.Enumerable;
 
 namespace IsekaiDb.Domain.Entities
@@ -17,6 +21,7 @@ namespace IsekaiDb.Domain.Entities
         public string Name { get; set; }
         public RaceType Race { get; set; }
         public int Level { get; set; }
+        public string Path { get; set; }
 
         #region Stats
         public int HP { get; set; }
@@ -150,6 +155,172 @@ namespace IsekaiDb.Domain.Entities
         public ICollection<Skill> CharacterSkill { get; set; }
 
         // Function
+        public Character()
+        { }
+        public Character(string name, RaceType race, 
+                int hp, int strength, int magic, int defense, int resistance, int speed, int skill, int luck, int spirit,
+                int ghp, int gstrength, int gmagic, int gdefense, int gresistance, int gspeed, int gskill, int gluck, int gspirit,
+                int arcane, int illusion, int mind, int fire, int lava, int heat, int water, int liquid, int ice,
+                int air, int wind, int lightning, int earth, int poison, int nature, int light, int space, int holy,
+                int dark, int curse, int necromancy,
+                WeaponRank sword, WeaponRank spear, WeaponRank axe, WeaponRank fist, WeaponRank dagger, WeaponRank staff, WeaponRank bow,
+                Level lmagic, Level lspirit, List<CharacterType> types, List<CharacterStatus> status,
+                Class cclass, Weapon weapon, Armor armor, List<Passive> passives, List<Skill> skills)
+        {
+            Name = name;
+            Race = race;
+            Level = 1;
+            HP = hp;
+            Strength = strength; 
+            Magic = magic;
+            Defense = defense;
+            Resistance = resistance;
+            Speed = speed;
+            Skill = skill;
+            Luck = luck;
+            Spirit = spirit;
+
+            ArcaneLevel = arcane;
+            IllusionLevel = illusion;
+            MindLevel = mind;
+            FireLevel = fire;
+            LavaLevel = lava;
+            HeatLevel = heat;
+            WaterLevel = water;
+            LiquidLevel = liquid;
+            IceLevel = ice;
+            AirLevel = air;
+            WindLevel = wind;
+            LightningLevel = lightning;
+            EarthLevel = earth;
+            PoisonLevel = poison;
+            NatureLevel = nature;
+            LightLevel = light;
+            HolyLevel = holy;
+            SpaceLevel = space;
+            DarkLevel = dark;
+            CurseLevel = curse;
+            NecromancyLevel = necromancy;
+
+            Sword = sword;
+            Spear = spear;
+            Axe = axe;
+            Fist = fist;
+            Dagger = dagger;
+            Staff = staff;
+            Bow = bow;
+
+            MagicRank = lmagic;
+            SpiritRank = lspirit;
+            verifyStatRank();
+
+            Types = types;
+            Status = status;
+            Class = cclass;
+            Weapon = weapon;
+            Armor = armor;
+            CharacterPassives = passives;
+            CharacterSkill = skills;
+
+            HPGrowth = ghp + Class.HPGrowth;
+            StrengthGrowth = gstrength + Class.StrengthGrowth;
+            MagicGrowth = gmagic + Class.MagicGrowth;
+            DefenseGrowth = gdefense + Class.DefenseGrowth;
+            ResistanceGrowth = gresistance + Class.ResistanceGrowth;
+            SpeedGrowth = gspeed + Class.SpeedGrowth;
+            SkillGrowth = gskill + Class.SkillGrowth;
+            LuckGrowth = gluck + Class.LuckGrowth;
+            SpiritGrowth = gspirit + Class.SpiritGrowth;
+
+            rest();
+        }
+
+        public Character(string name, RaceType race,
+                int hp, int strength, int magic, int defense, int resistance, int speed, int skill, int luck, int spirit,
+                int ghp, int gstrength, int gmagic, int gdefense, int gresistance, int gspeed, int gskill, int gluck, int gspirit,
+                int arcane, int illusion, int mind, int fire, int lava, int heat, int water, int liquid, int ice,
+                int air, int wind, int lightning, int earth, int poison, int nature, int light, int space, int holy,
+                int dark, int curse, int necromancy,
+                WeaponRank sword, WeaponRank spear, WeaponRank axe, WeaponRank fist, WeaponRank dagger, WeaponRank staff, WeaponRank bow,
+                Level lmagic, Level lspirit, List<CharacterType> types, List<CharacterStatus> status,
+                Class cclass, Weapon weapon, Armor armor, List<Passive> passives, List<Skill> skills, string path)
+        {
+            Name = name;
+            Race = race;
+            Level = 1;
+            HP = hp;
+            Strength = strength;
+            Magic = magic;
+            Defense = defense;
+            Resistance = resistance;
+            Speed = speed;
+            Skill = skill;
+            Luck = luck;
+            Spirit = spirit;
+
+            ArcaneLevel = arcane;
+            IllusionLevel = illusion;
+            MindLevel = mind;
+            FireLevel = fire;
+            LavaLevel = lava;
+            HeatLevel = heat;
+            WaterLevel = water;
+            LiquidLevel = liquid;
+            IceLevel = ice;
+            AirLevel = air;
+            WindLevel = wind;
+            LightningLevel = lightning;
+            EarthLevel = earth;
+            PoisonLevel = poison;
+            NatureLevel = nature;
+            LightLevel = light;
+            HolyLevel = holy;
+            SpaceLevel = space;
+            DarkLevel = dark;
+            CurseLevel = curse;
+            NecromancyLevel = necromancy;
+
+            Sword = sword;
+            Spear = spear;
+            Axe = axe;
+            Fist = fist;
+            Dagger = dagger;
+            Staff = staff;
+            Bow = bow;
+
+            MagicRank = lmagic;
+            SpiritRank = lspirit;
+            verifyStatRank();
+
+            Types = types;
+            Status = status;
+            Class = cclass;
+            Weapon = weapon;
+            Armor = armor;
+            CharacterPassives = passives;
+            CharacterSkill = skills;
+
+            HPGrowth = ghp + Class.HPGrowth;
+            StrengthGrowth = gstrength + Class.StrengthGrowth;
+            MagicGrowth = gmagic + Class.MagicGrowth;
+            DefenseGrowth = gdefense + Class.DefenseGrowth;
+            ResistanceGrowth = gresistance + Class.ResistanceGrowth;
+            SpeedGrowth = gspeed + Class.SpeedGrowth;
+            SkillGrowth = gskill + Class.SkillGrowth;
+            LuckGrowth = gluck + Class.LuckGrowth;
+            SpiritGrowth = gspirit + Class.SpiritGrowth;
+
+            rest();
+
+            string extension = path.Substring(path.LastIndexOf('.'));
+            string fileName = "wwwroot/img/Armor/" + name + "-" + id + extension;
+            string fileNameReturn = "../img/Armor/" + name + "-" + id + extension;
+            if (!File.Exists(fileName))
+                using (WebClient client = new WebClient())
+                    client.DownloadFile(new Uri(path), fileName);
+            Path = fileNameReturn;
+        }
+
         public int getTotalStat() { return HP + Strength + Magic + Defense + Resistance + Speed + Skill + Luck + Spirit; }
         public int getTotalMagic() { return ArcaneLevel + MindLevel + IllusionLevel + FireLevel + HeatLevel + LavaLevel + WaterLevel + LiquidLevel + IceLevel + AirLevel + WindLevel + LightningLevel + EarthLevel + PoisonLevel + NatureLevel + LightLevel + SpaceLevel + HolyLevel + DarkLevel + CurseLevel + NecromancyLevel; }
         public int getSpiritLevel() {

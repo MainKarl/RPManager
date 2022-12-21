@@ -27,7 +27,7 @@ namespace IsekaiDb.Domain.Entities
         public ICollection<Passive> WeaponPassives { get; set; }
 
         // function
-        public Weapon()
+        public Weapon() 
         { }
         public Weapon(string name, int damage, int accuracy, int crit, float price, WeaponRank rank, DamageType damageType, WeaponType weaponType, ICollection<Passive> passives)
         {
