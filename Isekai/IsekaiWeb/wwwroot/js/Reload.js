@@ -129,3 +129,13 @@ function ArmorDeletePost(valueId, name) {
         }
     })
 }
+
+function refreshWeaponAdd() {
+    $('#weapon-add').html("");
+    $.ajax({
+        url: '/Weapon/Add',
+        success: function (data) {
+            $('#weapon-add').html(data);
+        }
+    })
+}

@@ -14,6 +14,8 @@ namespace IsekaiWeb.ViewModels.Weapon
         public string Path { get; set; }
         public string Passive { get; set; }
 
+        public bool Update { get; set; }
+
         public List<SelectListItem> DamageTypes { get; set; }
         public List<SelectListItem> WeaponTypes { get; set; }
         public List<SelectListItem> Ranks { get; set; }

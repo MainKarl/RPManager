@@ -1,4 +1,16 @@
-﻿#button-add {
+﻿$image-size-max: 1200px;
+$button-color1: #e89025;
+$button-color2: #bf7419;
+
+$cancel-color1: #c20f02;
+$cancel-color2: #910b01;
+
+$submit-color1: #e89025;
+$submit-color2: #bf7419;
+
+
+
+#button-add {
     width: 100%;
     height: 30px;
     padding: .5% 1%;
@@ -12,4 +24,63 @@
 #button-add:hover {
     background-color: white;
     color: #e89025;
+}
+
+#weapon-add {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hidden {
+    display: none;
+    visibility: hidden;
+}
+
+.form-group{
+    display: flex;
+}
+.form-control,
+.form-control:disabled{
+    background-color: white;
+}
+.form-label{
+    margin-top:auto;
+    margin-bottom:auto;
+    width:15%;
+}
+.form-button,
+.form-button:focus{
+    margin-top:auto;
+    margin-bottom:auto;
+    width:5%;
+    border-radius:50%;
+    background-color: $button-color1;
+    color: white;
+    border: 1px solid $button-color2;
+    transition: .25s ease-in-out;
+    outline: none;
+}
+.form-button:hover,
+.form-button:focus:hover{
+    color: $button-color1;
+    background-color: white;
+}
+
+#WeaponTypes{
+    margin-left: 13%;
+}
+
+@media (max-width: $image-size-max){
+    .form-label{
+        width:30%;
+    }
+
+    #weapon-add{
+        width:100%;
+    }
+
+    .form-button{
+        width:8%;
+    }
 }

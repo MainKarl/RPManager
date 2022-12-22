@@ -167,6 +167,8 @@ namespace IsekaiDb.Domain.Entities
                 Level lmagic, Level lspirit, List<CharacterType> types, List<CharacterStatus> status,
                 Class cclass, Weapon weapon, Armor armor, List<Passive> passives, List<Skill> skills)
         {
+            Guid id = Guid.NewGuid();
+            CharacterId = id;
             Name = name;
             Race = race;
             Level = 1;
@@ -245,6 +247,8 @@ namespace IsekaiDb.Domain.Entities
                 Level lmagic, Level lspirit, List<CharacterType> types, List<CharacterStatus> status,
                 Class cclass, Weapon weapon, Armor armor, List<Passive> passives, List<Skill> skills, string path)
         {
+            Guid id = Guid.NewGuid();
+            CharacterId = id;
             Name = name;
             Race = race;
             Level = 1;

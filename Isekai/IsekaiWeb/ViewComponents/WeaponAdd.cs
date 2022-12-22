@@ -46,13 +46,14 @@ namespace IsekaiWeb.ViewComponents
                 new SelectListItem { Value = "9", Text = "Dark" }
             };
             List<SelectListItem> weaponTypes = new List<SelectListItem>() {
-                new SelectListItem { Value = "1", Text = "Sword" },
-                new SelectListItem { Value = "2", Text = "Spear" },
-                new SelectListItem { Value = "3", Text = "Axe" },
-                new SelectListItem { Value = "4", Text = "Fist" },
-                new SelectListItem { Value = "5", Text = "Dagger" },
-                new SelectListItem { Value = "6", Text = "Staff" },
-                new SelectListItem { Value = "7", Text = "Bow" }
+                new SelectListItem { Value = "Default", Text = "-- Weapon Type --", Selected = true },
+                new SelectListItem { Value = "Sword", Text = "Sword" },
+                new SelectListItem { Value = "Spear", Text = "Spear" },
+                new SelectListItem { Value = "Axe", Text = "Axe" },
+                new SelectListItem { Value = "Fist", Text = "Fist" },
+                new SelectListItem { Value = "Dagger", Text = "Dagger" },
+                new SelectListItem { Value = "Staff", Text = "Staff" },
+                new SelectListItem { Value = "Bow", Text = "Bow" }
             };
 
             List<SelectListItem> passives = new List<SelectListItem>();

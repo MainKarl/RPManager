@@ -1,15 +1,23 @@
-﻿h2{
+﻿*,*:focus,*:hover{
+    outline:none;
+    outline-color:white;
+}
+
+h2{
     text-align: center;
 }
 
 #weapon-selector{
     text-align: center;
 }
-#weapon-selector div button {
+#weapon-selector div button,
+#weapon-selector div button:focus{
+    outline: none;
     border-radius: 25px;
     width: 100%;
     padding: 1% 0;
     margin: 2% 0;
+    border-width:1px;
 }
 
 $weaponColors: (
@@ -24,23 +32,39 @@ $weaponColors: (
 );
 
 @each $weaponColor, $i in $weaponColors {
-    .selector-#{$weaponColor} {
+    .selector-#{$weaponColor},
+    .selector-#{$weaponColor}:focus {
+        outline: none;
         background-color: white;
         color: $i;
         border: 1px solid $i;
+    }
+    .selector-#{$weaponColor} svg {
+        fill: $i;
     }
     .selector-#{$weaponColor}:hover {
         background-color: $i;
         color: white;
     }
+    .selector-#{$weaponColor}:hover svg{
+        fill: white;
+    }
 
-    .selector-#{$weaponColor}-choose {
+    .selector-#{$weaponColor}-choose,
+    .selector-#{$weaponColor}-choose:focus{
+        outline: none;
         background-color: $i;
         color: white;
+    }
+    .selector-#{$weaponColor}-choose svg {
+        fill: white;
     }
     .selector-#{$weaponColor}-choose:hover {
         background-color: white;
         color: $i;
         border: 1px solid $i;
+    }
+    .selector-#{$weaponColor}-choose:hover svg{
+        fill: $i;
     }
 }

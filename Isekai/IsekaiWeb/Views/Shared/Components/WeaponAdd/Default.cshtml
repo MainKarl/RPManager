@@ -1,0 +1,112 @@
+﻿@model WeaponAddVM
+
+@{
+    var damageId = Model.Update ? "Damage-" + Model.Id : "Damage";
+    var nameId = Model.Update ? "Name-" + Model.Id : "Name";
+    var pathId = Model.Update ? "Path-" + Model.Id : "Path";
+    var accuracyId = Model.Update ? "Accuracy-" + Model.Id : "Accuracy";
+    var critId = Model.Update ? "Crit-" + Model.Id : "Crit";
+    var priceId = Model.Update ? "Price-" + Model.Id : "Price";
+    var passiveId = Model.Update ? "Passive-" + Model.Id : "Passive";
+    var passivesId = Model.Update ? "Passives-" + Model.Id : "Passives";
+}
+
+<div id="weapon-form">
+    @Html.Hidden("Update-Id", Model.Id)
+    @Html.Hidden("Update", Model.Update)
+    @Html.Hidden(passiveId, Model.Passive)
+    <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <div class="form-label">Image: </div>
+        <input asp-for="Path" id="@pathId" name="Path" class="form-control" placeholder="Image link" />
+    </div>
+    <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <div class="form-label">Name: </div>
+        <input asp-for="Name" id="@nameId" name="Name" class="form-control" placeholder="Weapon's Name" />
+    </div>
+    <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <select id="WeaponTypes" name="WeaponTypes" class="form-control" asp-items="@Model.WeaponTypes"></select>
+    </div>
+    <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"> 
+        <div class="form-label">Damage: </div>
+        <button class="form-button ml-2 mr-1" onclick="decrementDamage()"><i class="fa fa-minus"></i></button>
+        <input asp-for="Damage" id="@damageId" name="Damage" class="form-control" type="number" value="0" min="0" max="50" disabled />
+        <button class="form-button ml-1" onclick="incrementDamage()"><i class="fa fa-plus"></i></button>
+    </div>
+    <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <div class="form-label">Accuracy: </div>
+        <button class="form-button ml-2 mr-1" onclick="decrementAccuracy()"><i class="fa fa-minus"></i></button>
+        <input asp-for="Accuracy" id="@accuracyId" name="Accuracy" class="form-control" type="number" value="0" step="5" min="-100" max="100" disabled />
+        <button class="form-button ml-1" onclick="incrementAccuracy()"><i class="fa fa-plus"></i></button>
+    </div>
+    <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <div class="form-label">Crit: </div>
+        <button class="form-button ml-2 mr-1" onclick="decrementCrit()"><i class="fa fa-minus"></i></button>
+        <input asp-for="Crit" id="@critId" name="Crit" class="form-control" type="number" value="0" step="5" min="-100" max="100" disabled />
+        <button class="form-button ml-1" onclick="incrementCrit()"><i class="fa fa-plus"></i></button>
+    </div>
+    <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <div class="form-label">Price: </div>
+        <button class="form-button ml-2 mr-1" onclick="decrementPrice()"><i class="fa fa-minus"></i></button>
+        <input asp-for="Price" id="@priceId" name="Price" class="form-control" type="number" value="0" step="5" min="0" max="100000" />
+        <button class="form-button ml-1" onclick="incrementPrice()"><i class="fa fa-plus"></i></button>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    function isUpdate(){
+        return document.getElementById('Update').value
+    }
+
+    function incrementDamage() {
+        if (isUpdate() == 'False')
+            document.getElementById('Damage').stepUp();
+        else
+            document.getElementById('Damage-'+document.getElementById('Update-Id').value).stepUp();
+    }
+    function decrementDamage() {
+        if (isUpdate() == 'False')
+            document.getElementById('Damage').stepDown();
+        else
+            document.getElementById('Damage-' + document.getElementById('Update-Id').value).stepDown();
+    }
+
+    function incrementAccuracy() {
+        if (isUpdate() == 'False')
+            document.getElementById('Accuracy').stepUp();
+        else
+            document.getElementById('Accuracy-' + document.getElementById('Update-Id').value).stepUp();
+    }
+    function decrementAccuracy() {
+        if (isUpdate() == 'False')
+            document.getElementById('Accuracy').stepDown();
+        else
+            document.getElementById('Accuracy-' + document.getElementById('Update-Id').value).stepDown();
+    }
+
+    function incrementCrit() {
+        if (isUpdate() == 'False')
+            document.getElementById('Crit').stepUp();
+        else
+            document.getElementById('Crit-' + document.getElementById('Update-Id').value).stepUp();
+    }
+    function decrementCrit() {
+        if (isUpdate() == 'False')
+            document.getElementById('Crit').stepDown();
+        else
+            document.getElementById('Crit-' + document.getElementById('Update-Id').value).stepDown();
+    }
+
+    function incrementPrice() {
+        if (isUpdate() == 'False')
+            document.getElementById('Price').stepUp();
+        else
+            document.getElementById('Price-' + document.getElementById('Update-Id').value).stepUp();
+    }
+    function decrementPrice() {
+        if (isUpdate() == 'False')
+            document.getElementById('Price').stepDown();
+        else
+            document.getElementById('Price-' + document.getElementById('Update-Id').value).stepDown();
+    }
+</script>

@@ -14,3 +14,64 @@
   background-color: white;
   color: #e89025;
 }
+
+#weapon-add {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+
+.form-group {
+  display: flex;
+}
+
+.form-control,
+.form-control:disabled {
+  background-color: white;
+}
+
+.form-label {
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 15%;
+}
+
+.form-button,
+.form-button:focus {
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 5%;
+  border-radius: 50%;
+  background-color: #e89025;
+  color: white;
+  border: 1px solid #bf7419;
+  transition: 0.25s ease-in-out;
+  outline: none;
+}
+
+.form-button:hover,
+.form-button:focus:hover {
+  color: #e89025;
+  background-color: white;
+}
+
+#WeaponTypes {
+  margin-left: 13%;
+}
+
+@media (max-width: 1200px) {
+  .form-label {
+    width: 30%;
+  }
+  #weapon-add {
+    width: 100%;
+  }
+  .form-button {
+    width: 8%;
+  }
+}
