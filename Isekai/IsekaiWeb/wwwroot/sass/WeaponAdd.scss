@@ -67,8 +67,42 @@ $submit-color2: #bf7419;
     background-color: white;
 }
 
-#WeaponTypes{
+.WeaponTypes, .DamageTypes, .Ranks, .Passives{
     margin-left: 13%;
+}
+
+.btn-submit,
+.btn-submit:focus {
+    margin: auto auto 5% auto;
+    width: 35%;
+    border-radius: 25px;
+    background-color: $submit-color1;
+    border: 1px solid $submit-color2;
+    color: white;
+    transition: .25s ease-in-out;
+    outline: none;
+}
+.btn-submit:hover,
+.btn-submit:hover:focus{
+    color: $submit-color1;
+    background-color: white;
+}
+
+.btn-cancel,
+.btn-cancel:focus {
+    margin: auto auto auto 5%;
+    width: 35%;
+    border-radius: 25px;
+    background-color: $cancel-color1;
+    border: 1px solid $cancel-color2;
+    color: white;
+    transition: .25s ease-in-out;
+    outline: none;
+}
+.btn-cancel:hover,
+.btn-cancel:hover:focus{
+    color: $cancel-color1;
+    background-color: white;
 }
 
 @media (max-width: $image-size-max){

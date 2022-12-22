@@ -9,6 +9,9 @@
     var priceId = Model.Update ? "Price-" + Model.Id : "Price";
     var passiveId = Model.Update ? "Passive-" + Model.Id : "Passive";
     var passivesId = Model.Update ? "Passives-" + Model.Id : "Passives";
+    var damageTypesId = Model.Update ? "DamageTypes-" + Model.Id : "DamageTypes";
+    var weaponTypesId = Model.Update ? "WeaponTypes-" + Model.Id : "WeaponTypes";
+    var ranksId = Model.Update ? "Ranks-" + Model.Id : "Ranks";
 }
 
 <div id="weapon-form">
@@ -24,7 +27,13 @@
         <input asp-for="Name" id="@nameId" name="Name" class="form-control" placeholder="Weapon's Name" />
     </div>
     <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-        <select id="WeaponTypes" name="WeaponTypes" class="form-control" asp-items="@Model.WeaponTypes"></select>
+        <select id="@weaponTypesId" class="WeaponTypes form-control" name="WeaponTypes" asp-items="@Model.WeaponTypes"></select>
+    </div>
+    <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <select id="@ranksId" class="Ranks form-control" name="Ranks" asp-items="@Model.Ranks"></select>
+    </div>
+    <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <select id="@damageTypesId" class="DamageTypes form-control" name="DamageTypes" asp-items="@Model.DamageTypes"></select>
     </div>
     <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"> 
         <div class="form-label">Damage: </div>
@@ -50,10 +59,21 @@
         <input asp-for="Price" id="@priceId" name="Price" class="form-control" type="number" value="0" step="5" min="0" max="100000" />
         <button class="form-button ml-1" onclick="incrementPrice()"><i class="fa fa-plus"></i></button>
     </div>
+    <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <select id="@passivesId" class="Passives form-control" name="Passives" asp-items="@Model.Passives"></select>
+    </div>
+    <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        @if (Model.Update) {
+            <input class="btn-submit mb-3" type="submit" value="Update" onclick="updateWeapon()" />
+        }
+        else {
+            <input class="btn-submit mb-3" type="submit" value="Create" onclick="addWeapon()" />
+        }
+        <button class="btn-cancel mb-3" onclick="hide()">Cancel</button>
+    </div>
 </div>
 
 <script type="text/javascript">
-
     function isUpdate(){
         return document.getElementById('Update').value
     }
@@ -108,5 +128,20 @@
             document.getElementById('Price').stepDown();
         else
             document.getElementById('Price-' + document.getElementById('Update-Id').value).stepDown();
+    }
+
+    function addWeapon() {
+        WeaponAddPost();
+    }
+    function updateWeapon() {
+        WeaponUpdatePost();
+    }
+
+    function hide() {
+        document.getElementById('button-add').classList.remove('hidden');
+        document.getElementById('weapon-form').classList.add('hidden');
+
+        $('#weapon-form').html("");
+        refreshWeaponList(1);
     }
 </script>

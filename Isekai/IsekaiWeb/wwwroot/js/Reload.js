@@ -139,3 +139,64 @@ function refreshWeaponAdd() {
         }
     })
 }
+function WeaponAddPost() {
+    var name = document.getElementById('Name').value;
+    var rankElement = document.getElementById('Ranks');
+    var damageTypeElement = document.getElementById('DamageTypes');
+    var weaponTypeElement = document.getElementById('WeaponTypes');
+
+    $.ajax({
+        url: '/Weapon/Add',
+        type: 'POST',
+        data: {
+            name: document.getElementById('Name').value,
+            damage: document.getElementById('Damage').value,
+            accuracy: document.getElementById('Accuracy').value,
+            crit: document.getElementById('Crit').value,
+            price: document.getElementById('Price').value,
+            rank: rankElement.options[rankElement.selectedIndex].text,
+            damageType: damageTypeElement.options[damageTypeElement.selectedIndex].text,
+            type: weaponTypeElement.options[weaponTypeElement.selectedIndex].text,
+            path: document.getElementById('Path').value,
+            passive: document.getElementById('Passive').value
+        },
+        success: function (data) {
+            if (data == true) {
+                $.alert({
+                    title: 'Weapon Added!',
+                    content: name + ' was added to the Weapon list!',
+                    buttons: {
+                        confirm: function () {
+                            //document.getElementById('button-add').classList.remove('hidden');
+                            //document.getElementById('weapon-form').classList.add('hidden');
+                            //$('#weapon-form').html("");
+                            //refreshWeaponList(1);
+                        }
+                    }
+                })
+            }
+        }
+    })
+}
+function refreshWeaponUpdate() {
+
+}
+function WeaponUpdatePost() {
+
+}
+function WeaponDeletePost() {
+
+}
+function refreshWeaponList(page) {
+    $('#weapon-list').html("");
+    $.ajax({
+        url: '/Weapon/Refresh',
+        data: {
+            pageNumber: page,
+            weaponType: document.getElementById('SelectedWeaponType').value
+        },
+        success: function (data) {
+            $('#weapon-list').html(data);
+        }
+    })
+}

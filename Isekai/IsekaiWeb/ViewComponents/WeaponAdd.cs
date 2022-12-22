@@ -27,23 +27,25 @@ namespace IsekaiWeb.ViewComponents
             string passive = "")
         {
             List<SelectListItem> ranks = new List<SelectListItem>() {
-                new SelectListItem { Value = "1", Text = "E", Selected = true },
-                new SelectListItem { Value = "2", Text = "D" },
-                new SelectListItem { Value = "3", Text = "C" },
-                new SelectListItem { Value = "4", Text = "B" },
-                new SelectListItem { Value = "5", Text = "A" },
-                new SelectListItem { Value = "6", Text = "S" }
+                new SelectListItem { Value = "Default", Text = "-- Weapon Rank -- ", Selected = true },
+                new SelectListItem { Value = "E", Text = "E" },
+                new SelectListItem { Value = "D", Text = "D" },
+                new SelectListItem { Value = "C", Text = "C" },
+                new SelectListItem { Value = "B", Text = "B" },
+                new SelectListItem { Value = "A", Text = "A" },
+                new SelectListItem { Value = "S", Text = "S" }
             };
             List<SelectListItem> damages = new List<SelectListItem>() {
-                new SelectListItem { Value = "1", Text = "Physical" },
-                new SelectListItem { Value = "2", Text = "Arcane" },
-                new SelectListItem { Value = "3", Text = "Fire" },
-                new SelectListItem { Value = "4", Text = "Water" },
-                new SelectListItem { Value = "5", Text = "Wind" },
-                new SelectListItem { Value = "6", Text = "Lightning" },
-                new SelectListItem { Value = "7", Text = "Earth" },
-                new SelectListItem { Value = "8", Text = "Holy" },
-                new SelectListItem { Value = "9", Text = "Dark" }
+                new SelectListItem { Value = "Default", Text = "-- Damage Type --", Selected = true },
+                new SelectListItem { Value = "Physical", Text = "Physical" },
+                new SelectListItem { Value = "Arcane", Text = "Arcane" },
+                new SelectListItem { Value = "Fire", Text = "Fire" },
+                new SelectListItem { Value = "Water", Text = "Water" },
+                new SelectListItem { Value = "Wind", Text = "Wind" },
+                new SelectListItem { Value = "Lightning", Text = "Lightning" },
+                new SelectListItem { Value = "Earth", Text = "Earth" },
+                new SelectListItem { Value = "Holy", Text = "Holy" },
+                new SelectListItem { Value = "Dark", Text = "Dark" }
             };
             List<SelectListItem> weaponTypes = new List<SelectListItem>() {
                 new SelectListItem { Value = "Default", Text = "-- Weapon Type --", Selected = true },
@@ -58,8 +60,8 @@ namespace IsekaiWeb.ViewComponents
 
             List<SelectListItem> passives = new List<SelectListItem>();
             int index = 1;
-            passives.Add(new SelectListItem { Value = "1", Text = "None" });
-            foreach (Passive item in _context.Passives.Where(c => c.Type == PassiveType.WEAPON)) {
+            passives.Add(new SelectListItem { Value = "Default", Text = "-- Passives --", Selected = true });
+            foreach (Passive item in _context.Passives.Where(c => c.Type == PassiveType.WEAPON).OrderBy(c => c.Name)) {
                 index++;
                 passives.Add(new SelectListItem { Value = index.ToString(), Text = item.Name });
             }

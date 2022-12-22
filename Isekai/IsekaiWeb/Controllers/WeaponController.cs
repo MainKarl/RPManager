@@ -25,8 +25,8 @@ namespace IsekaiWeb.Controllers
         { return View(new ListWeaponVM { SearchFilter = "", WeaponFilter = WeaponType.ALL }); }
 
         [AllowAnonymous]
-        public IActionResult Refresh(int pageNumber)
-        { return ViewComponent("WeaponList", new { pageNumber = pageNumber }); }
+        public IActionResult Refresh(int pageNumber, WeaponType type = WeaponType.ALL)
+        { return ViewComponent("WeaponList", new { pageNumber = pageNumber, weaponType = type }); }
 
         [AllowAnonymous]
         public IActionResult Add()

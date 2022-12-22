@@ -11,6 +11,7 @@
 }
 
 <div class="row">
+    @Html.Hidden("SelectedWeaponType", Model.WeaponFilter)
     <div class="col-md-1 col-lg-1 col-xl-1"></div>
     <div class="col-12 col-sm-12 col-md-10 col-lg-10 col-xl-10">
         <h2 class="mb-4">Weapon</h2>
@@ -158,7 +159,7 @@
 <div class="row">
     <div class="col-md-1 col-lg-1 col-xl-1"></div>
     <div class="col-12 col-xl-12 col-md-10 col-lg-10 col-xl-10">
-
+        <div id="weapon-list"></div>
     </div>
     <div class="col-md-1 col-lg-1 col-xl-1"></div>
 </div>
