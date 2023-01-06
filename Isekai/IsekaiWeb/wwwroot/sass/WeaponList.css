@@ -1,4 +1,10 @@
-﻿*, *:focus, *:hover {
+﻿/*
+    General
+*/
+/*
+    Weapon
+*/
+*, *:focus, *:hover {
   outline: none;
   outline-color: white;
 }
@@ -21,6 +27,52 @@ h2 {
   border-width: 1px;
 }
 
+#weapon-selector div button:hover span {
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+}
+
+.icon {
+  display: inline-block;
+  width: 16px;
+  height: 18px;
+  background-size: cover;
+}
+
+.icon-sword {
+  background-image: url(../svg/sword.svg);
+  filter: invert(21%) sepia(100%) saturate(5130%) hue-rotate(221deg) brightness(95%) contrast(83%);
+}
+
+.icon-spear {
+  background-image: url(../svg/spear.svg);
+  filter: invert(44%) sepia(90%) saturate(1511%) hue-rotate(10deg) brightness(94%) contrast(104%);
+}
+
+.icon-axe {
+  background-image: url(../svg/axe.svg);
+  filter: invert(20%) sepia(77%) saturate(3209%) hue-rotate(348deg) brightness(78%) contrast(118%);
+}
+
+.icon-fist {
+  background-image: url(../svg/fist.svg);
+  filter: invert(45%) sepia(100%) saturate(692%) hue-rotate(121deg) brightness(97%) contrast(98%);
+}
+
+.icon-dagger {
+  background-image: url(../svg/dagger.svg);
+  filter: invert(19%) sepia(90%) saturate(7108%) hue-rotate(291deg) brightness(80%) contrast(111%);
+}
+
+.icon-staff {
+  background-image: url(../svg/staff.svg);
+  filter: invert(66%) sepia(52%) saturate(818%) hue-rotate(45deg) brightness(84%) contrast(106%);
+}
+
+.icon-bow {
+  background-image: url(../svg/bow.svg);
+  filter: invert(9%) sepia(72%) saturate(7476%) hue-rotate(330deg) brightness(88%) contrast(102%);
+}
+
 .selector-ALL,
 .selector-ALL:focus {
   outline: none;
@@ -29,17 +81,9 @@ h2 {
   border: 1px solid #e6cf07;
 }
 
-.selector-ALL svg {
-  fill: #e6cf07;
-}
-
 .selector-ALL:hover {
   background-color: #e6cf07;
   color: white;
-}
-
-.selector-ALL:hover svg {
-  fill: white;
 }
 
 .selector-ALL-choose,
@@ -49,18 +93,10 @@ h2 {
   color: white;
 }
 
-.selector-ALL-choose svg {
-  fill: white;
-}
-
 .selector-ALL-choose:hover {
   background-color: white;
   color: #e6cf07;
   border: 1px solid #e6cf07;
-}
-
-.selector-ALL-choose:hover svg {
-  fill: #e6cf07;
 }
 
 .selector-SWORD,
@@ -71,17 +107,9 @@ h2 {
   border: 1px solid #1658db;
 }
 
-.selector-SWORD svg {
-  fill: #1658db;
-}
-
 .selector-SWORD:hover {
   background-color: #1658db;
   color: white;
-}
-
-.selector-SWORD:hover svg {
-  fill: white;
 }
 
 .selector-SWORD-choose,
@@ -91,18 +119,10 @@ h2 {
   color: white;
 }
 
-.selector-SWORD-choose svg {
-  fill: white;
-}
-
 .selector-SWORD-choose:hover {
   background-color: white;
   color: #1658db;
   border: 1px solid #1658db;
-}
-
-.selector-SWORD-choose:hover svg {
-  fill: #1658db;
 }
 
 .selector-SPEAR,
@@ -113,17 +133,9 @@ h2 {
   border: 1px solid #db7500;
 }
 
-.selector-SPEAR svg {
-  fill: #db7500;
-}
-
 .selector-SPEAR:hover {
   background-color: #db7500;
   color: white;
-}
-
-.selector-SPEAR:hover svg {
-  fill: white;
 }
 
 .selector-SPEAR-choose,
@@ -133,18 +145,10 @@ h2 {
   color: white;
 }
 
-.selector-SPEAR-choose svg {
-  fill: white;
-}
-
 .selector-SPEAR-choose:hover {
   background-color: white;
   color: #db7500;
   border: 1px solid #db7500;
-}
-
-.selector-SPEAR-choose:hover svg {
-  fill: #db7500;
 }
 
 .selector-AXE,
@@ -155,17 +159,9 @@ h2 {
   border: 1px solid #bf0a0a;
 }
 
-.selector-AXE svg {
-  fill: #bf0a0a;
-}
-
 .selector-AXE:hover {
   background-color: #bf0a0a;
   color: white;
-}
-
-.selector-AXE:hover svg {
-  fill: white;
 }
 
 .selector-AXE-choose,
@@ -175,18 +171,10 @@ h2 {
   color: white;
 }
 
-.selector-AXE-choose svg {
-  fill: white;
-}
-
 .selector-AXE-choose:hover {
   background-color: white;
   color: #bf0a0a;
   border: 1px solid #bf0a0a;
-}
-
-.selector-AXE-choose:hover svg {
-  fill: #bf0a0a;
 }
 
 .selector-FIST,
@@ -197,17 +185,9 @@ h2 {
   border: 1px solid #02bf80;
 }
 
-.selector-FIST svg {
-  fill: #02bf80;
-}
-
 .selector-FIST:hover {
   background-color: #02bf80;
   color: white;
-}
-
-.selector-FIST:hover svg {
-  fill: white;
 }
 
 .selector-FIST-choose,
@@ -217,18 +197,10 @@ h2 {
   color: white;
 }
 
-.selector-FIST-choose svg {
-  fill: white;
-}
-
 .selector-FIST-choose:hover {
   background-color: white;
   color: #02bf80;
   border: 1px solid #02bf80;
-}
-
-.selector-FIST-choose:hover svg {
-  fill: #02bf80;
 }
 
 .selector-DAGGER,
@@ -239,17 +211,9 @@ h2 {
   border: 1px solid #a602b5;
 }
 
-.selector-DAGGER svg {
-  fill: #a602b5;
-}
-
 .selector-DAGGER:hover {
   background-color: #a602b5;
   color: white;
-}
-
-.selector-DAGGER:hover svg {
-  fill: white;
 }
 
 .selector-DAGGER-choose,
@@ -259,18 +223,10 @@ h2 {
   color: white;
 }
 
-.selector-DAGGER-choose svg {
-  fill: white;
-}
-
 .selector-DAGGER-choose:hover {
   background-color: white;
   color: #a602b5;
   border: 1px solid #a602b5;
-}
-
-.selector-DAGGER-choose:hover svg {
-  fill: #a602b5;
 }
 
 .selector-STAFF,
@@ -281,17 +237,9 @@ h2 {
   border: 1px solid #54bf02;
 }
 
-.selector-STAFF svg {
-  fill: #54bf02;
-}
-
 .selector-STAFF:hover {
   background-color: #54bf02;
   color: white;
-}
-
-.selector-STAFF:hover svg {
-  fill: white;
 }
 
 .selector-STAFF-choose,
@@ -301,18 +249,10 @@ h2 {
   color: white;
 }
 
-.selector-STAFF-choose svg {
-  fill: white;
-}
-
 .selector-STAFF-choose:hover {
   background-color: white;
   color: #54bf02;
   border: 1px solid #54bf02;
-}
-
-.selector-STAFF-choose:hover svg {
-  fill: #54bf02;
 }
 
 .selector-BOW,
@@ -323,17 +263,9 @@ h2 {
   border: 1px solid #b50045;
 }
 
-.selector-BOW svg {
-  fill: #b50045;
-}
-
 .selector-BOW:hover {
   background-color: #b50045;
   color: white;
-}
-
-.selector-BOW:hover svg {
-  fill: white;
 }
 
 .selector-BOW-choose,
@@ -343,16 +275,34 @@ h2 {
   color: white;
 }
 
-.selector-BOW-choose svg {
-  fill: white;
-}
-
 .selector-BOW-choose:hover {
   background-color: white;
   color: #b50045;
   border: 1px solid #b50045;
 }
 
-.selector-BOW-choose:hover svg {
-  fill: #b50045;
+.selector-OTHER,
+.selector-OTHER:focus {
+  outline: none;
+  background-color: white;
+  color: #844af0;
+  border: 1px solid #844af0;
+}
+
+.selector-OTHER:hover {
+  background-color: #844af0;
+  color: white;
+}
+
+.selector-OTHER-choose,
+.selector-OTHER-choose:focus {
+  outline: none;
+  background-color: #844af0;
+  color: white;
+}
+
+.selector-OTHER-choose:hover {
+  background-color: white;
+  color: #844af0;
+  border: 1px solid #844af0;
 }

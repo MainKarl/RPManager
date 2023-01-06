@@ -13,11 +13,14 @@ namespace IsekaiWeb.ViewModels.Weapon
         public float Price { get; set; }
         public string Path { get; set; }
         public string Passive { get; set; }
+        public string WeaponType { get; set; }
+        public string DamageType { get; set; }
+        public string Rank { get; set; }
 
         public bool Update { get; set; }
 
         public List<SelectListItem> DamageTypes { get; set; }
-        public List<SelectListItem> WeaponTypes { get; set; }
+        public List<string> WeaponTypes { get; set; }
         public List<SelectListItem> Ranks { get; set; }
         public List<SelectListItem> Passives { get; set; }
     }

@@ -8,6 +8,8 @@
     var critId = Model.Update ? "Crit-" + Model.Id : "Crit";
     var priceId = Model.Update ? "Price-" + Model.Id : "Price";
     var passiveId = Model.Update ? "Passive-" + Model.Id : "Passive";
+    var weaponTypeId = Model.Update ? "WeaponType-" + Model.Id : "WeaponType";
+
     var passivesId = Model.Update ? "Passives-" + Model.Id : "Passives";
     var damageTypesId = Model.Update ? "DamageTypes-" + Model.Id : "DamageTypes";
     var weaponTypesId = Model.Update ? "WeaponTypes-" + Model.Id : "WeaponTypes";
@@ -27,7 +29,15 @@
         <input asp-for="Name" id="@nameId" name="Name" class="form-control" placeholder="Weapon's Name" />
     </div>
     <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-        <select id="@weaponTypesId" class="WeaponTypes form-control" name="WeaponTypes" asp-items="@Model.WeaponTypes"></select>
+        <div id="@weaponTypeId" class="dropdownlist form-control">
+            <p>@Model.WeaponType</p>
+            <ul class="dropdown">
+                @foreach (string weaponType in Model.WeaponTypes){
+                    <li><a href="#"><span></span> @weaponType</a></li>
+                }
+            </ul>
+        </div>
+@*        <select id="@weaponTypesId" class="WeaponTypes form-control" name="WeaponTypes" asp-items="@Model.WeaponTypes"></select>*@    
     </div>
     <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
         <select id="@ranksId" class="Ranks form-control" name="Ranks" asp-items="@Model.Ranks"></select>
@@ -74,6 +84,18 @@
 </div>
 
 <script type="text/javascript">
+    const toggleList = (event) => {
+        var element = document.getElementById(event.target.id);
+        if (element.classList.contains('active')) {
+            element.classList.remove('active');
+        }
+        else{
+            element.classList.add('active');
+        }
+    }
+
+    document.getElementById('@weaponTypeId').addEventListener('click', toggleList);
+
     function isUpdate(){
         return document.getElementById('Update').value
     }

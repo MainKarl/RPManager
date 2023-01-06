@@ -1,18 +1,99 @@
-﻿#button-add {
+﻿/*
+    General
+*/
+/*
+    Weapon
+*/
+.dropdownlist {
+  margin-left: 13%;
   width: 100%;
-  height: 30px;
+  position: relative;
+  margin-right: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 5px 15px;
+  display: inline-block;
+  z-index: 1000;
+  border: 0;
+  border-left: 5px solid grey;
+  border-radius: 0;
+  cursor: pointer;
+  outline: none;
+}
+
+.dropdownlist p {
+  margin-top: auto;
+  margin-bottom: auto;
+  pointer-events: none;
+}
+
+.dropdownlist.active:after {
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  margin-top: -3px;
+  border-width: 0px 6px 6px 6px;
+  border-style: solid;
+  border-color: grey transparent;
+}
+
+.dropdownlist:after {
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  margin-top: -3px;
+  border-width: 6px 6px 0 6px;
+  border-style: solid;
+  border-color: grey transparent;
+}
+
+.dropdownlist .dropdown {
+  position: absolute;
+  width: 100%;
+  top: 100%;
+  left: -5px;
+  padding-left: 0;
+  overflow: auto;
+  transition: all 0.5s ease-in-out;
+  list-style: none;
+  background-color: white;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.dropdownlist .dropdown li a {
+  display: block;
+  text-decoration: none;
+  padding: 10px;
+  border-left: 5px solid;
+  transition: all 0.5s ease-in-out;
+}
+
+.dropdownlist.active .dropdown {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#button-add {
+  width: 100%;
+  height: 35px;
   padding: 0.5% 1%;
   color: white;
-  background-color: #e89025;
+  background-color: rgb(232, 144, 37);
   border-radius: 25px;
-  border-color: #bf7419;
-  border-width: 1px;
-  border-style: solid;
+  border: 1px solid rgb(191, 116, 25);
+  transition: 0.25s ease-in-out;
 }
 
 #button-add:hover {
-  background-color: white;
-  color: #e89025;
+  background-color: rgba(232, 144, 37, 0.1);
+  color: rgb(232, 144, 37);
 }
 
 #weapon-add {
@@ -47,17 +128,17 @@
   margin-bottom: auto;
   width: 5%;
   border-radius: 50%;
-  background-color: #e89025;
+  background-color: rgb(232, 144, 37);
   color: white;
-  border: 1px solid #bf7419;
+  border: 1px solid rgb(191, 116, 25);
   transition: 0.25s ease-in-out;
   outline: none;
 }
 
 .form-button:hover,
 .form-button:focus:hover {
-  color: #e89025;
-  background-color: white;
+  color: rgb(232, 144, 37);
+  background-color: rgba(232, 144, 37, 0.1);
 }
 
 .WeaponTypes, .DamageTypes, .Ranks, .Passives {
@@ -69,8 +150,8 @@
   margin: auto auto 5% auto;
   width: 35%;
   border-radius: 25px;
-  background-color: #e89025;
-  border: 1px solid #bf7419;
+  background-color: rgb(232, 144, 37);
+  border: 1px solid rgb(191, 116, 25);
   color: white;
   transition: 0.25s ease-in-out;
   outline: none;
@@ -78,8 +159,8 @@
 
 .btn-submit:hover,
 .btn-submit:hover:focus {
-  color: #e89025;
-  background-color: white;
+  color: rgb(232, 144, 37);
+  background-color: rgba(232, 144, 37, 0.1);
 }
 
 .btn-cancel,
@@ -87,8 +168,8 @@
   margin: auto auto auto 5%;
   width: 35%;
   border-radius: 25px;
-  background-color: #c20f02;
-  border: 1px solid #910b01;
+  background-color: rgb(194, 15, 2);
+  border: 1px solid rgb(145, 11, 1);
   color: white;
   transition: 0.25s ease-in-out;
   outline: none;
@@ -96,8 +177,8 @@
 
 .btn-cancel:hover,
 .btn-cancel:hover:focus {
-  color: #c20f02;
-  background-color: white;
+  color: rgb(194, 15, 2);
+  background-color: rgba(194, 15, 2, 0.09);
 }
 
 @media (max-width: 1200px) {

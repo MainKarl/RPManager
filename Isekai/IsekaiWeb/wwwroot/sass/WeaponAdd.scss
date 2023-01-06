@@ -1,29 +1,19 @@
-﻿$image-size-max: 1200px;
-$button-color1: #e89025;
-$button-color2: #bf7419;
-
-$cancel-color1: #c20f02;
-$cancel-color2: #910b01;
-
-$submit-color1: #e89025;
-$submit-color2: #bf7419;
-
-
+﻿@import 'constant.scss';
+@import 'DropDownList.scss';
 
 #button-add {
     width: 100%;
-    height: 30px;
+    height: 35px;
     padding: .5% 1%;
     color: white;
-    background-color: #e89025;
+    background-color: $site-color;
     border-radius: 25px;
-    border-color: #bf7419;
-    border-width: 1px;
-    border-style: solid;
+    border: $site-border;
+    transition: .25s ease-in-out;
 }
 #button-add:hover {
-    background-color: white;
-    color: #e89025;
+    background-color: $site-background-color;
+    color: $site-color;
 }
 
 #weapon-add {
@@ -55,16 +45,16 @@ $submit-color2: #bf7419;
     margin-bottom:auto;
     width:5%;
     border-radius:50%;
-    background-color: $button-color1;
+    background-color: $site-color;
     color: white;
-    border: 1px solid $button-color2;
+    border: $site-border;
     transition: .25s ease-in-out;
     outline: none;
 }
 .form-button:hover,
 .form-button:focus:hover{
-    color: $button-color1;
-    background-color: white;
+    color: $site-color;
+    background-color: $site-background-color;
 }
 
 .WeaponTypes, .DamageTypes, .Ranks, .Passives{
@@ -76,16 +66,16 @@ $submit-color2: #bf7419;
     margin: auto auto 5% auto;
     width: 35%;
     border-radius: 25px;
-    background-color: $submit-color1;
-    border: 1px solid $submit-color2;
+    background-color: $site-color;
+    border: $site-border;
     color: white;
     transition: .25s ease-in-out;
     outline: none;
 }
 .btn-submit:hover,
 .btn-submit:hover:focus{
-    color: $submit-color1;
-    background-color: white;
+    color: $site-color;
+    background-color: $site-background-color;
 }
 
 .btn-cancel,
@@ -93,19 +83,19 @@ $submit-color2: #bf7419;
     margin: auto auto auto 5%;
     width: 35%;
     border-radius: 25px;
-    background-color: $cancel-color1;
-    border: 1px solid $cancel-color2;
+    background-color: $cancel-color;
+    border: $cancel-border;
     color: white;
     transition: .25s ease-in-out;
     outline: none;
 }
 .btn-cancel:hover,
 .btn-cancel:hover:focus{
-    color: $cancel-color1;
-    background-color: white;
+    color: $cancel-color;
+    background-color: $cancel-background-color;
 }
 
-@media (max-width: $image-size-max){
+@media (max-width: 1200px){
     .form-label{
         width:30%;
     }

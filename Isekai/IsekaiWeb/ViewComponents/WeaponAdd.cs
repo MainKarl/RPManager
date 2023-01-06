@@ -27,7 +27,7 @@ namespace IsekaiWeb.ViewComponents
             string passive = "")
         {
             List<SelectListItem> ranks = new List<SelectListItem>() {
-                new SelectListItem { Value = "Default", Text = "-- Weapon Rank -- ", Selected = true },
+                new SelectListItem { Value = "Default", Text = "-- Weapon Rank --", Selected = true },
                 new SelectListItem { Value = "E", Text = "E" },
                 new SelectListItem { Value = "D", Text = "D" },
                 new SelectListItem { Value = "C", Text = "C" },
@@ -47,15 +47,15 @@ namespace IsekaiWeb.ViewComponents
                 new SelectListItem { Value = "Holy", Text = "Holy" },
                 new SelectListItem { Value = "Dark", Text = "Dark" }
             };
-            List<SelectListItem> weaponTypes = new List<SelectListItem>() {
-                new SelectListItem { Value = "Default", Text = "-- Weapon Type --", Selected = true },
-                new SelectListItem { Value = "Sword", Text = "Sword" },
-                new SelectListItem { Value = "Spear", Text = "Spear" },
-                new SelectListItem { Value = "Axe", Text = "Axe" },
-                new SelectListItem { Value = "Fist", Text = "Fist" },
-                new SelectListItem { Value = "Dagger", Text = "Dagger" },
-                new SelectListItem { Value = "Staff", Text = "Staff" },
-                new SelectListItem { Value = "Bow", Text = "Bow" }
+            List<string> weaponTypes = new List<string>() {
+                "Sword",
+                "Spear",
+                "Axe",
+                "Fist",
+                "Dagger",
+                "Staff",
+                "Bow",
+                "Other"
             };
 
             List<SelectListItem> passives = new List<SelectListItem>();
@@ -73,7 +73,10 @@ namespace IsekaiWeb.ViewComponents
                     WeaponTypes = weaponTypes,
                     DamageTypes = damages,
                     Passives = passives,
-                    Passive = ""
+                    Passive = "",
+                    Rank = "-- Weapon Rank --",
+                    DamageType = "-- Damage Type --",
+                    WeaponType = "-- Weapon Type --"
                 };
             }
             else {

@@ -30,7 +30,8 @@ namespace IsekaiDb.Data {
             FIST,
             DAGGER,
             STAFF,
-            BOW
+            BOW,
+            OTHER
         };
 
         public enum Level

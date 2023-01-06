@@ -18,5 +18,9 @@
   {
     "outputFile": "wwwroot/sass/WeaponList.css",
     "inputFile": "wwwroot/sass/WeaponList.scss"
+  },
+  {
+    "outputFile": "wwwroot/sass/DropDownList.css",
+    "inputFile": "wwwroot/sass/DropDownList.scss"
   }
 ]

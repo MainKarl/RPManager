@@ -38,6 +38,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\img\Armor\" />
+    <Folder Include="wwwroot\svg\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,35 +1,64 @@
-﻿*,*:focus,*:hover{
-    outline:none;
-    outline-color:white;
-}
+﻿@import 'constant.scss';
 
-h2{
+*, *:focus, *:hover {
+    outline: none;
+    outline-color: white;
+}
+h2 {
     text-align: center;
 }
 
-#weapon-selector{
+#weapon-selector {
     text-align: center;
 }
 #weapon-selector div button,
-#weapon-selector div button:focus{
+#weapon-selector div button:focus {
     outline: none;
     border-radius: 25px;
     width: 100%;
     padding: 1% 0;
     margin: 2% 0;
-    border-width:1px;
+    border-width: 1px;
+}
+#weapon-selector div button:hover span {
+    filter: $white-filter;
 }
 
-$weaponColors: (
-    "ALL": #e6cf07,
-    "SWORD":#1658db,
-    "SPEAR":#db7500,
-    "AXE":#bf0a0a,
-    "FIST":#02bf80,
-    "DAGGER":#a602b5,
-    "STAFF":#54bf02,
-    "BOW":#b50045
-);
+.icon {
+    display: inline-block;
+    width: 16px;
+    height: 18px;
+    background-size: cover;
+}
+.icon-sword {
+    background-image: $sword-link;
+    filter: $sword-filter;
+}
+.icon-spear {
+    background-image: $spear-link;
+    filter: $spear-filter;
+}
+.icon-axe {
+    background-image: $axe-link;
+    filter: $axe-filter;
+}
+.icon-fist {
+    background-image: $fist-link;
+    filter: $fist-filter;
+}
+.icon-dagger{
+    background-image: $dagger-link;
+    filter: $dagger-filter;
+}
+.icon-staff {
+    background-image: $staff-link;
+    filter: $staff-filter;
+}
+.icon-bow {
+    background-image: $bow-link;
+    filter: $bow-filter;
+}
+
 
 @each $weaponColor, $i in $weaponColors {
     .selector-#{$weaponColor},
@@ -39,32 +68,22 @@ $weaponColors: (
         color: $i;
         border: 1px solid $i;
     }
-    .selector-#{$weaponColor} svg {
-        fill: $i;
-    }
+
     .selector-#{$weaponColor}:hover {
         background-color: $i;
         color: white;
     }
-    .selector-#{$weaponColor}:hover svg{
-        fill: white;
-    }
 
     .selector-#{$weaponColor}-choose,
-    .selector-#{$weaponColor}-choose:focus{
+    .selector-#{$weaponColor}-choose:focus {
         outline: none;
         background-color: $i;
         color: white;
     }
-    .selector-#{$weaponColor}-choose svg {
-        fill: white;
-    }
+
     .selector-#{$weaponColor}-choose:hover {
         background-color: white;
         color: $i;
         border: 1px solid $i;
-    }
-    .selector-#{$weaponColor}-choose:hover svg{
-        fill: $i;
     }
 }
