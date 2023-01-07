@@ -33,11 +33,10 @@
             <p>@Model.WeaponType</p>
             <ul class="dropdown">
                 @foreach (string weaponType in Model.WeaponTypes){
-                    <li><a href="#"><span></span> @weaponType</a></li>
+                    <li id="@weaponType.ToUpper()" class="item-@weaponType.ToUpper()"><a><span class="icon icon-@weaponType"></span> @weaponType</a></li>
                 }
             </ul>
         </div>
-@*        <select id="@weaponTypesId" class="WeaponTypes form-control" name="WeaponTypes" asp-items="@Model.WeaponTypes"></select>*@    
     </div>
     <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
         <select id="@ranksId" class="Ranks form-control" name="Ranks" asp-items="@Model.Ranks"></select>
@@ -84,17 +83,12 @@
 </div>
 
 <script type="text/javascript">
-    const toggleList = (event) => {
-        var element = document.getElementById(event.target.id);
-        if (element.classList.contains('active')) {
-            element.classList.remove('active');
-        }
-        else{
-            element.classList.add('active');
-        }
-    }
+    var weaponTypeList = document.getElementById('@weaponTypeId');
+    @*var rankList = document.getElementById('@ranksId');
+    var damageTypeList = document.getElementById('@damageTypesId');*@
 
-    document.getElementById('@weaponTypeId').addEventListener('click', toggleList);
+    weaponTypeList.addEventListener('click', clickList);
+    addChildEvent('@weaponTypeId');
 
     function isUpdate(){
         return document.getElementById('Update').value

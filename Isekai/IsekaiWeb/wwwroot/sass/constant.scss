@@ -2,6 +2,13 @@
     General
 */
 
+.icon {
+    display: inline-block;
+    width: 16px;
+    height: 18px;
+    background-size: cover;
+}
+
 $white-filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
 $site-color-filter: invert(55%) sepia(100%) saturate(376%) hue-rotate(352deg) brightness(94%) contrast(94%);
 $cancel-color-filter: invert(14%) sepia(86%) saturate(3645%) hue-rotate(356deg) brightness(96%) contrast(110%);
@@ -59,6 +66,52 @@ $bow-link: url(../svg/bow.svg);
 $other-color: #844af0;
 $other-filter: invert(28%) sepia(39%) saturate(4938%) hue-rotate(250deg) brightness(100%) contrast(89%);
 $other-link: url(../svg/claw.svg);
+
+@mixin weaponTypeIconImage($type) {
+    @if $type == "SWORD" {
+        background-image: $sword-link;
+    } @else if $type == "AXE" {
+        background-image: $axe-link;
+    } @else if $type == "SPEAR" {
+        background-image: $spear-link;
+    } @else if $type == "FIST" {
+        background-image: $fist-link;
+    } @else if $type == "DAGGER" {
+        background-image: $dagger-link;
+    } @else if $type == "STAFF" {
+        background-image: $staff-link;
+    } @else if $type == "BOW" {
+        background-image: $bow-link;
+    } @else if $type == "OTHER" {
+        background-image: $other-link;
+    }
+}
+@mixin weaponTypeIconColor($type) {
+    @if $type == "SWORD" {
+        filter: $sword-filter;
+    }
+    @else if $type == "AXE" {
+        filter: $axe-filter;
+    }
+    @else if $type == "SPEAR" {
+        filter: $spear-filter;
+    }
+    @else if $type == "FIST" {
+        filter: $fist-filter;
+    }
+    @else if $type == "DAGGER" {
+        filter: $dagger-filter;
+    }
+    @else if $type == "STAFF" {
+        filter: $staff-filter;
+    }
+    @else if $type == "BOW" {
+        filter: $bow-filter;
+    }
+    @else if $type == "OTHER" {
+        filter: $other-filter;
+    }
+}
 
 $weaponColors: ( 
     "ALL": $all-weapon-color, 

@@ -1,4 +1,5 @@
 ﻿@import 'constant.scss';
+@import 'EnumerableStyle.css';
 
 *, *:focus, *:hover {
     outline: none;
@@ -22,68 +23,4 @@ h2 {
 }
 #weapon-selector div button:hover span {
     filter: $white-filter;
-}
-
-.icon {
-    display: inline-block;
-    width: 16px;
-    height: 18px;
-    background-size: cover;
-}
-.icon-sword {
-    background-image: $sword-link;
-    filter: $sword-filter;
-}
-.icon-spear {
-    background-image: $spear-link;
-    filter: $spear-filter;
-}
-.icon-axe {
-    background-image: $axe-link;
-    filter: $axe-filter;
-}
-.icon-fist {
-    background-image: $fist-link;
-    filter: $fist-filter;
-}
-.icon-dagger{
-    background-image: $dagger-link;
-    filter: $dagger-filter;
-}
-.icon-staff {
-    background-image: $staff-link;
-    filter: $staff-filter;
-}
-.icon-bow {
-    background-image: $bow-link;
-    filter: $bow-filter;
-}
-
-
-@each $weaponColor, $i in $weaponColors {
-    .selector-#{$weaponColor},
-    .selector-#{$weaponColor}:focus {
-        outline: none;
-        background-color: white;
-        color: $i;
-        border: 1px solid $i;
-    }
-
-    .selector-#{$weaponColor}:hover {
-        background-color: $i;
-        color: white;
-    }
-
-    .selector-#{$weaponColor}-choose,
-    .selector-#{$weaponColor}-choose:focus {
-        outline: none;
-        background-color: $i;
-        color: white;
-    }
-
-    .selector-#{$weaponColor}-choose:hover {
-        background-color: white;
-        color: $i;
-        border: 1px solid $i;
-    }
 }

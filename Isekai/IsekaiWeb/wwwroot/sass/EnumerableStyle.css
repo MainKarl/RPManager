@@ -1,0 +1,897 @@
+﻿/*
+    General
+*/
+.icon {
+  display: inline-block;
+  width: 16px;
+  height: 18px;
+  background-size: cover;
+}
+
+/*
+    Weapon
+*/
+/* Weapon */
+.item-ALL {
+  color: #e6cf07;
+  background-color: white;
+}
+.item-ALL a {
+  color: #e6cf07;
+  background-color: white;
+}
+.item-ALL:hover {
+  color: white;
+  background-color: #e6cf07;
+}
+.item-ALL:hover a {
+  color: white;
+  background-color: #e6cf07;
+}
+.item-ALL:hover span {
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+}
+
+.sitem-ALL {
+  color: white;
+  background-color: #e6cf07;
+}
+.sitem-ALL a {
+  color: white;
+  background-color: #e6cf07;
+}
+.sitem-ALL span {
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+}
+.sitem-ALL:hover {
+  color: #e6cf07;
+  background-color: white;
+}
+.sitem-ALL:hover a {
+  color: #e6cf07;
+  background-color: white;
+}
+.selected-ALL {
+  border-color: #e6cf07;
+  color: #e6cf07;
+}
+.selector-ALL,
+.selector-ALL:focus {
+  outline: none;
+  background-color: white;
+  color: #e6cf07;
+  border: 1px solid #e6cf07;
+}
+.selector-ALL:hover,
+.selector-ALL:focus:hover {
+  background-color: #e6cf07;
+  color: white;
+}
+.selector-ALL:hover span,
+.selector-ALL:focus:hover span {
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+}
+
+.selector-ALL-choose,
+.selector-ALL-choose:focus {
+  outline: none;
+  background-color: #e6cf07;
+  color: white;
+}
+.selector-ALL-choose span,
+.selector-ALL-choose:focus span {
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+}
+.selector-ALL-choose:hover,
+.selector-ALL-choose:focus:hover {
+  background-color: white;
+  color: #e6cf07;
+  border: 1px solid #e6cf07;
+}
+.item-SWORD {
+  color: #1658db;
+  background-color: white;
+}
+.item-SWORD a {
+  color: #1658db;
+  background-color: white;
+}
+.item-SWORD span {
+  filter: invert(21%) sepia(100%) saturate(5130%) hue-rotate(221deg) brightness(95%) contrast(83%);
+  background-image: url(../svg/sword.svg);
+}
+.item-SWORD:hover {
+  color: white;
+  background-color: #1658db;
+}
+.item-SWORD:hover a {
+  color: white;
+  background-color: #1658db;
+}
+.item-SWORD:hover span {
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+}
+
+.sitem-SWORD {
+  color: white;
+  background-color: #1658db;
+}
+.sitem-SWORD a {
+  color: white;
+  background-color: #1658db;
+}
+.sitem-SWORD span {
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+  background-image: url(../svg/sword.svg);
+}
+.sitem-SWORD:hover {
+  color: #1658db;
+  background-color: white;
+}
+.sitem-SWORD:hover a {
+  color: #1658db;
+  background-color: white;
+}
+.sitem-SWORD:hover span {
+  filter: invert(21%) sepia(100%) saturate(5130%) hue-rotate(221deg) brightness(95%) contrast(83%);
+}
+
+.selected-SWORD {
+  border-color: #1658db;
+  color: #1658db;
+}
+.selected-SWORD p span {
+  filter: invert(21%) sepia(100%) saturate(5130%) hue-rotate(221deg) brightness(95%) contrast(83%);
+  background-image: url(../svg/sword.svg);
+}
+
+.selector-SWORD,
+.selector-SWORD:focus {
+  outline: none;
+  background-color: white;
+  color: #1658db;
+  border: 1px solid #1658db;
+}
+.selector-SWORD span,
+.selector-SWORD:focus span {
+  filter: invert(21%) sepia(100%) saturate(5130%) hue-rotate(221deg) brightness(95%) contrast(83%);
+  background-image: url(../svg/sword.svg);
+}
+.selector-SWORD:hover,
+.selector-SWORD:focus:hover {
+  background-color: #1658db;
+  color: white;
+}
+.selector-SWORD:hover span,
+.selector-SWORD:focus:hover span {
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+}
+
+.selector-SWORD-choose,
+.selector-SWORD-choose:focus {
+  outline: none;
+  background-color: #1658db;
+  color: white;
+}
+.selector-SWORD-choose span,
+.selector-SWORD-choose:focus span {
+  background-image: url(../svg/sword.svg);
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+}
+.selector-SWORD-choose:hover,
+.selector-SWORD-choose:focus:hover {
+  background-color: white;
+  color: #1658db;
+  border: 1px solid #1658db;
+}
+.selector-SWORD-choose:hover span,
+.selector-SWORD-choose:focus:hover span {
+  filter: invert(21%) sepia(100%) saturate(5130%) hue-rotate(221deg) brightness(95%) contrast(83%);
+}
+
+.item-SPEAR {
+  color: #db7500;
+  background-color: white;
+}
+.item-SPEAR a {
+  color: #db7500;
+  background-color: white;
+}
+.item-SPEAR span {
+  filter: invert(44%) sepia(90%) saturate(1511%) hue-rotate(10deg) brightness(94%) contrast(104%);
+  background-image: url(../svg/spear.svg);
+}
+.item-SPEAR:hover {
+  color: white;
+  background-color: #db7500;
+}
+.item-SPEAR:hover a {
+  color: white;
+  background-color: #db7500;
+}
+.item-SPEAR:hover span {
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+}
+
+.sitem-SPEAR {
+  color: white;
+  background-color: #db7500;
+}
+.sitem-SPEAR a {
+  color: white;
+  background-color: #db7500;
+}
+.sitem-SPEAR span {
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+  background-image: url(../svg/spear.svg);
+}
+.sitem-SPEAR:hover {
+  color: #db7500;
+  background-color: white;
+}
+.sitem-SPEAR:hover a {
+  color: #db7500;
+  background-color: white;
+}
+.sitem-SPEAR:hover span {
+  filter: invert(44%) sepia(90%) saturate(1511%) hue-rotate(10deg) brightness(94%) contrast(104%);
+}
+
+.selected-SPEAR {
+  border-color: #db7500;
+  color: #db7500;
+}
+.selected-SPEAR p span {
+  filter: invert(44%) sepia(90%) saturate(1511%) hue-rotate(10deg) brightness(94%) contrast(104%);
+  background-image: url(../svg/spear.svg);
+}
+
+.selector-SPEAR,
+.selector-SPEAR:focus {
+  outline: none;
+  background-color: white;
+  color: #db7500;
+  border: 1px solid #db7500;
+}
+.selector-SPEAR span,
+.selector-SPEAR:focus span {
+  filter: invert(44%) sepia(90%) saturate(1511%) hue-rotate(10deg) brightness(94%) contrast(104%);
+  background-image: url(../svg/spear.svg);
+}
+.selector-SPEAR:hover,
+.selector-SPEAR:focus:hover {
+  background-color: #db7500;
+  color: white;
+}
+.selector-SPEAR:hover span,
+.selector-SPEAR:focus:hover span {
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+}
+
+.selector-SPEAR-choose,
+.selector-SPEAR-choose:focus {
+  outline: none;
+  background-color: #db7500;
+  color: white;
+}
+.selector-SPEAR-choose span,
+.selector-SPEAR-choose:focus span {
+  background-image: url(../svg/spear.svg);
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+}
+.selector-SPEAR-choose:hover,
+.selector-SPEAR-choose:focus:hover {
+  background-color: white;
+  color: #db7500;
+  border: 1px solid #db7500;
+}
+.selector-SPEAR-choose:hover span,
+.selector-SPEAR-choose:focus:hover span {
+  filter: invert(44%) sepia(90%) saturate(1511%) hue-rotate(10deg) brightness(94%) contrast(104%);
+}
+
+.item-AXE {
+  color: #bf0a0a;
+  background-color: white;
+}
+.item-AXE a {
+  color: #bf0a0a;
+  background-color: white;
+}
+.item-AXE span {
+  filter: invert(20%) sepia(77%) saturate(3209%) hue-rotate(348deg) brightness(78%) contrast(118%);
+  background-image: url(../svg/axe.svg);
+}
+.item-AXE:hover {
+  color: white;
+  background-color: #bf0a0a;
+}
+.item-AXE:hover a {
+  color: white;
+  background-color: #bf0a0a;
+}
+.item-AXE:hover span {
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+}
+
+.sitem-AXE {
+  color: white;
+  background-color: #bf0a0a;
+}
+.sitem-AXE a {
+  color: white;
+  background-color: #bf0a0a;
+}
+.sitem-AXE span {
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+  background-image: url(../svg/axe.svg);
+}
+.sitem-AXE:hover {
+  color: #bf0a0a;
+  background-color: white;
+}
+.sitem-AXE:hover a {
+  color: #bf0a0a;
+  background-color: white;
+}
+.sitem-AXE:hover span {
+  filter: invert(20%) sepia(77%) saturate(3209%) hue-rotate(348deg) brightness(78%) contrast(118%);
+}
+
+.selected-AXE {
+  border-color: #bf0a0a;
+  color: #bf0a0a;
+}
+.selected-AXE p span {
+  filter: invert(20%) sepia(77%) saturate(3209%) hue-rotate(348deg) brightness(78%) contrast(118%);
+  background-image: url(../svg/axe.svg);
+}
+
+.selector-AXE,
+.selector-AXE:focus {
+  outline: none;
+  background-color: white;
+  color: #bf0a0a;
+  border: 1px solid #bf0a0a;
+}
+.selector-AXE span,
+.selector-AXE:focus span {
+  filter: invert(20%) sepia(77%) saturate(3209%) hue-rotate(348deg) brightness(78%) contrast(118%);
+  background-image: url(../svg/axe.svg);
+}
+.selector-AXE:hover,
+.selector-AXE:focus:hover {
+  background-color: #bf0a0a;
+  color: white;
+}
+.selector-AXE:hover span,
+.selector-AXE:focus:hover span {
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+}
+
+.selector-AXE-choose,
+.selector-AXE-choose:focus {
+  outline: none;
+  background-color: #bf0a0a;
+  color: white;
+}
+.selector-AXE-choose span,
+.selector-AXE-choose:focus span {
+  background-image: url(../svg/axe.svg);
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+}
+.selector-AXE-choose:hover,
+.selector-AXE-choose:focus:hover {
+  background-color: white;
+  color: #bf0a0a;
+  border: 1px solid #bf0a0a;
+}
+.selector-AXE-choose:hover span,
+.selector-AXE-choose:focus:hover span {
+  filter: invert(20%) sepia(77%) saturate(3209%) hue-rotate(348deg) brightness(78%) contrast(118%);
+}
+
+.item-FIST {
+  color: #02bf80;
+  background-color: white;
+}
+.item-FIST a {
+  color: #02bf80;
+  background-color: white;
+}
+.item-FIST span {
+  filter: invert(45%) sepia(100%) saturate(692%) hue-rotate(121deg) brightness(97%) contrast(98%);
+  background-image: url(../svg/fist.svg);
+}
+.item-FIST:hover {
+  color: white;
+  background-color: #02bf80;
+}
+.item-FIST:hover a {
+  color: white;
+  background-color: #02bf80;
+}
+.item-FIST:hover span {
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+}
+
+.sitem-FIST {
+  color: white;
+  background-color: #02bf80;
+}
+.sitem-FIST a {
+  color: white;
+  background-color: #02bf80;
+}
+.sitem-FIST span {
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+  background-image: url(../svg/fist.svg);
+}
+.sitem-FIST:hover {
+  color: #02bf80;
+  background-color: white;
+}
+.sitem-FIST:hover a {
+  color: #02bf80;
+  background-color: white;
+}
+.sitem-FIST:hover span {
+  filter: invert(45%) sepia(100%) saturate(692%) hue-rotate(121deg) brightness(97%) contrast(98%);
+}
+
+.selected-FIST {
+  border-color: #02bf80;
+  color: #02bf80;
+}
+.selected-FIST p span {
+  filter: invert(45%) sepia(100%) saturate(692%) hue-rotate(121deg) brightness(97%) contrast(98%);
+  background-image: url(../svg/fist.svg);
+}
+
+.selector-FIST,
+.selector-FIST:focus {
+  outline: none;
+  background-color: white;
+  color: #02bf80;
+  border: 1px solid #02bf80;
+}
+.selector-FIST span,
+.selector-FIST:focus span {
+  filter: invert(45%) sepia(100%) saturate(692%) hue-rotate(121deg) brightness(97%) contrast(98%);
+  background-image: url(../svg/fist.svg);
+}
+.selector-FIST:hover,
+.selector-FIST:focus:hover {
+  background-color: #02bf80;
+  color: white;
+}
+.selector-FIST:hover span,
+.selector-FIST:focus:hover span {
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+}
+
+.selector-FIST-choose,
+.selector-FIST-choose:focus {
+  outline: none;
+  background-color: #02bf80;
+  color: white;
+}
+.selector-FIST-choose span,
+.selector-FIST-choose:focus span {
+  background-image: url(../svg/fist.svg);
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+}
+.selector-FIST-choose:hover,
+.selector-FIST-choose:focus:hover {
+  background-color: white;
+  color: #02bf80;
+  border: 1px solid #02bf80;
+}
+.selector-FIST-choose:hover span,
+.selector-FIST-choose:focus:hover span {
+  filter: invert(45%) sepia(100%) saturate(692%) hue-rotate(121deg) brightness(97%) contrast(98%);
+}
+
+.item-DAGGER {
+  color: #a602b5;
+  background-color: white;
+}
+.item-DAGGER a {
+  color: #a602b5;
+  background-color: white;
+}
+.item-DAGGER span {
+  filter: invert(19%) sepia(90%) saturate(7108%) hue-rotate(291deg) brightness(80%) contrast(111%);
+  background-image: url(../svg/dagger.svg);
+}
+.item-DAGGER:hover {
+  color: white;
+  background-color: #a602b5;
+}
+.item-DAGGER:hover a {
+  color: white;
+  background-color: #a602b5;
+}
+.item-DAGGER:hover span {
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+}
+
+.sitem-DAGGER {
+  color: white;
+  background-color: #a602b5;
+}
+.sitem-DAGGER a {
+  color: white;
+  background-color: #a602b5;
+}
+.sitem-DAGGER span {
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+  background-image: url(../svg/dagger.svg);
+}
+.sitem-DAGGER:hover {
+  color: #a602b5;
+  background-color: white;
+}
+.sitem-DAGGER:hover a {
+  color: #a602b5;
+  background-color: white;
+}
+.sitem-DAGGER:hover span {
+  filter: invert(19%) sepia(90%) saturate(7108%) hue-rotate(291deg) brightness(80%) contrast(111%);
+}
+
+.selected-DAGGER {
+  border-color: #a602b5;
+  color: #a602b5;
+}
+.selected-DAGGER p span {
+  filter: invert(19%) sepia(90%) saturate(7108%) hue-rotate(291deg) brightness(80%) contrast(111%);
+  background-image: url(../svg/dagger.svg);
+}
+
+.selector-DAGGER,
+.selector-DAGGER:focus {
+  outline: none;
+  background-color: white;
+  color: #a602b5;
+  border: 1px solid #a602b5;
+}
+.selector-DAGGER span,
+.selector-DAGGER:focus span {
+  filter: invert(19%) sepia(90%) saturate(7108%) hue-rotate(291deg) brightness(80%) contrast(111%);
+  background-image: url(../svg/dagger.svg);
+}
+.selector-DAGGER:hover,
+.selector-DAGGER:focus:hover {
+  background-color: #a602b5;
+  color: white;
+}
+.selector-DAGGER:hover span,
+.selector-DAGGER:focus:hover span {
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+}
+
+.selector-DAGGER-choose,
+.selector-DAGGER-choose:focus {
+  outline: none;
+  background-color: #a602b5;
+  color: white;
+}
+.selector-DAGGER-choose span,
+.selector-DAGGER-choose:focus span {
+  background-image: url(../svg/dagger.svg);
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+}
+.selector-DAGGER-choose:hover,
+.selector-DAGGER-choose:focus:hover {
+  background-color: white;
+  color: #a602b5;
+  border: 1px solid #a602b5;
+}
+.selector-DAGGER-choose:hover span,
+.selector-DAGGER-choose:focus:hover span {
+  filter: invert(19%) sepia(90%) saturate(7108%) hue-rotate(291deg) brightness(80%) contrast(111%);
+}
+
+.item-STAFF {
+  color: #54bf02;
+  background-color: white;
+}
+.item-STAFF a {
+  color: #54bf02;
+  background-color: white;
+}
+.item-STAFF span {
+  filter: invert(66%) sepia(52%) saturate(818%) hue-rotate(45deg) brightness(84%) contrast(106%);
+  background-image: url(../svg/staff.svg);
+}
+.item-STAFF:hover {
+  color: white;
+  background-color: #54bf02;
+}
+.item-STAFF:hover a {
+  color: white;
+  background-color: #54bf02;
+}
+.item-STAFF:hover span {
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+}
+
+.sitem-STAFF {
+  color: white;
+  background-color: #54bf02;
+}
+.sitem-STAFF a {
+  color: white;
+  background-color: #54bf02;
+}
+.sitem-STAFF span {
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+  background-image: url(../svg/staff.svg);
+}
+.sitem-STAFF:hover {
+  color: #54bf02;
+  background-color: white;
+}
+.sitem-STAFF:hover a {
+  color: #54bf02;
+  background-color: white;
+}
+.sitem-STAFF:hover span {
+  filter: invert(66%) sepia(52%) saturate(818%) hue-rotate(45deg) brightness(84%) contrast(106%);
+}
+
+.selected-STAFF {
+  border-color: #54bf02;
+  color: #54bf02;
+}
+.selected-STAFF p span {
+  filter: invert(66%) sepia(52%) saturate(818%) hue-rotate(45deg) brightness(84%) contrast(106%);
+  background-image: url(../svg/staff.svg);
+}
+
+.selector-STAFF,
+.selector-STAFF:focus {
+  outline: none;
+  background-color: white;
+  color: #54bf02;
+  border: 1px solid #54bf02;
+}
+.selector-STAFF span,
+.selector-STAFF:focus span {
+  filter: invert(66%) sepia(52%) saturate(818%) hue-rotate(45deg) brightness(84%) contrast(106%);
+  background-image: url(../svg/staff.svg);
+}
+.selector-STAFF:hover,
+.selector-STAFF:focus:hover {
+  background-color: #54bf02;
+  color: white;
+}
+.selector-STAFF:hover span,
+.selector-STAFF:focus:hover span {
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+}
+
+.selector-STAFF-choose,
+.selector-STAFF-choose:focus {
+  outline: none;
+  background-color: #54bf02;
+  color: white;
+}
+.selector-STAFF-choose span,
+.selector-STAFF-choose:focus span {
+  background-image: url(../svg/staff.svg);
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+}
+.selector-STAFF-choose:hover,
+.selector-STAFF-choose:focus:hover {
+  background-color: white;
+  color: #54bf02;
+  border: 1px solid #54bf02;
+}
+.selector-STAFF-choose:hover span,
+.selector-STAFF-choose:focus:hover span {
+  filter: invert(66%) sepia(52%) saturate(818%) hue-rotate(45deg) brightness(84%) contrast(106%);
+}
+
+.item-BOW {
+  color: #b50045;
+  background-color: white;
+}
+.item-BOW a {
+  color: #b50045;
+  background-color: white;
+}
+.item-BOW span {
+  filter: invert(9%) sepia(72%) saturate(7476%) hue-rotate(330deg) brightness(88%) contrast(102%);
+  background-image: url(../svg/bow.svg);
+}
+.item-BOW:hover {
+  color: white;
+  background-color: #b50045;
+}
+.item-BOW:hover a {
+  color: white;
+  background-color: #b50045;
+}
+.item-BOW:hover span {
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+}
+
+.sitem-BOW {
+  color: white;
+  background-color: #b50045;
+}
+.sitem-BOW a {
+  color: white;
+  background-color: #b50045;
+}
+.sitem-BOW span {
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+  background-image: url(../svg/bow.svg);
+}
+.sitem-BOW:hover {
+  color: #b50045;
+  background-color: white;
+}
+.sitem-BOW:hover a {
+  color: #b50045;
+  background-color: white;
+}
+.sitem-BOW:hover span {
+  filter: invert(9%) sepia(72%) saturate(7476%) hue-rotate(330deg) brightness(88%) contrast(102%);
+}
+
+.selected-BOW {
+  border-color: #b50045;
+  color: #b50045;
+}
+.selected-BOW p span {
+  filter: invert(9%) sepia(72%) saturate(7476%) hue-rotate(330deg) brightness(88%) contrast(102%);
+  background-image: url(../svg/bow.svg);
+}
+
+.selector-BOW,
+.selector-BOW:focus {
+  outline: none;
+  background-color: white;
+  color: #b50045;
+  border: 1px solid #b50045;
+}
+.selector-BOW span,
+.selector-BOW:focus span {
+  filter: invert(9%) sepia(72%) saturate(7476%) hue-rotate(330deg) brightness(88%) contrast(102%);
+  background-image: url(../svg/bow.svg);
+}
+.selector-BOW:hover,
+.selector-BOW:focus:hover {
+  background-color: #b50045;
+  color: white;
+}
+.selector-BOW:hover span,
+.selector-BOW:focus:hover span {
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+}
+
+.selector-BOW-choose,
+.selector-BOW-choose:focus {
+  outline: none;
+  background-color: #b50045;
+  color: white;
+}
+.selector-BOW-choose span,
+.selector-BOW-choose:focus span {
+  background-image: url(../svg/bow.svg);
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+}
+.selector-BOW-choose:hover,
+.selector-BOW-choose:focus:hover {
+  background-color: white;
+  color: #b50045;
+  border: 1px solid #b50045;
+}
+.selector-BOW-choose:hover span,
+.selector-BOW-choose:focus:hover span {
+  filter: invert(9%) sepia(72%) saturate(7476%) hue-rotate(330deg) brightness(88%) contrast(102%);
+}
+
+.item-OTHER {
+  color: #844af0;
+  background-color: white;
+}
+.item-OTHER a {
+  color: #844af0;
+  background-color: white;
+}
+.item-OTHER span {
+  filter: invert(28%) sepia(39%) saturate(4938%) hue-rotate(250deg) brightness(100%) contrast(89%);
+  background-image: url(../svg/claw.svg);
+}
+.item-OTHER:hover {
+  color: white;
+  background-color: #844af0;
+}
+.item-OTHER:hover a {
+  color: white;
+  background-color: #844af0;
+}
+.item-OTHER:hover span {
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+}
+
+.sitem-OTHER {
+  color: white;
+  background-color: #844af0;
+}
+.sitem-OTHER a {
+  color: white;
+  background-color: #844af0;
+}
+.sitem-OTHER span {
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+  background-image: url(../svg/claw.svg);
+}
+.sitem-OTHER:hover {
+  color: #844af0;
+  background-color: white;
+}
+.sitem-OTHER:hover a {
+  color: #844af0;
+  background-color: white;
+}
+.sitem-OTHER:hover span {
+  filter: invert(28%) sepia(39%) saturate(4938%) hue-rotate(250deg) brightness(100%) contrast(89%);
+}
+
+.selected-OTHER {
+  border-color: #844af0;
+  color: #844af0;
+}
+.selected-OTHER p span {
+  filter: invert(28%) sepia(39%) saturate(4938%) hue-rotate(250deg) brightness(100%) contrast(89%);
+  background-image: url(../svg/claw.svg);
+}
+
+.selector-OTHER,
+.selector-OTHER:focus {
+  outline: none;
+  background-color: white;
+  color: #844af0;
+  border: 1px solid #844af0;
+}
+.selector-OTHER span,
+.selector-OTHER:focus span {
+  filter: invert(28%) sepia(39%) saturate(4938%) hue-rotate(250deg) brightness(100%) contrast(89%);
+  background-image: url(../svg/claw.svg);
+}
+.selector-OTHER:hover,
+.selector-OTHER:focus:hover {
+  background-color: #844af0;
+  color: white;
+}
+.selector-OTHER:hover span,
+.selector-OTHER:focus:hover span {
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+}
+
+.selector-OTHER-choose,
+.selector-OTHER-choose:focus {
+  outline: none;
+  background-color: #844af0;
+  color: white;
+}
+.selector-OTHER-choose span,
+.selector-OTHER-choose:focus span {
+  background-image: url(../svg/claw.svg);
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+}
+.selector-OTHER-choose:hover,
+.selector-OTHER-choose:focus:hover {
+  background-color: white;
+  color: #844af0;
+  border: 1px solid #844af0;
+}
+.selector-OTHER-choose:hover span,
+.selector-OTHER-choose:focus:hover span {
+  filter: invert(28%) sepia(39%) saturate(4938%) hue-rotate(250deg) brightness(100%) contrast(89%);
+}

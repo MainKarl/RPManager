@@ -22,5 +22,13 @@
   {
     "outputFile": "wwwroot/sass/DropDownList.css",
     "inputFile": "wwwroot/sass/DropDownList.scss"
+  },
+  {
+    "outputFile": "wwwroot/sass/EnumerableStyle.css",
+    "inputFile": "wwwroot/sass/EnumerableStyle.scss"
+  },
+  {
+    "outputFile": "wwwroot/sass/constant.css",
+    "inputFile": "wwwroot/sass/constant.scss"
   }
 ]

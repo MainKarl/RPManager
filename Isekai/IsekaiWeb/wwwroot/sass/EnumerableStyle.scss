@@ -1,0 +1,115 @@
+﻿@import 'constant.scss';
+
+/* Weapon */
+@each $weaponColor, $i in $weaponColors {
+    .item-#{$weaponColor} {
+        color: $i;
+        background-color: white;
+
+        a {
+            color: $i;
+            background-color: white;
+        }
+
+        span {
+            @include weaponTypeIconColor($weaponColor);
+            @include weaponTypeIconImage($weaponColor);
+        }
+
+        &:hover {
+            color: white;
+            background-color: $i;
+
+            a {
+                color: white;
+                background-color: $i;
+            }
+
+            span {
+                filter: $white-filter;
+            }
+        }
+    }
+
+    .sitem-#{$weaponColor} {
+        color: white;
+        background-color: $i;
+
+        a {
+            color: white;
+            background-color: $i;
+        }
+
+        span {
+            filter: $white-filter;
+            @include weaponTypeIconImage($weaponColor);
+        }
+
+        &:hover {
+            color: $i;
+            background-color: white;
+
+            a {
+                color: $i;
+                background-color: white;
+            }
+
+            span {
+                @include weaponTypeIconColor($weaponColor);
+            }
+        }
+    }
+
+    .selected-#{$weaponColor}{
+        border-color: $i;
+        color: $i;
+
+        p span {
+            @include weaponTypeIconColor($weaponColor);
+            @include weaponTypeIconImage($weaponColor);
+        }
+    }
+
+    .selector-#{$weaponColor},
+    .selector-#{$weaponColor}:focus {
+        outline: none;
+        background-color: white;
+        color: $i;
+        border: 1px solid $i;
+
+        span{
+            @include weaponTypeIconColor($weaponColor);
+            @include weaponTypeIconImage($weaponColor);
+        }
+
+        &:hover {
+            background-color: $i;
+            color: white;
+
+            span{
+                filter: $white-filter;
+            }
+        }
+    }
+    .selector-#{$weaponColor}-choose,
+    .selector-#{$weaponColor}-choose:focus {
+        outline: none;
+        background-color: $i;
+        color: white;
+
+        span{
+            @include weaponTypeIconImage($weaponColor);
+            filter: $white-filter;
+        }
+
+        &:hover {
+            background-color: white;
+            color: $i;
+            border: 1px solid $i;
+
+            span{
+                @include weaponTypeIconColor($weaponColor);
+            }
+        }
+    }
+}
