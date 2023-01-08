@@ -2,28 +2,20 @@
 
 /* Weapon Type */
 @each $weaponColor, $i in $weaponColors {
-    .item-#{$weaponColor} {
+    .item-#{$weaponColor},
+    .item-#{$weaponColor} a{
         color: $i;
         background-color: white;
-
-        a {
-            color: $i;
-            background-color: white;
-        }
 
         span {
             @include weaponTypeIconColor($weaponColor);
             @include weaponTypeIconImage($weaponColor);
         }
 
-        &:hover {
+        &:hover,
+        &:hover a{
             color: white;
             background-color: $i;
-
-            a {
-                color: white;
-                background-color: $i;
-            }
 
             span {
                 filter: $white-filter;
@@ -31,28 +23,20 @@
         }
     }
 
-    .sitem-#{$weaponColor} {
+    .sitem-#{$weaponColor},
+    .sitem-#{$weaponColor} a{
         color: white;
         background-color: $i;
-
-        a {
-            color: white;
-            background-color: $i;
-        }
 
         span {
             filter: $white-filter;
             @include weaponTypeIconImage($weaponColor);
         }
 
-        &:hover {
+        &:hover,
+        &:hover a{
             color: $i;
             background-color: white;
-
-            a {
-                color: $i;
-                background-color: white;
-            }
 
             span {
                 @include weaponTypeIconColor($weaponColor);
@@ -114,30 +98,54 @@
     }
 }
 
-/* Damage Type */
-@each $damageColor, $i in $damageTypes {
-    .item-#{$damageColor}{
+/* Rank */
+@each $rankColor, $i in $ranks {
+    .item-#{$rankColor},
+    .item-#{$rankColor} a{
         color: $i;
         background-color: white;
 
-        a{
-            color: $i;
-            background-color: white;
+        &:hover,
+        &:hover a{
+            color: white;
+            background-color: $i;
         }
+    }
+
+    .sitem-#{$rankColor},
+    .sitem-#{$rankColor} a {
+        color: white;
+        background-color: $i;
+
+        &:hover,
+        &:hover a{
+            color: $i;
+            background-color: $i;
+        }
+    }
+
+    .selected-#{$rankColor}{
+        border-color: $i;
+        color: $i;
+    }
+}
+
+/* Damage Type */
+@each $damageColor, $i in $damageTypes {
+    .item-#{$damageColor},
+    .item-#{$damageColor} a{
+        color: $i;
+        background-color: white;
 
         span{
             @include damageTypeIconColor($damageColor);
             @include damageTypeIconImage($damageColor);
         }
 
-        &:hover{
+        &:hover,
+        &:hover a{
             color: white;
             background-color: $i;
-
-            a{
-                color: white;
-                background-color: $i;
-            }
 
             span {
                 filter: $white-filter;

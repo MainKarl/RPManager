@@ -4,7 +4,6 @@ const clickList = (event) => {
 }
 const chooseItem = (event) => {
     var itemChoose = event.path[0].innerText.slice(1);
-    console.log(itemChoose);
     var itemChooseUpper = event.path[0].innerText.slice(1).toUpperCase();
     var parent = event.path[3];
     var parentText = parent.childNodes[1].innerText.slice(1).toUpperCase();

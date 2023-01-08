@@ -56,13 +56,9 @@ namespace IsekaiWeb.ViewComponents
                 "Other"
             };
 
-            List<SelectListItem> passives = new List<SelectListItem>();
-            int index = 1;
-            passives.Add(new SelectListItem { Value = "Default", Text = "-- Passives --", Selected = true });
-            foreach (Passive item in _context.Passives.Where(c => c.Type == PassiveType.WEAPON).OrderBy(c => c.Name)) {
-                index++;
-                passives.Add(new SelectListItem { Value = index.ToString(), Text = item.Name });
-            }
+            List<string> passives = new List<string>();
+            foreach (Passive item in _context.Passives.Where(c => c.Type == PassiveType.WEAPON).OrderBy(c => c.Name))
+                passives.Add(item.Name);
 
             WeaponAddVM model;
             if (id.Equals("")) {

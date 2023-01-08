@@ -1,12 +1,39 @@
-﻿/*
-    General
-*/
+﻿
+/* General */
+
+.hidden {
+    display: none;
+    visibility: hidden;
+}
 
 .icon {
     display: inline-block;
     width: 16px;
     height: 18px;
     background-size: cover;
+}
+
+.cbtn {
+    transition: all .5s ease-in-out;
+    //border-width: 1px;
+    //outline: none;
+}
+
+.form-group-werror{
+    margin-bottom:0;
+    display: flex;
+    width:100%;
+}
+.form-error {
+    margin-bottom: 1rem;
+    margin-left: 13%;
+    width: 100%;
+    display: flex;
+
+    span{
+        color: red;
+        margin-top:.5%;
+    }
 }
 
 $white-filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
@@ -29,9 +56,7 @@ $update-border-color: rgb(199, 196, 2);
 $update-background-color: rgba(224, 221, 2, .1);
 $update-border: 1px solid $update-border-color;
 
-/*
-    Weapon Type
-*/
+/* Weapon Type */
 
 $all-weapon-color: #e6cf07;
 
@@ -126,9 +151,25 @@ $weaponColors: (
 );
 
 
-/*
-    Damage Type
-*/
+/* Rank */
+
+$e-color: #3E4C5E;
+$d-color: #788AA3;
+$c-color: #BEB0A7;
+$b-color: #C6C5B9;
+$a-color: #E7BB41;
+$s-color: #5A2328;
+
+$ranks: (
+    "E":$e-color,
+    "D":$d-color,
+    "C":$c-color,
+    "B":$b-color,
+    "A":$a-color,
+    "S":$s-color
+);
+
+/* Damage Type */
 
 $arcane-color: #C1839F;
 $arcane-filter: invert(57%) sepia(62%) saturate(222%) hue-rotate(281deg) brightness(91%) contrast(84%);

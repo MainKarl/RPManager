@@ -9,8 +9,8 @@
     var priceId = Model.Update ? "Price-" + Model.Id : "Price";
     var passiveId = Model.Update ? "Passive-" + Model.Id : "Passive";
     var weaponTypeId = Model.Update ? "WeaponType-" + Model.Id : "WeaponType";
-    var damageTypeId = Model.Update ? "DamageTypes-" + Model.Id : "DamageTypes";
-    var rankId = Model.Update ? "Ranks-" + Model.Id : "Ranks";
+    var damageTypeId = Model.Update ? "DamageType-" + Model.Id : "DamageType";
+    var rankId = Model.Update ? "Rank-" + Model.Id : "Rank";
 
     var passivesId = Model.Update ? "Passives-" + Model.Id : "Passives";
 
@@ -24,13 +24,14 @@
         <div class="form-label">Image: </div>
         <input asp-for="Path" id="@pathId" name="Path" class="form-control" placeholder="Image link" />
     </div>
-    <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <div class="form-group-werror col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
         <div class="form-label">Name: </div>
-        <input asp-for="Name" id="@nameId" name="Name" class="form-control" placeholder="Weapon's Name" />
+        <input asp-for="Name" id="@nameId" name="Name" class="form-control" placeholder="Weapon's Name" required />
     </div>
-    <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <div class="form-error col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"><span id="name-error"></span></div>
+    <div class="form-group-werror col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
         <div id="@weaponTypeId" class="dropdownlist form-control">
-            <p>@Model.WeaponType</p>
+            <p><span></span>@Model.WeaponType</p>
             <ul class="dropdown">
                 @foreach (string weaponType in Model.WeaponTypes){
                     <li id="@weaponType.ToUpper()" class="item-@weaponType.ToUpper()"><a><span class="icon"></span> @weaponType</a></li>
@@ -38,9 +39,10 @@
             </ul>
         </div>
     </div>
-    <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <div class="form-error col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"><span id="weaponType-error"></span></div>
+    <div class="form-group-werror col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
         <div id="@rankId" class="dropdownlist form-control">
-            <p>@Model.Rank</p>
+            <p><span></span>@Model.Rank</p>
             <ul class="dropdown">
                 @foreach (string rank in Model.Ranks) {
                     <li id="@rank.ToUpper()" class="item-@rank.ToUpper()"><a><span class="icon"></span> @rank</a></li>
@@ -48,9 +50,10 @@
             </ul>
         </div>
     </div>
-    <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <div class="form-error col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"><span id="rank-error"></span></div>
+    <div class="form-group-werror col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
         <div id="@damageTypeId" class="dropdownlist form-control">
-            <p>@Model.DamageType</p>
+            <p><span></span>@Model.DamageType</p>
             <ul class="dropdown">
                 @foreach (string damageType in Model.DamageTypes) {
                     <li id="@damageType.ToUpper()" class="item-@damageType.ToUpper()"><a><span class="icon"></span> @damageType</a></li>
@@ -58,39 +61,49 @@
             </ul>
         </div>
     </div>
-    <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"> 
+    <div class="form-error col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"><span id="damageType-error"></span></div>
+    <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
         <div class="form-label">Damage: </div>
-        <button class="form-button ml-2 mr-1" onclick="decrementDamage()"><i class="fa fa-minus"></i></button>
+        <button class="cbtn form-button ml-2 mr-1" onclick="decrementDamage()"><i class="fa fa-minus"></i></button>
         <input asp-for="Damage" id="@damageId" name="Damage" class="form-control" type="number" value="0" min="0" max="50" disabled />
-        <button class="form-button ml-1" onclick="incrementDamage()"><i class="fa fa-plus"></i></button>
+        <button class="cbtn form-button ml-1" onclick="incrementDamage()"><i class="fa fa-plus"></i></button>
     </div>
     <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
         <div class="form-label">Accuracy: </div>
-        <button class="form-button ml-2 mr-1" onclick="decrementAccuracy()"><i class="fa fa-minus"></i></button>
+        <button class="cbtn form-button ml-2 mr-1" onclick="decrementAccuracy()"><i class="fa fa-minus"></i></button>
         <input asp-for="Accuracy" id="@accuracyId" name="Accuracy" class="form-control" type="number" value="0" step="5" min="-100" max="100" disabled />
-        <button class="form-button ml-1" onclick="incrementAccuracy()"><i class="fa fa-plus"></i></button>
+        <button class="cbtn form-button ml-1" onclick="incrementAccuracy()"><i class="fa fa-plus"></i></button>
     </div>
     <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
         <div class="form-label">Crit: </div>
-        <button class="form-button ml-2 mr-1" onclick="decrementCrit()"><i class="fa fa-minus"></i></button>
+        <button class="cbtn form-button ml-2 mr-1" onclick="decrementCrit()"><i class="fa fa-minus"></i></button>
         <input asp-for="Crit" id="@critId" name="Crit" class="form-control" type="number" value="0" step="5" min="-100" max="100" disabled />
-        <button class="form-button ml-1" onclick="incrementCrit()"><i class="fa fa-plus"></i></button>
+        <button class="cbtn form-button ml-1" onclick="incrementCrit()"><i class="fa fa-plus"></i></button>
     </div>
-    <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <div class="form-group-werror col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
         <div class="form-label">Price: </div>
-        <button class="form-button ml-2 mr-1" onclick="decrementPrice()"><i class="fa fa-minus"></i></button>
+        <button class="cbtn form-button ml-2 mr-1" onclick="decrementPrice()"><i class="fa fa-minus"></i></button>
         <input asp-for="Price" id="@priceId" name="Price" class="form-control" type="number" value="0" step="5" min="0" max="100000" />
-        <button class="form-button ml-1" onclick="incrementPrice()"><i class="fa fa-plus"></i></button>
+        <button class="cbtn form-button ml-1" onclick="incrementPrice()"><i class="fa fa-plus"></i></button>
     </div>
+    <div class="form-error col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"><span id="price-error"></span></div>
     <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-        <select id="@passivesId" class="Passives form-control" name="Passives" asp-items="@Model.Passives"></select>
+        <div id="@passivesId" class="dropdownlist form-control">
+            <p><span></span> -- Passive --</p>
+            <ul class="dropdown">
+                @foreach (string passive in Model.Passives) {
+                    <li id="@passive" class="item-passive"><a><span class="icon"></span> @passive</a></li>
+                }
+            </ul>
+        </div>
+        @*<select id="@passivesId" class="Passives form-control" name="Passives" asp-items="@Model.Passives"></select>*@
     </div>
     <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
         @if (Model.Update) {
-            <input class="btn-submit mb-3" type="submit" value="Update" onclick="updateWeapon()" />
+            <input class="cbtn btn-submit mb-3" type="submit" value="Update" onclick="updateWeapon()" />
         }
         else {
-            <input class="btn-submit mb-3" type="submit" value="Create" onclick="addWeapon()" />
+            <input class="cbtn btn-submit mb-3" type="submit" value="Create" onclick="addWeapon()" />
         }
         <button class="btn-cancel mb-3" onclick="hide()">Cancel</button>
     </div>
@@ -100,6 +113,7 @@
     var weaponTypeList = document.getElementById('@weaponTypeId');
     var rankList = document.getElementById('@rankId');
     var damageTypeList = document.getElementById('@damageTypeId');
+    var passiveList = document.getElementById('@passivesId');
 
     weaponTypeList.addEventListener('click', clickList);
     addChildEvent('@weaponTypeId');
@@ -109,6 +123,8 @@
 
     damageTypeList.addEventListener('click', clickList);
     addChildEvent('@damageTypeId');
+
+    passiveList.addEventListener('click', clickList);
 
     function isUpdate(){
         return document.getElementById('Update').value

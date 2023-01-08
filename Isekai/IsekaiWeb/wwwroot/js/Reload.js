@@ -140,43 +140,77 @@ function refreshWeaponAdd() {
     })
 }
 function WeaponAddPost() {
-    var name = document.getElementById('Name').value;
-    var rankElement = document.getElementById('Ranks');
-    var damageTypeElement = document.getElementById('DamageTypes');
-    var weaponTypeElement = document.getElementById('WeaponTypes');
+    var error = false;
+    var weaponName = document.getElementById('Name');
+    var weaponPrice = document.getElementById('Price');
+    var rankElement = document.getElementById('Rank').childNodes[1].childNodes[1];
+    var damageTypeElement = document.getElementById('DamageType').childNodes[1].childNodes[1];
+    var weaponTypeElement = document.getElementById('WeaponType').childNodes[1].childNodes[1];
 
-    $.ajax({
-        url: '/Weapon/Add',
-        type: 'POST',
-        data: {
-            name: document.getElementById('Name').value,
-            damage: document.getElementById('Damage').value,
-            accuracy: document.getElementById('Accuracy').value,
-            crit: document.getElementById('Crit').value,
-            price: document.getElementById('Price').value,
-            rank: rankElement.options[rankElement.selectedIndex].text,
-            damageType: damageTypeElement.options[damageTypeElement.selectedIndex].text,
-            type: weaponTypeElement.options[weaponTypeElement.selectedIndex].text,
-            path: document.getElementById('Path').value,
-            passive: document.getElementById('Passive').value
-        },
-        success: function (data) {
-            if (data == true) {
-                $.alert({
-                    title: 'Weapon Added!',
-                    content: name + ' was added to the Weapon list!',
-                    buttons: {
-                        confirm: function () {
-                            //document.getElementById('button-add').classList.remove('hidden');
-                            //document.getElementById('weapon-form').classList.add('hidden');
-                            //$('#weapon-form').html("");
-                            //refreshWeaponList(1);
+    if (weaponName.value == "") {
+        document.getElementById('name-error').innerHTML = "The name is required!";
+        error = true;
+    }
+    else { document.getElementById('name-error').innerHTML = ""; }
+
+    if (rankElement.nodeValue.startsWith("--")) {
+        document.getElementById('rank-error').innerHTML = "You must choose a rank!";
+        error = true;
+    }
+    else { document.getElementById('rank-error').innerHTML = ""; }
+
+    if (damageTypeElement.nodeValue.startsWith("--")) {
+        document.getElementById('damageType-error').innerHTML = "You must choose a damage type!";
+        error = true;
+    }
+    else { document.getElementById('damageType-error').innerHTML = ""; }
+
+    if (weaponTypeElement.nodeValue.startsWith("--")) {
+        document.getElementById('weaponType-error').innerHTML = "You must choose a weapon type!";
+        error = true;
+    }
+    else { document.getElementById('weaponType-error').innerHTML = ""; }
+
+    if (weaponPrice.value == '') {
+        document.getElementById('price-error').innerHTML = "The price is required!";
+        error = true;
+    }
+    else { document.getElementById('price-error').innerHTML = ""; }
+
+    if (!error) {
+        $.ajax({
+            url: '/Weapon/Add',
+            type: 'POST',
+            data: {
+                name: weaponName.value,
+                damage: document.getElementById('Damage').value,
+                accuracy: document.getElementById('Accuracy').value,
+                crit: document.getElementById('Crit').value,
+                price: document.getElementById('Price').value,
+                rank: rankElement.nodeValue.slice(1),
+                damageType: damageTypeElement.nodeValue.slice(1),
+                type: weaponTypeElement.nodeValue.slice(1),
+                path: document.getElementById('Path').value,
+                passive: document.getElementById('Passive').value
+            },
+            success: function (data) {
+                if (data == true) {
+                    $.alert({
+                        title: 'Weapon Added!',
+                        content: name + ' was added to the Weapon list!',
+                        buttons: {
+                            confirm: function () {
+                                //document.getElementById('button-add').classList.remove('hidden');
+                                //document.getElementById('weapon-form').classList.add('hidden');
+                                //$('#weapon-form').html("");
+                                //refreshWeaponList(1);
+                            }
                         }
-                    }
-                })
+                    })
+                }
             }
-        }
-    })
+        })
+    }
 }
 function refreshWeaponUpdate() {
 

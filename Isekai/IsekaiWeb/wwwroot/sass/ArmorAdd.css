@@ -42,11 +42,6 @@
   margin-right: auto;
 }
 
-.hidden {
-  display: none;
-  visibility: hidden;
-}
-
 .form-group-number {
   display: flex;
 }
