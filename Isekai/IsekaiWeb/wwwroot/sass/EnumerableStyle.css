@@ -9,9 +9,12 @@
 }
 
 /*
-    Weapon
+    Weapon Type
 */
-/* Weapon */
+/*
+    Damage Type
+*/
+/* Weapon Type */
 .item-ALL {
   color: #e6cf07;
   background-color: white;
@@ -894,4 +897,518 @@
 .selector-OTHER-choose:hover span,
 .selector-OTHER-choose:focus:hover span {
   filter: invert(28%) sepia(39%) saturate(4938%) hue-rotate(250deg) brightness(100%) contrast(89%);
+}
+
+/* Damage Type */
+.item-ARCANE {
+  color: #C1839F;
+  background-color: white;
+}
+.item-ARCANE a {
+  color: #C1839F;
+  background-color: white;
+}
+.item-ARCANE span {
+  filter: invert(57%) sepia(62%) saturate(222%) hue-rotate(281deg) brightness(91%) contrast(84%);
+  background-image: url(../svg/arcane.svg);
+}
+.item-ARCANE:hover {
+  color: white;
+  background-color: #C1839F;
+}
+.item-ARCANE:hover a {
+  color: white;
+  background-color: #C1839F;
+}
+.item-ARCANE:hover span {
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+}
+
+.sitem-ARCANE {
+  color: white;
+  background-color: #C1839F;
+}
+.sitem-ARCANE a {
+  color: white;
+  background-color: #C1839F;
+}
+.sitem-ARCANE span {
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+  background-image: url(../svg/arcane.svg);
+}
+.sitem-ARCANE:hover {
+  color: #C1839F;
+  background-color: white;
+}
+.sitem-ARCANE:hover a {
+  color: #C1839F;
+  background-color: white;
+}
+.sitem-ARCANE:hover span {
+  filter: invert(57%) sepia(62%) saturate(222%) hue-rotate(281deg) brightness(91%) contrast(84%);
+}
+
+.selected-ARCANE {
+  border-color: #C1839F;
+  color: #C1839F;
+}
+.selected-ARCANE p span {
+  filter: invert(57%) sepia(62%) saturate(222%) hue-rotate(281deg) brightness(91%) contrast(84%);
+  background-image: url(../svg/arcane.svg);
+}
+
+.item-PHYSICAL {
+  color: #8C7051;
+  background-color: white;
+}
+.item-PHYSICAL a {
+  color: #8C7051;
+  background-color: white;
+}
+.item-PHYSICAL span {
+  filter: invert(44%) sepia(51%) saturate(298%) hue-rotate(351deg) brightness(91%) contrast(88%);
+  background-image: url(../svg/physical.svg);
+}
+.item-PHYSICAL:hover {
+  color: white;
+  background-color: #8C7051;
+}
+.item-PHYSICAL:hover a {
+  color: white;
+  background-color: #8C7051;
+}
+.item-PHYSICAL:hover span {
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+}
+
+.sitem-PHYSICAL {
+  color: white;
+  background-color: #8C7051;
+}
+.sitem-PHYSICAL a {
+  color: white;
+  background-color: #8C7051;
+}
+.sitem-PHYSICAL span {
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+  background-image: url(../svg/physical.svg);
+}
+.sitem-PHYSICAL:hover {
+  color: #8C7051;
+  background-color: white;
+}
+.sitem-PHYSICAL:hover a {
+  color: #8C7051;
+  background-color: white;
+}
+.sitem-PHYSICAL:hover span {
+  filter: invert(44%) sepia(51%) saturate(298%) hue-rotate(351deg) brightness(91%) contrast(88%);
+}
+
+.selected-PHYSICAL {
+  border-color: #8C7051;
+  color: #8C7051;
+}
+.selected-PHYSICAL p span {
+  filter: invert(44%) sepia(51%) saturate(298%) hue-rotate(351deg) brightness(91%) contrast(88%);
+  background-image: url(../svg/physical.svg);
+}
+
+.item-FIRE {
+  color: #FF4B3E;
+  background-color: white;
+}
+.item-FIRE a {
+  color: #FF4B3E;
+  background-color: white;
+}
+.item-FIRE span {
+  filter: invert(34%) sepia(89%) saturate(1147%) hue-rotate(333deg) brightness(101%) contrast(101%);
+  background-image: url(../svg/fire.svg);
+}
+.item-FIRE:hover {
+  color: white;
+  background-color: #FF4B3E;
+}
+.item-FIRE:hover a {
+  color: white;
+  background-color: #FF4B3E;
+}
+.item-FIRE:hover span {
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+}
+
+.sitem-FIRE {
+  color: white;
+  background-color: #FF4B3E;
+}
+.sitem-FIRE a {
+  color: white;
+  background-color: #FF4B3E;
+}
+.sitem-FIRE span {
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+  background-image: url(../svg/fire.svg);
+}
+.sitem-FIRE:hover {
+  color: #FF4B3E;
+  background-color: white;
+}
+.sitem-FIRE:hover a {
+  color: #FF4B3E;
+  background-color: white;
+}
+.sitem-FIRE:hover span {
+  filter: invert(34%) sepia(89%) saturate(1147%) hue-rotate(333deg) brightness(101%) contrast(101%);
+}
+
+.selected-FIRE {
+  border-color: #FF4B3E;
+  color: #FF4B3E;
+}
+.selected-FIRE p span {
+  filter: invert(34%) sepia(89%) saturate(1147%) hue-rotate(333deg) brightness(101%) contrast(101%);
+  background-image: url(../svg/fire.svg);
+}
+
+.item-WATER {
+  color: #228CDB;
+  background-color: white;
+}
+.item-WATER a {
+  color: #228CDB;
+  background-color: white;
+}
+.item-WATER span {
+  filter: invert(51%) sepia(19%) saturate(6260%) hue-rotate(182deg) brightness(91%) contrast(88%);
+  background-image: url(../svg/water.svg);
+}
+.item-WATER:hover {
+  color: white;
+  background-color: #228CDB;
+}
+.item-WATER:hover a {
+  color: white;
+  background-color: #228CDB;
+}
+.item-WATER:hover span {
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+}
+
+.sitem-WATER {
+  color: white;
+  background-color: #228CDB;
+}
+.sitem-WATER a {
+  color: white;
+  background-color: #228CDB;
+}
+.sitem-WATER span {
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+  background-image: url(../svg/water.svg);
+}
+.sitem-WATER:hover {
+  color: #228CDB;
+  background-color: white;
+}
+.sitem-WATER:hover a {
+  color: #228CDB;
+  background-color: white;
+}
+.sitem-WATER:hover span {
+  filter: invert(51%) sepia(19%) saturate(6260%) hue-rotate(182deg) brightness(91%) contrast(88%);
+}
+
+.selected-WATER {
+  border-color: #228CDB;
+  color: #228CDB;
+}
+.selected-WATER p span {
+  filter: invert(51%) sepia(19%) saturate(6260%) hue-rotate(182deg) brightness(91%) contrast(88%);
+  background-image: url(../svg/water.svg);
+}
+
+.item-WIND {
+  color: #99F7AB;
+  background-color: white;
+}
+.item-WIND a {
+  color: #99F7AB;
+  background-color: white;
+}
+.item-WIND span {
+  filter: invert(91%) sepia(10%) saturate(1448%) hue-rotate(68deg) brightness(96%) contrast(102%);
+  background-image: url(../svg/wind.svg);
+}
+.item-WIND:hover {
+  color: white;
+  background-color: #99F7AB;
+}
+.item-WIND:hover a {
+  color: white;
+  background-color: #99F7AB;
+}
+.item-WIND:hover span {
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+}
+
+.sitem-WIND {
+  color: white;
+  background-color: #99F7AB;
+}
+.sitem-WIND a {
+  color: white;
+  background-color: #99F7AB;
+}
+.sitem-WIND span {
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+  background-image: url(../svg/wind.svg);
+}
+.sitem-WIND:hover {
+  color: #99F7AB;
+  background-color: white;
+}
+.sitem-WIND:hover a {
+  color: #99F7AB;
+  background-color: white;
+}
+.sitem-WIND:hover span {
+  filter: invert(91%) sepia(10%) saturate(1448%) hue-rotate(68deg) brightness(96%) contrast(102%);
+}
+
+.selected-WIND {
+  border-color: #99F7AB;
+  color: #99F7AB;
+}
+.selected-WIND p span {
+  filter: invert(91%) sepia(10%) saturate(1448%) hue-rotate(68deg) brightness(96%) contrast(102%);
+  background-image: url(../svg/wind.svg);
+}
+
+.item-LIGHTNING {
+  color: #FFBF46;
+  background-color: white;
+}
+.item-LIGHTNING a {
+  color: #FFBF46;
+  background-color: white;
+}
+.item-LIGHTNING span {
+  filter: invert(95%) sepia(12%) saturate(4562%) hue-rotate(321deg) brightness(101%) contrast(104%);
+  background-image: url(../svg/lightning.svg);
+}
+.item-LIGHTNING:hover {
+  color: white;
+  background-color: #FFBF46;
+}
+.item-LIGHTNING:hover a {
+  color: white;
+  background-color: #FFBF46;
+}
+.item-LIGHTNING:hover span {
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+}
+
+.sitem-LIGHTNING {
+  color: white;
+  background-color: #FFBF46;
+}
+.sitem-LIGHTNING a {
+  color: white;
+  background-color: #FFBF46;
+}
+.sitem-LIGHTNING span {
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+  background-image: url(../svg/lightning.svg);
+}
+.sitem-LIGHTNING:hover {
+  color: #FFBF46;
+  background-color: white;
+}
+.sitem-LIGHTNING:hover a {
+  color: #FFBF46;
+  background-color: white;
+}
+.sitem-LIGHTNING:hover span {
+  filter: invert(95%) sepia(12%) saturate(4562%) hue-rotate(321deg) brightness(101%) contrast(104%);
+}
+
+.selected-LIGHTNING {
+  border-color: #FFBF46;
+  color: #FFBF46;
+}
+.selected-LIGHTNING p span {
+  filter: invert(95%) sepia(12%) saturate(4562%) hue-rotate(321deg) brightness(101%) contrast(104%);
+  background-image: url(../svg/lightning.svg);
+}
+
+.item-EARTH {
+  color: #748E54;
+  background-color: white;
+}
+.item-EARTH a {
+  color: #748E54;
+  background-color: white;
+}
+.item-EARTH span {
+  filter: invert(50%) sepia(18%) saturate(859%) hue-rotate(45deg) brightness(101%) contrast(82%);
+  background-image: url(../svg/earth.svg);
+}
+.item-EARTH:hover {
+  color: white;
+  background-color: #748E54;
+}
+.item-EARTH:hover a {
+  color: white;
+  background-color: #748E54;
+}
+.item-EARTH:hover span {
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+}
+
+.sitem-EARTH {
+  color: white;
+  background-color: #748E54;
+}
+.sitem-EARTH a {
+  color: white;
+  background-color: #748E54;
+}
+.sitem-EARTH span {
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+  background-image: url(../svg/earth.svg);
+}
+.sitem-EARTH:hover {
+  color: #748E54;
+  background-color: white;
+}
+.sitem-EARTH:hover a {
+  color: #748E54;
+  background-color: white;
+}
+.sitem-EARTH:hover span {
+  filter: invert(50%) sepia(18%) saturate(859%) hue-rotate(45deg) brightness(101%) contrast(82%);
+}
+
+.selected-EARTH {
+  border-color: #748E54;
+  color: #748E54;
+}
+.selected-EARTH p span {
+  filter: invert(50%) sepia(18%) saturate(859%) hue-rotate(45deg) brightness(101%) contrast(82%);
+  background-image: url(../svg/earth.svg);
+}
+
+.item-HOLY {
+  color: #EABA6B;
+  background-color: white;
+}
+.item-HOLY a {
+  color: #EABA6B;
+  background-color: white;
+}
+.item-HOLY span {
+  filter: invert(98%) sepia(55%) saturate(6374%) hue-rotate(307deg) brightness(96%) contrast(90%);
+  background-image: url(../svg/holy.svg);
+}
+.item-HOLY:hover {
+  color: white;
+  background-color: #EABA6B;
+}
+.item-HOLY:hover a {
+  color: white;
+  background-color: #EABA6B;
+}
+.item-HOLY:hover span {
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+}
+
+.sitem-HOLY {
+  color: white;
+  background-color: #EABA6B;
+}
+.sitem-HOLY a {
+  color: white;
+  background-color: #EABA6B;
+}
+.sitem-HOLY span {
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+  background-image: url(../svg/holy.svg);
+}
+.sitem-HOLY:hover {
+  color: #EABA6B;
+  background-color: white;
+}
+.sitem-HOLY:hover a {
+  color: #EABA6B;
+  background-color: white;
+}
+.sitem-HOLY:hover span {
+  filter: invert(98%) sepia(55%) saturate(6374%) hue-rotate(307deg) brightness(96%) contrast(90%);
+}
+
+.selected-HOLY {
+  border-color: #EABA6B;
+  color: #EABA6B;
+}
+.selected-HOLY p span {
+  filter: invert(98%) sepia(55%) saturate(6374%) hue-rotate(307deg) brightness(96%) contrast(90%);
+  background-image: url(../svg/holy.svg);
+}
+
+.item-DARK {
+  color: #8F3985;
+  background-color: white;
+}
+.item-DARK a {
+  color: #8F3985;
+  background-color: white;
+}
+.item-DARK span {
+  filter: invert(24%) sepia(76%) saturate(1346%) hue-rotate(275deg) brightness(91%) contrast(81%);
+  background-image: url(../svg/dark.svg);
+}
+.item-DARK:hover {
+  color: white;
+  background-color: #8F3985;
+}
+.item-DARK:hover a {
+  color: white;
+  background-color: #8F3985;
+}
+.item-DARK:hover span {
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+}
+
+.sitem-DARK {
+  color: white;
+  background-color: #8F3985;
+}
+.sitem-DARK a {
+  color: white;
+  background-color: #8F3985;
+}
+.sitem-DARK span {
+  filter: invert(86%) sepia(99%) saturate(3%) hue-rotate(188deg) brightness(111%) contrast(97%);
+  background-image: url(../svg/dark.svg);
+}
+.sitem-DARK:hover {
+  color: #8F3985;
+  background-color: white;
+}
+.sitem-DARK:hover a {
+  color: #8F3985;
+  background-color: white;
+}
+.sitem-DARK:hover span {
+  filter: invert(24%) sepia(76%) saturate(1346%) hue-rotate(275deg) brightness(91%) contrast(81%);
+}
+
+.selected-DARK {
+  border-color: #8F3985;
+  color: #8F3985;
+}
+.selected-DARK p span {
+  filter: invert(24%) sepia(76%) saturate(1346%) hue-rotate(275deg) brightness(91%) contrast(81%);
+  background-image: url(../svg/dark.svg);
 }

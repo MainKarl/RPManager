@@ -30,7 +30,7 @@ $update-background-color: rgba(224, 221, 2, .1);
 $update-border: 1px solid $update-border-color;
 
 /*
-    Weapon
+    Weapon Type
 */
 
 $all-weapon-color: #e6cf07;
@@ -124,3 +124,116 @@ $weaponColors: (
     "BOW":$bow-color,
     "OTHER":$other-color
 );
+
+
+/*
+    Damage Type
+*/
+
+$arcane-color: #C1839F;
+$arcane-filter: invert(57%) sepia(62%) saturate(222%) hue-rotate(281deg) brightness(91%) contrast(84%);
+$arcane-link: url(../svg/arcane.svg);
+
+$physical-color: #8C7051;
+$physical-filter: invert(44%) sepia(51%) saturate(298%) hue-rotate(351deg) brightness(91%) contrast(88%);
+$physical-link: url(../svg/physical.svg);
+
+$fire-color: #FF4B3E;
+$fire-filter: invert(34%) sepia(89%) saturate(1147%) hue-rotate(333deg) brightness(101%) contrast(101%);
+$fire-link: url(../svg/fire.svg);
+
+$water-color: #228CDB;
+$water-filter: invert(51%) sepia(19%) saturate(6260%) hue-rotate(182deg) brightness(91%) contrast(88%);
+$water-link: url(../svg/water.svg);
+
+$wind-color: #99F7AB;
+$wind-filter: invert(91%) sepia(10%) saturate(1448%) hue-rotate(68deg) brightness(96%) contrast(102%);
+$wind-link: url(../svg/wind.svg);
+
+$lightning-color: #FFBF46;
+$lightning-filter: invert(95%) sepia(12%) saturate(4562%) hue-rotate(321deg) brightness(101%) contrast(104%);
+$lightning-link: url(../svg/lightning.svg);
+
+$earth-color: #748E54;
+$earth-filter: invert(50%) sepia(18%) saturate(859%) hue-rotate(45deg) brightness(101%) contrast(82%);
+$earth-link: url(../svg/earth.svg);
+
+$holy-color: #EABA6B;
+$holy-filter: invert(98%) sepia(55%) saturate(6374%) hue-rotate(307deg) brightness(96%) contrast(90%);
+$holy-link: url(../svg/holy.svg);
+
+$dark-color: #8F3985;
+$dark-filter: invert(24%) sepia(76%) saturate(1346%) hue-rotate(275deg) brightness(91%) contrast(81%);
+$dark-link: url(../svg/dark.svg);
+
+@mixin damageTypeIconImage($type){
+    @if $type == "PHYSICAL" {
+        background-image: $physical-link;
+    } 
+    @else if $type == "FIRE" {
+        background-image: $fire-link;
+    } 
+    @else if $type == "WATER" {
+        background-image: $water-link;
+    } 
+    @else if $type == "WIND" {
+        background-image: $wind-link;
+    } 
+    @else if $type == "LIGHTNING" {
+        background-image: $lightning-link;
+    } 
+    @else if $type == "EARTH" {
+        background-image: $earth-link;
+    } 
+    @else if $type == "HOLY" {
+        background-image: $holy-link;
+    } 
+    @else if $type == "DARK" {
+        background-image: $dark-link;
+    } 
+    @else if $type == "ARCANE" {
+        background-image: $arcane-link;
+    }
+}
+@mixin damageTypeIconColor($type) {
+    @if $type == "PHYSICAL" {
+        filter: $physical-filter;
+    }
+    @else if $type == "FIRE" {
+        filter: $fire-filter;
+    }
+    @else if $type == "WATER" {
+        filter: $water-filter;
+    }
+    @else if $type == "WIND" {
+        filter: $wind-filter;
+    }
+    @else if $type == "LIGHTNING" {
+        filter: $lightning-filter;
+    }
+    @else if $type == "EARTH" {
+        filter: $earth-filter;
+    }
+    @else if $type == "HOLY" {
+        filter: $holy-filter;
+    }
+    @else if $type == "DARK" {
+        filter: $dark-filter;
+    }
+    @else if $type == "ARCANE" {
+        filter: $arcane-filter;
+    }
+}
+
+$damageTypes: (
+    "ARCANE": $arcane-color,
+    "PHYSICAL": $physical-color,
+    "FIRE": $fire-color,
+    "WATER": $water-color,
+    "WIND": $wind-color,
+    "LIGHTNING": $lightning-color,
+    "EARTH": $earth-color,
+    "HOLY": $holy-color,
+    "DARK": $dark-color
+);
+

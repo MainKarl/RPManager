@@ -4,6 +4,7 @@ const clickList = (event) => {
 }
 const chooseItem = (event) => {
     var itemChoose = event.path[0].innerText.slice(1);
+    console.log(itemChoose);
     var itemChooseUpper = event.path[0].innerText.slice(1).toUpperCase();
     var parent = event.path[3];
     var parentText = parent.childNodes[1].innerText.slice(1).toUpperCase();
@@ -24,7 +25,7 @@ const chooseItem = (event) => {
         document.getElementById(event.path[1].id).classList.add('sitem-' + itemChooseUpper);
     }
 
-    var newText = '<span class="icon icon-' + itemChoose + '"></span> ' + itemChoose;
+    var newText = '<span class="icon"></span> ' + itemChoose;
     event.path[3].childNodes[1].innerHTML = newText;
 
     hideList(parent.id);

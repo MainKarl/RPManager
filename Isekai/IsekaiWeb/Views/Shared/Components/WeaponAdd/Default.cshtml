@@ -9,11 +9,11 @@
     var priceId = Model.Update ? "Price-" + Model.Id : "Price";
     var passiveId = Model.Update ? "Passive-" + Model.Id : "Passive";
     var weaponTypeId = Model.Update ? "WeaponType-" + Model.Id : "WeaponType";
+    var damageTypeId = Model.Update ? "DamageTypes-" + Model.Id : "DamageTypes";
+    var rankId = Model.Update ? "Ranks-" + Model.Id : "Ranks";
 
     var passivesId = Model.Update ? "Passives-" + Model.Id : "Passives";
-    var damageTypesId = Model.Update ? "DamageTypes-" + Model.Id : "DamageTypes";
-    var weaponTypesId = Model.Update ? "WeaponTypes-" + Model.Id : "WeaponTypes";
-    var ranksId = Model.Update ? "Ranks-" + Model.Id : "Ranks";
+
 }
 
 <div id="weapon-form">
@@ -33,16 +33,30 @@
             <p>@Model.WeaponType</p>
             <ul class="dropdown">
                 @foreach (string weaponType in Model.WeaponTypes){
-                    <li id="@weaponType.ToUpper()" class="item-@weaponType.ToUpper()"><a><span class="icon icon-@weaponType"></span> @weaponType</a></li>
+                    <li id="@weaponType.ToUpper()" class="item-@weaponType.ToUpper()"><a><span class="icon"></span> @weaponType</a></li>
                 }
             </ul>
         </div>
     </div>
     <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-        <select id="@ranksId" class="Ranks form-control" name="Ranks" asp-items="@Model.Ranks"></select>
+        <div id="@rankId" class="dropdownlist form-control">
+            <p>@Model.Rank</p>
+            <ul class="dropdown">
+                @foreach (string rank in Model.Ranks) {
+                    <li id="@rank.ToUpper()" class="item-@rank.ToUpper()"><a><span class="icon"></span> @rank</a></li>
+                }
+            </ul>
+        </div>
     </div>
     <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-        <select id="@damageTypesId" class="DamageTypes form-control" name="DamageTypes" asp-items="@Model.DamageTypes"></select>
+        <div id="@damageTypeId" class="dropdownlist form-control">
+            <p>@Model.DamageType</p>
+            <ul class="dropdown">
+                @foreach (string damageType in Model.DamageTypes) {
+                    <li id="@damageType.ToUpper()" class="item-@damageType.ToUpper()"><a><span class="icon"></span> @damageType</a></li>
+                }
+            </ul>
+        </div>
     </div>
     <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"> 
         <div class="form-label">Damage: </div>
@@ -84,11 +98,17 @@
 
 <script type="text/javascript">
     var weaponTypeList = document.getElementById('@weaponTypeId');
-    @*var rankList = document.getElementById('@ranksId');
-    var damageTypeList = document.getElementById('@damageTypesId');*@
+    var rankList = document.getElementById('@rankId');
+    var damageTypeList = document.getElementById('@damageTypeId');
 
     weaponTypeList.addEventListener('click', clickList);
     addChildEvent('@weaponTypeId');
+
+    rankList.addEventListener('click', clickList);
+    addChildEvent('@rankId');
+
+    damageTypeList.addEventListener('click', clickList);
+    addChildEvent('@damageTypeId');
 
     function isUpdate(){
         return document.getElementById('Update').value

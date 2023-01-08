@@ -1,6 +1,6 @@
 ﻿@import 'constant.scss';
 
-/* Weapon */
+/* Weapon Type */
 @each $weaponColor, $i in $weaponColors {
     .item-#{$weaponColor} {
         color: $i;
@@ -110,6 +110,77 @@
             span{
                 @include weaponTypeIconColor($weaponColor);
             }
+        }
+    }
+}
+
+/* Damage Type */
+@each $damageColor, $i in $damageTypes {
+    .item-#{$damageColor}{
+        color: $i;
+        background-color: white;
+
+        a{
+            color: $i;
+            background-color: white;
+        }
+
+        span{
+            @include damageTypeIconColor($damageColor);
+            @include damageTypeIconImage($damageColor);
+        }
+
+        &:hover{
+            color: white;
+            background-color: $i;
+
+            a{
+                color: white;
+                background-color: $i;
+            }
+
+            span {
+                filter: $white-filter;
+            }
+        }
+    }
+
+    .sitem-#{$damageColor}{
+        color: white;
+        background-color: $i;
+
+        a{
+            color: white;
+            background-color: $i;
+        }
+
+        span{
+            filter: $white-filter;
+            @include damageTypeIconImage($damageColor);
+        }
+
+        &:hover{
+            color: $i;
+            background-color: white;
+
+            a{
+                color: $i;
+                background-color: white;
+            }
+
+            span{
+                @include damageTypeIconColor($damageColor);
+            }
+        }
+    }
+
+    .selected-#{$damageColor}{
+        border-color: $i;
+        color: $i;
+
+        p span {
+            @include damageTypeIconColor($damageColor);
+            @include damageTypeIconImage($damageColor);
         }
     }
 }

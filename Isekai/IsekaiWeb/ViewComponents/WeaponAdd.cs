@@ -26,26 +26,24 @@ namespace IsekaiWeb.ViewComponents
             float price = 0,
             string passive = "")
         {
-            List<SelectListItem> ranks = new List<SelectListItem>() {
-                new SelectListItem { Value = "Default", Text = "-- Weapon Rank --", Selected = true },
-                new SelectListItem { Value = "E", Text = "E" },
-                new SelectListItem { Value = "D", Text = "D" },
-                new SelectListItem { Value = "C", Text = "C" },
-                new SelectListItem { Value = "B", Text = "B" },
-                new SelectListItem { Value = "A", Text = "A" },
-                new SelectListItem { Value = "S", Text = "S" }
+            List<string> ranks = new List<string>() {
+                "E",
+                "D",
+                "C",
+                "B",
+                "A",
+                "S"
             };
-            List<SelectListItem> damages = new List<SelectListItem>() {
-                new SelectListItem { Value = "Default", Text = "-- Damage Type --", Selected = true },
-                new SelectListItem { Value = "Physical", Text = "Physical" },
-                new SelectListItem { Value = "Arcane", Text = "Arcane" },
-                new SelectListItem { Value = "Fire", Text = "Fire" },
-                new SelectListItem { Value = "Water", Text = "Water" },
-                new SelectListItem { Value = "Wind", Text = "Wind" },
-                new SelectListItem { Value = "Lightning", Text = "Lightning" },
-                new SelectListItem { Value = "Earth", Text = "Earth" },
-                new SelectListItem { Value = "Holy", Text = "Holy" },
-                new SelectListItem { Value = "Dark", Text = "Dark" }
+            List<string> damages = new List<string>() {
+                "Physical",
+                "Arcane",
+                "Fire",
+                "Water",
+                "Wind",
+                "Lightning",
+                "Earth",
+                "Holy",
+                "Dark"
             };
             List<string> weaponTypes = new List<string>() {
                 "Sword",
