@@ -13,7 +13,7 @@
     var rankId = Model.Update ? "Rank-" + Model.Id : "Rank";
 
     var passivesId = Model.Update ? "Passives-" + Model.Id : "Passives";
-
+    var passiveListId = Model.Update ? "Passive-List-" + Model.Id : "Passive-List";
 }
 
 <div id="weapon-form">
@@ -92,11 +92,19 @@
             <p><span></span> -- Passive --</p>
             <ul class="dropdown">
                 @foreach (string passive in Model.Passives) {
-                    <li id="@passive" class="item-passive"><a><span class="icon"></span> @passive</a></li>
+                    <li id="@passive.ToUpper()" class="item-passive"><a><span class="icon"></span> @passive</a></li>
                 }
             </ul>
         </div>
-        @*<select id="@passivesId" class="Passives form-control" name="Passives" asp-items="@Model.Passives"></select>*@
+    </div>
+    <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <div id="@passiveListId" class="row">
+            @if(Model.Passive != "" && Model.Passive != null) {
+                foreach (string item in Model.Passive.Split(";")) {
+                    <div class="passive-single mb-2 col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5">@item</div>
+                }
+            }
+        </div>
     </div>
     <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
         @if (Model.Update) {
@@ -125,6 +133,7 @@
     addChildEvent('@damageTypeId');
 
     passiveList.addEventListener('click', clickList);
+    addPassiveEvent('@passivesId');
 
     function isUpdate(){
         return document.getElementById('Update').value
